@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "help": "Help",
+    "brand": "UNIONTAC"
+  },
+  "hero": {
+    "title": "Save\u00A0people fighting for\u00A0peace",
+    "subtitle": "First aid kits for\u00A0medics, evacuation teams, volunteers, and\u00A0the\u00A0military",
+    "helpButton": "Help Now!",
+    "learnMore": "Learn More"
+  },
+  "howWeHelp": {
+    "title": "How it\u00A0works",
+    "steps": [
+      {
+        "title": "You make a\u00A0donation",
+        "description": "The cost of\u00A0one first aid kit is\u00A0$80."
+      },
+      {
+        "title": "We order medkits",
+        "description": "UNIONTAC works with\u00A0trusted Ukrainian manufacturers, and all medkits are assembled in\u00A0Kyiv."
+      },
+      {
+        "title": "We deliver medkits directly to\u00A0the\u00A0frontline",
+        "description": "Our volunteers deliver these life-saving supplies without delay, despite the\u00A0daily shelling and\u00A0threats."
+      },
+      {
+        "title": "Medkits save lives and we take new requests",
+        "description": "Our team monitors the\u00A0distribution and impact of\u00A0each medical kit. We maintain constant communication with\u00A0field units to\u00A0understand their needs."
+      }
+    ]
+  },
+  "medkit": {
+    "title": "First aid kits save lives",
+    "description1": "First aid kits are one of\u00A0the most sought-after and essential supplies in\u00A0the war zone.",
+    "description2": "One first aid kit can save two lives, increasing the\u00A0chances of\u00A0survival and allowing evacuation from\u00A0the combat zone."
+  },
+  "cta": {
+    "title": "Mad war continues",
+    "paragraph1": "Drones, bombs, missiles, and artillery are killing people, sparing neither women nor\u00A0children.",
+    "paragraph2": "Those on\u00A0the front lines are giving their lives to\u00A0protect their families, homes, freedom and justice. And they need our\u00A0help.",
+    "paragraph3": "For\u00A0a year now, we have been providing life-saving first aid kits."
+  },
+  "statistics": {
+    "title": "UNIONTAC in\u00A0numbers",
+    "subtitle": "War doesn't stop, so we work 24/7",
+    "medkits": {
+      "value": ">500",
+      "title": "Medical kits delivered",
+      "description": {
+        "prefix": "That's more than ",
+        "highlight": "1000",
+        "postfix": " lives saved"
+      }
+    },
+    "volunteers": {
+      "value": ">50",
+      "title": "Volunteers working"
+    },
+    "brigades": {
+      "value": ">53",
+      "title": "Brigades and volunteer groups supported with\u00A0medkits"
+    }
+  },
+  "aboutUs": {
+    "title": {
+      "prefix": "We are ",
+      "highlight": "Sveta, Kira, and >50\u00A0volunteers"
+    },
+    "paragraph1": "Sveta is from\u00A0Crimea, and Kira is from\u00A0Zaporizhzhia. Since the first day of\u00A0the full-scale invasion, we have been helping refugees, volunteers, medics, and military personnel. A\u00A0year ago, we opened our own foundation, UNIONTAC, and we supply first aid kits directly to\u00A0the\u00A0front.",
+    "paragraph2": "For\u00A0the military, there are no weekends, holidays, or the possibility to\u00A0\"leave\" the\u00A0front. The enemy doesn't know the word \"rest,\" and every day, our warriors stand at\u00A0the forefront, at\u00A0the cost of\u00A0their health and lives.",
+    "imageAlt": "Sveta and Kira",
+    "ctaButton": "Save a\u00A0life today"
+  },
+  "donationForm": {
+    "title": "Save a\u00A0life today",
+    "description": {
+      "text": "Since February 24, 2022, there hasn't been a\u00A0single day without deaths and casualties in\u00A0Ukraine.",
+      "highlight": "there hasn't been a single day without deaths and casualties"
+    },
+    "monthlySupport": "Subscribe to\u00A0monthly support",
+    "helpButton": "Help Now!",
+    "legalText": "By clicking the button, you agree to\u00A0the terms of\u00A0data processing and confirm a\u00A0voluntary donation to\u00A0UNIONTAC.",
+    "ctaTexts": {
+      "urgent": "People fighting\u00A0for\u00A0peace need your\u00A0support\n\nEven $15 can save a\u00A0life",
+      "default": "Don't pass by those who desperately need help"
+    }
+  },
+  "footer": {
+    "menu": {
+      "aboutUs": {
+        "text": "About us",
+        "href": "https://uniontacua.com/en/about-us"
+      },
+      "reports": {
+        "text": "Reports",
+        "href": "https://uniontacua.com/en/campaigns"
+      }
+    }
+  },
+  "videoTestimonial": {
+    "title": "Stories from the\u00A0frontline",
+    "quote": "Today, I want to thank the entire UNIONTAC team and all the compassionate people who contribute to their efforts.\n\nI especially want to express my gratitude for the first aid kits provided, which, in a critical moment, could save my life or the lives of others nearby.\n\nThanks to you, and only you, they are at hand and will be ready to serve their purpose when needed.",
+    "author": "servicewoman of the Armed Forces of Ukraine"
+  }
+} 
