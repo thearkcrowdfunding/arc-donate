@@ -5,8 +5,7 @@ import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { VideoProvider } from '@/contexts/video-context';
 
-// Define a type for the locales
-type Locale = 'en' | 'ua' | 'ru';
+type Locale = 'en' | 'ru';
 
 export default async function LocaleLayout({
   children,

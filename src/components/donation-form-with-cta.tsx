@@ -22,6 +22,8 @@ const paymentLinks = {
   '15': 'https://buy.stripe.com/fZe1549GhdEjfoQbIK'
 };
 
+type PaymentMethod = 'card' | 'paypal';
+
 export function DonationFormWithCta({ 
   showCTA = false, 
   variant = 'default',
@@ -29,12 +31,16 @@ export function DonationFormWithCta({
 }: DonationFormProps) {
   const t = useTranslations('donationForm')
   const [amount, setAmount] = useState<string>('10')
-
-  const ctaText = t(`ctaTexts.${variant}`)
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card')
 
   const handleAmountClick = (value: string) => {
     setAmount(value)
     analytics.trackDonationForm('Payment Option Click', `$${value}`, formId);
+  }
+
+  const handlePaymentMethodChange = (method: PaymentMethod) => {
+    setPaymentMethod(method);
+    analytics.trackDonationForm('Payment Method Change', method, formId);
   }
 
   const handleDonateClick = () => {
@@ -57,26 +63,62 @@ export function DonationFormWithCta({
   const params = useParams()
   const isUaLocale = params.locale === 'ua' && locales.includes('ua')
 
+  const renderLegalText = () => {
+    return (
+      <p className="mt-4 text-sm text-kovcheg/70">
+        {t.rich('legalText', {
+          terms: (chunks) => (
+            <Link href="https://kovcheg.live/policy/" className="underline hover:no-underline">
+              {chunks}
+            </Link>
+          ),
+          agreement: (chunks) => (
+            <Link href="https://kovcheg.live/agreement/" className="underline hover:no-underline">
+              {chunks}
+            </Link>
+          )
+        })}
+      </p>
+    );
+  };
+
   return (
     <div className="w-full pt-6 md:p-6">
-      <div className="flex flex-col max-w-[800px] mx-auto">
-        {showCTA && ctaText && (
+      <div className="flex flex-col max-w-6xl mx-auto">
+        {showCTA && (
           <div className="m-8 text-left">
             <h2 className="text-3xl font-semibold text-white whitespace-pre-line">
-              {ctaText}
+              {t(`ctaTexts.${variant}`)}
             </h2>
           </div>
         )}
         
         <div className="w-full">
-          <div className="bg-blue-600 text-white px-6 py-8 md:p-8">
+          <div className="bg-white text-kovcheg rounded-lg px-8 py-10 md:p-12">
             <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
               {t('title')}
             </h2>
             <p className="mb-6">
               {t('description.text')}
             </p>
-            <p className="text-xl mb-6">{t('monthlySupport')}</p>
+            <p className="text-xl mb-4">{t('monthlySupport')}</p>
+            
+            {/* Centered Payment Method Tabs */}
+            <div className="flex justify-center mb-6 border-b border-kovcheg/20">
+              {(['card', 'paypal'] as const).map((method) => (
+                <button
+                  key={method}
+                  onClick={() => handlePaymentMethodChange(method)}
+                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                    paymentMethod === method 
+                      ? 'text-kovcheg border-b-2 border-kovcheg' 
+                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                  }`}
+                >
+                  {t(`paymentMethods.${method}`)}
+                </button>
+              ))}
+            </div>
             
             <form onSubmit={(e) => { 
               e.preventDefault(); 
@@ -96,8 +138,8 @@ export function DonationFormWithCta({
                     />
                     <Label
                       htmlFor={`amount-${formId}-${value}`}
-                      className={`flex items-center justify-center p-4 border-2 border-white cursor-pointer transition-colors ${
-                        amount === value ? 'bg-white text-blue-600' : 'hover:bg-white/10'
+                      className={`flex items-center justify-center p-4 border-2 border-kovcheg cursor-pointer transition-colors ${
+                        amount === value ? 'bg-kovcheg text-white' : 'hover:bg-kovcheg/10'
                       }`}
                     >
                       ${value}
@@ -108,28 +150,13 @@ export function DonationFormWithCta({
 
               <Button
                 type="submit"
-                className="w-full bg-white text-blue-600 hover:bg-blue-100 font-semibold py-10 text-3xl"
+                className="w-full bg-kovcheg text-white hover:bg-kovcheg/90 font-semibold py-10 text-3xl"
               >
                 {t('helpButton')}
               </Button>
             </form>
             
-            {isUaLocale && (
-              <p className="mt-6">
-                {t('singlePaymentText').replace('посилання', '')}
-                <Link
-                  href="https://send.monobank.ua/jar/3rE26M54vb"
-                  onClick={() => analytics.trackMonobank('Click', formId)}
-                  className="underline hover:no-underline"
-                >
-                  посилання
-                </Link>
-              </p>
-            )}
-            
-            <p className="mt-4 text-sm text-blue-100">
-              {t('legalText')}
-            </p>
+            {renderLegalText()}
           </div>
         </div>
       </div>

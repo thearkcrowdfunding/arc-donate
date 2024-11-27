@@ -1,4 +1,4 @@
-export const defaultLocale = 'en';
-export const locales = ['en', 'ru', 'ua'];
+export const defaultLocale = 'ru';
+export const locales = ['en', 'ru'];
 
 export const localePrefix = 'as-needed'; 

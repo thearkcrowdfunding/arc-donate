@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
 import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "UNIONTAC",
-  description: "Support emergency assistance and save lives",
+  title: "KOVCHEG",
+  description: "Support anti-war Russians",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
   const gtmId = "GTM-WV87HSPP";
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
         <Script
           id="gtm-script"

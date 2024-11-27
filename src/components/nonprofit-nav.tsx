@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { scrollHandlers } from "@/utils/scroll-handlers"
 import { Card, CardContent } from "@/components/ui/card"
 import { analytics } from '@/utils/analytics'
+import Image from 'next/image'
 
 export function NonprofitNavComponent() {
   const t = useTranslations('nav');
@@ -55,17 +56,19 @@ export function NonprofitNavComponent() {
         <CardContent className="px-6 md:px-20 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <a 
-                href="https://uniontacua.com" 
-                className="text-xl font-bold uppercase bg-gradient-to-r from-yellow-400 via-yellow-300 to-blue-300 text-transparent bg-clip-text"
-          
-              >
-                {t('brand')}
+              <a href="/" className="relative w-[120px] h-[40px]">
+                <Image
+                  src="/logo/kovcheg.svg"
+                  alt={t('brand')}
+                  fill
+                  priority
+                  className="object-contain"
+                />
               </a>
             </div>
             <div className="flex items-center gap-4">
               <div className={`flex gap-1 mr-4 ${isAfterHero ? 'hidden md:flex' : 'flex'}`}>
-                {['en', 'ua', 'ru'].map((locale) => (
+                {['en', 'ru'].map((locale) => (
                   <button
                     key={locale}
                     onClick={() => handleLanguageChange(locale)}

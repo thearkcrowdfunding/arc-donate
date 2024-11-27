@@ -1,106 +1,133 @@
 {
   "nav": {
     "help": "Help",
-    "brand": "UNIONTAC"
+    "brand": "KOVCHEG"
   },
   "hero": {
-    "title": "Save\u00A0people fighting for\u00A0peace",
-    "subtitle": "First aid kits for\u00A0medics, evacuation teams, volunteers, and\u00A0the\u00A0military",
-    "helpButton": "Help Now!",
+    "title": "Help Russians who oppose the war",
+    "subtitle": "Kovcheg is the largest project supporting anti-war Russians both in exile and within the country",
+    "helpButton": "Help Now",
     "learnMore": "Learn More"
   },
-  "howWeHelp": {
-    "title": "How it\u00A0works",
-    "steps": [
-      {
-        "title": "You make a\u00A0donation",
-        "description": "The cost of\u00A0one first aid kit is\u00A0$80."
-      },
-      {
-        "title": "We order medkits",
-        "description": "UNIONTAC works with\u00A0trusted Ukrainian manufacturers, and all medkits are assembled in\u00A0Kyiv."
-      },
-      {
-        "title": "We deliver medkits directly to\u00A0the\u00A0frontline",
-        "description": "Our volunteers deliver these life-saving supplies without delay, despite the\u00A0daily shelling and\u00A0threats."
-      },
-      {
-        "title": "Medkits save lives and we take new requests",
-        "description": "Our team monitors the\u00A0distribution and impact of\u00A0each medical kit. We maintain constant communication with\u00A0field units to\u00A0understand their needs."
-      }
-    ]
-  },
-  "medkit": {
-    "title": "First aid kits save lives",
-    "description1": "First aid kits are one of\u00A0the most sought-after and essential supplies in\u00A0the war zone.",
-    "description2": "One first aid kit can save two lives, increasing the\u00A0chances of\u00A0survival and allowing evacuation from\u00A0the combat zone."
-  },
   "cta": {
-    "title": "Mad war continues",
-    "paragraph1": "Drones, bombs, missiles, and artillery are killing people, sparing neither women nor\u00A0children.",
-    "paragraph2": "Those on\u00A0the front lines are giving their lives to\u00A0protect their families, homes, freedom and justice. And they need our\u00A0help.",
-    "paragraph3": "For\u00A0a year now, we have been providing life-saving first aid kits."
-  },
-  "statistics": {
-    "title": "UNIONTAC in\u00A0numbers",
-    "subtitle": "War doesn't stop, so we work 24/7",
-    "medkits": {
-      "value": ">500",
-      "title": "Medical kits delivered",
-      "description": {
-        "prefix": "That's more than ",
-        "highlight": "1000",
-        "postfix": " lives saved"
-      }
-    },
-    "volunteers": {
-      "value": ">50",
-      "title": "Volunteers working"
-    },
-    "brigades": {
-      "value": ">53",
-      "title": "Brigades and volunteer groups supported with\u00A0medkits"
-    }
-  },
-  "aboutUs": {
-    "title": {
-      "prefix": "We are ",
-      "highlight": "Sveta, Kira, and >50\u00A0volunteers"
-    },
-    "paragraph1": "Sveta is from\u00A0Crimea, and Kira is from\u00A0Zaporizhzhia. Since the first day of\u00A0the full-scale invasion, we have been helping refugees, volunteers, medics, and military personnel. A\u00A0year ago, we opened our own foundation, UNIONTAC, and we supply first aid kits directly to\u00A0the\u00A0front.",
-    "paragraph2": "For\u00A0the military, there are no weekends, holidays, or the possibility to\u00A0\"leave\" the\u00A0front. The enemy doesn't know the word \"rest,\" and every day, our warriors stand at\u00A0the forefront, at\u00A0the cost of\u00A0their health and lives.",
-    "imageAlt": "Sveta and Kira",
-    "ctaButton": "Save a\u00A0life today"
+    "title": "OVER A MILLION PEOPLE",
+    "paragraph1": "have left Russia due to their opposition to the invasion of Ukraine, due to repressions and persecution, and due to their refusal to participate in the war.",
+    "paragraph2": "Most left with nowhere to go. Without money or prospects. In foreign lands, far from loved ones, many are struggling with depression.",
+    "paragraph3": "These people volunteer, help refugees, participate in the anti-war movement, and fight against the war.",
+    "paragraph4": "Kovcheg helps them adapt to their new life, get back on their feet, and continue their fight for peace.",
+    "paragraph5": "To continue their struggle, they need your help!"
   },
   "donationForm": {
-    "title": "Save a\u00A0life today",
+    "title": "HELP ANTI-WAR RUSSIANS",
     "description": {
-      "text": "Since February 24, 2022, there hasn't been a\u00A0single day without deaths and casualties in\u00A0Ukraine.",
-      "highlight": "there hasn't been a single day without deaths and casualties"
+      "text": "While in need of help themselves, they continue to volunteer and help others"
     },
-    "monthlySupport": "Subscribe to\u00A0monthly support",
-    "helpButton": "Help Now!",
-    "legalText": "By clicking the button, you agree to\u00A0the terms of\u00A0data processing and confirm a\u00A0voluntary donation to\u00A0UNIONTAC.",
+    "monthlySupport": "Subscribe to monthly donations",
+    "paymentMethods": {
+      "card": "Bank Card",
+      "paypal": "Paypal"
+    },
+    "amounts": {
+      "20": "$20",
+      "25": "$25",
+      "30": "$30"
+    },
+    "helpButton": "Help",
+    "legalText": "By clicking the button, you accept the <terms>Terms of Service</terms> and <agreement>Donation Agreement</agreement>",
     "ctaTexts": {
-      "urgent": "People fighting\u00A0for\u00A0peace need your\u00A0support\n\nEven $15 can save a\u00A0life",
-      "default": "Don't pass by those who desperately need help"
+      "default": "To provide emergency assistance and support people in difficult situations, we need your help.\nEven $20 will change someone's life"
     }
   },
-  "footer": {
-    "menu": {
-      "aboutUs": {
-        "text": "About us",
-        "href": "https://uniontacua.com/en/about-us"
+  "helpCards": {
+    "title": "Emergency Help",
+    "cards": {
+      "emergency": {
+        "title": "Emergency Assistance",
+        "subtitles": [
+          "Temporary Housing",
+          "Legal Assistance"
+        ],
+        "stats": {
+          "housing": {
+            "number": "4,500",
+            "text": "received housing assistance"
+          },
+          "legal": {
+            "number": "160,000",
+            "text": "received legal assistance"
+          }
+        }
       },
-      "reports": {
-        "text": "Reports",
-        "href": "https://uniontacua.com/en/campaigns"
+      "adaptation": {
+        "title": "Adaptation",
+        "subtitles": [
+          "Language Courses",
+          "Psychological Support",
+          "Professional Training",
+          "Knowledge Base"
+        ],
+        "stats": {
+          "psychology": {
+            "number": "11,000",
+            "text": "received psychological help"
+          },
+          "language": {
+            "number": "1,900",
+            "text": "studied foreign languages"
+          }
+        }
+      },
+      "support": {
+        "title": "Support",
+        "subtitles": [
+          "Professional Communities",
+          "Offline Spaces",
+          "Mutual Aid Chats",
+          "Kovcheg Business"
+        ],
+        "stats": {
+          "events": {
+            "number": "2,800",
+            "text": "attend events in Yerevan, Warsaw and other cities"
+          },
+          "chats": {
+            "number": "150,000",
+            "text": "communicate and receive support in our chats"
+          }
+        }
+      }
+    },
+    "testimonials": {
+      "psychology": {
+        "quote": "Kovcheg's team of psychologists helped me tremendously when I was in despair and on the edge",
+        "author": "Catherine (name changed), living in exile since the beginning of the war"
+      },
+      "legal": {
+        "quote": "Kovcheg's lawyers helped me sort out my documents and avoid mobilization",
+        "author": "Alexander, received asylum in Europe"
+      },
+      "adaptation": {
+        "quote": "Thanks to Kovcheg's courses, I was able to find a job in a new country",
+        "author": "Maria, works at an IT company"
+      },
+      "community": {
+        "quote": "In Kovcheg's chats, I found like-minded people and friends who supported me in difficult times",
+        "author": "Dmitry, community member"
       }
     }
   },
-  "videoTestimonial": {
-    "title": "Stories from the\u00A0frontline",
-    "quote": "Today, I want to thank the entire UNIONTAC team and all the compassionate people who contribute to their efforts.\n\nI especially want to express my gratitude for the first aid kits provided, which, in a critical moment, could save my life or the lives of others nearby.\n\nThanks to you, and only you, they are at hand and will be ready to serve their purpose when needed.",
-    "author": "servicewoman of the Armed Forces of Ukraine"
+  "aboutKovcheg": {
+    "title": "MORE ABOUT KOVCHEG",
+    "description": "Kovcheg was founded in March 2022 in response to the persecution of Russians who opposed the war in Ukraine. For two years now, we have been helping those who need it most",
+    "stats": {
+      "helped": {
+        "number": "210,000",
+        "text": "have already received help from Kovcheg in 70 countries"
+      },
+      "volunteers": {
+        "number": "3,500",
+        "text": "volunteers help us every day"
+      }
+    }
   }
 } 

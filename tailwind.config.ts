@@ -25,7 +25,11 @@ const config: Config = {
       },
     },
     extend: {
+      fontSize: {
+        base: ['1.5rem', '2rem'],
+      },
       colors: {
+        'kovcheg': 'rgb(45, 87, 200)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
