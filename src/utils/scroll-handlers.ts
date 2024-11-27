@@ -8,9 +8,9 @@ export const scrollToElement = (elementId: string) => {
 };
 
 export const scrollHandlers = {
-  handleHeroToFormClick: () => {
-    analytics.trackHero('Navigate To Form');
-    scrollToElement('donate-form');
+  handleHeroToFormClick: (targetId = 'donate-form') => {
+    const element = document.getElementById(targetId);
+    element?.scrollIntoView({ behavior: 'smooth' });
   },
   handleNavbarToFormClick: () => {
     analytics.trackNavigation('Navigate To Form', 'Header');
@@ -20,9 +20,9 @@ export const scrollHandlers = {
     analytics.trackAboutUs('Navigate To Form 2');
     scrollToElement('donate-form-2');
   },
-  handleLearnMoreClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+  handleLearnMoreClick: (e: React.MouseEvent) => {
     e.preventDefault();
-    analytics.trackHero('Learn More Click');
-    scrollToElement('learn-more');
+    const element = document.getElementById('learn-more');
+    element?.scrollIntoView({ behavior: 'smooth' });
   }
 }; 

@@ -35,6 +35,18 @@ const AboutKovchegSection = dynamic(() =>
   ssr: false
 })
 
+const MediaMentionsSection = dynamic(() => 
+  import('@/components/media-mentions-section').then(mod => mod.MediaMentionsSection), {
+  loading: () => <div className="h-[600px]" />,
+  ssr: false
+})
+
+const FinalCtaComponent = dynamic(() => 
+  import('@/components/final-cta').then(mod => mod.FinalCtaComponent), {
+  loading: () => <div className="h-[400px]" />,
+  ssr: false
+})
+
 export default function LocalePage() {
   return (
     <div className="bg-kovcheg">
@@ -56,19 +68,28 @@ export default function LocalePage() {
           <HelpCardsSection />
         </Suspense>
 
-        <Suspense fallback={<div className="h-[600px]" />}>
-          <AboutKovchegSection />
-        </Suspense>
         <Suspense fallback={<div className="h-[800px]" />}>
           <div id="donate-form-2">
             <DonationFormWithCta showCTA={true} variant="default" formId="form2" />
           </div>
         </Suspense>
-      </div>
+
+        <Suspense fallback={<div className="h-[600px]" />}>
+          <AboutKovchegSection />
+        </Suspense>
+
+        <Suspense fallback={<div className="h-[600px]" />}>
+          <MediaMentionsSection />
+        </Suspense>
+
+        <Suspense fallback={<div className="h-[400px]" />}>
+          <FinalCtaComponent />
+        </Suspense>
       
-      <Suspense fallback={<div className="h-[200px]" />}>
-        <FooterComponent />
-      </Suspense>
+        <Suspense fallback={<div className="h-[200px]" />}>
+          <FooterComponent />
+        </Suspense>
+      </div>
     </div>
   )
 }

@@ -25,7 +25,8 @@
     "monthlySupport": "Subscribe to monthly donations",
     "paymentMethods": {
       "card": "Bank Card",
-      "paypal": "Paypal"
+      "paypal": "PayPal",
+      "crypto": "Crypto"
     },
     "amounts": {
       "20": "$20",
@@ -39,7 +40,7 @@
     }
   },
   "helpCards": {
-    "title": "Emergency Help",
+    "title": "HOW WE HELP",
     "cards": {
       "emergency": {
         "title": "Emergency Assistance",
@@ -113,6 +114,36 @@
       "community": {
         "quote": "In Kovcheg's chats, I found like-minded people and friends who supported me in difficult times",
         "author": "Dmitry, community member"
+      },
+      "first": {
+        "quote": "Kovcheg's help greatly facilitated my emigration. After moving to Armenia, together with the Ukrainian diaspora, we created a project that helps Ukrainian refugees",
+        "boldParts": [
+          "facilitated my emigration",
+          "helps Ukrainian refugees"
+        ],
+        "author": "Anastasia, left Russia in March 2022, volunteer at Dopomoga.am project"
+      },
+      "second": {
+        "quote": "Kovcheg gave me a roof over my head when I was already living on the streets in Istanbul. This help is hard to overestimate: I was already depressed and could have lost my mind on the street",
+        "boldParts": [
+          "gave me a roof over my head",
+          "I was already depressed"
+        ],
+        "author": "Dmitry, living in exile since the beginning of the war"
+      },
+      "third": {
+        "quote": "Kovcheg's team of psychologists helped me tremendously when I was in despair and on the edge",
+        "boldParts": [
+          "Kovcheg's team of psychologists helped me"
+        ],
+        "author": "Catherine (name changed), living in exile since the beginning of the war"
+      },
+      "fourth": {
+        "quote": "Kovcheg gave me time to breathe, just lie down and cry — to get through it all and gather strength to somehow start life anew",
+        "boldParts": [
+          "to get through it all and gather strength"
+        ],
+        "author": "Arina, left Russia due to political persecution"
       }
     }
   },
@@ -129,5 +160,13 @@
         "text": "volunteers help us every day"
       }
     }
+  },
+  "mediaMentions": {
+    "title": "MEDIA COVERAGE"
+  },
+  "finalCta": {
+    "helpButton": "Help Now",
+    "text": "Every month, hundreds of people are forced to leave Russia due to their opposition to the war and repressions.",
+    "callToAction": "They need your help!"
   }
 } 

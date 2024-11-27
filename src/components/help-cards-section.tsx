@@ -10,11 +10,13 @@ export function HelpCardsSection() {
   return (
     <div className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-12">
-          {t('title')}
-        </h2>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-semibold text-white mb-12">
+            {t('title')}
+          </h2>
+        </div>
         
-        <div className="max-w-5xl mx-auto space-y-8">
+        <div className="max-w-[90%] mx-auto space-y-8">
           <HelpCard
             title={t('cards.emergency.title')}
             subtitles={t.raw('cards.emergency.subtitles')}
@@ -33,13 +35,15 @@ export function HelpCardsSection() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
-              quote={t('testimonials.psychology.quote')}
-              author={t('testimonials.psychology.author')}
+              quote={t('testimonials.first.quote')}
+              boldParts={t.raw('testimonials.first.boldParts')}
+              author={t('testimonials.first.author')}
+              imageSrc="/images/testimonials/card1.jpg"
             />
             <TestimonialCard
-              quote={t('testimonials.legal.quote')}
-              author={t('testimonials.legal.author')}
-              imageSrc="/images/testimonials/legal.jpg"
+              quote={t('testimonials.second.quote')}
+              boldParts={t.raw('testimonials.second.boldParts')}
+              author={t('testimonials.second.author')}
             />
           </div>
 
@@ -77,13 +81,15 @@ export function HelpCardsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
-              quote={t('testimonials.adaptation.quote')}
-              author={t('testimonials.adaptation.author')}
-              imageSrc="/images/testimonials/adaptation.jpg"
+              quote={t('testimonials.third.quote')}
+              boldParts={t.raw('testimonials.third.boldParts')}
+              author={t('testimonials.third.author')}
             />
             <TestimonialCard
-              quote={t('testimonials.community.quote')}
-              author={t('testimonials.community.author')}
+              quote={t('testimonials.fourth.quote')}
+              boldParts={t.raw('testimonials.fourth.boldParts')}
+              author={t('testimonials.fourth.author')}
+              imageSrc="/images/testimonials/card2.jpg"
             />
           </div>
         </div>
