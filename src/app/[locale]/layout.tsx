@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { VideoProvider } from '@/contexts/video-context';
+import { PayPalProvider } from '@/components/paypal-provider';
 
 type Locale = 'en' | 'ru';
 
@@ -26,14 +27,20 @@ export default async function LocaleLayout({
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <VideoProvider>
-        <NonprofitNavComponent />
-        <main className="pt-8 font-sans">
-          {children}
-        </main>
-      </VideoProvider>
-    </NextIntlClientProvider>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <VideoProvider>
+            <PayPalProvider>
+              <NonprofitNavComponent />
+              <main className="pt-8 font-sans">
+                {children}
+              </main>
+            </PayPalProvider>
+          </VideoProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
 

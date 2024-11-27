@@ -9,6 +9,7 @@ import { analytics } from '@/utils/analytics'
 import Link from 'next/link'
 import Script from 'next/script'
 import { CopyIcon, CheckIcon } from 'lucide-react'
+import { PayPalButtons } from "@paypal/react-paypal-js"
 
 interface DonationFormProps {
   showCTA?: boolean;
@@ -174,13 +175,37 @@ export function DonationFormWithCta({
 
     if (paymentMethod === 'paypal') {
       return (
-        <>
-          <Script
-            src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"
-            onLoad={() => setPaypalLoaded(false)}
-          />
-          <div id="paypal-button-container" className="w-full" />
-        </>
+        <PayPalButtons 
+          style={{ 
+            layout: "vertical",
+            shape: "pill",
+          }}
+          createOrder={(data, actions) => {
+            if (actions?.order) {
+              return actions.order.create({
+                intent: "CAPTURE",
+                purchase_units: [{
+                  amount: {
+                    currency_code: "USD",
+                    value: amount
+                  }
+                }]
+              });
+            }
+            throw new Error('PayPal actions not available');
+          }}
+          onApprove={(data, actions) => {
+            if (actions?.order) {
+              return actions.order.capture().then(function(details) {
+                if (details?.payer?.name?.given_name) {
+                  analytics.trackDonation(parseInt(amount, 10), formId);
+                  alert("Transaction completed by " + details.payer.name.given_name);
+                }
+              });
+            }
+            throw new Error('PayPal actions not available');
+          }}
+        />
       )
     }
 
