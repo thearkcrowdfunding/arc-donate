@@ -12,38 +12,42 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: TestimonialCardProps) {
   const highlightText = (text: string) => {
-    let result = text;
-    boldParts.forEach(part => {
-      result = result.replace(
-        part,
-        `<strong class="font-bold">${part}</strong>`
-      );
-    });
+    if (!Array.isArray(boldParts) || boldParts.length === 0) {
+      return <p className="text-xl md:text-2xl lg:text-3xl font-medium">{text}</p>;
+    }
+
+    const parts = [];
+    let lastIndex = 0;
+
+    for (const part of boldParts) {
+      const index = text.indexOf(part, lastIndex);
+      if (index !== -1) {
+        // Add text before the bold part
+        if (index > lastIndex) {
+          parts.push(text.slice(lastIndex, index));
+        }
+        // Add the bold part
+        parts.push(<strong key={index} className="font-bold">{part}</strong>);
+        lastIndex = index + part.length;
+      }
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+
     return (
-      <p 
-        className="text-xl md:text-2xl lg:text-3xl font-medium"
-        dangerouslySetInnerHTML={{ __html: result }}
-      />
+      <p className="text-xl md:text-2xl lg:text-3xl font-medium">
+        {parts}
+      </p>
     );
   };
 
-  const content = (
-    <>
-      <div className="flex-grow flex items-end mb-8">
-        {highlightText(quote)}
-      </div>
-      <div>
-        <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
-        <p className="text-base md:text-lg opacity-80">
-          {author}
-        </p>
-      </div>
-    </>
-  );
-
   return (
     <div className={cn(
-      "rounded-2xl overflow-hidden relative aspect-square",
+      "rounded-2xl overflow-hidden relative w-full",
+      "h-[600px] md:aspect-square",
       imageSrc ? "text-white" : "bg-white text-blue-600"
     )}>
       {imageSrc ? (
@@ -57,12 +61,28 @@ export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: Tes
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 p-6 md:p-8 flex flex-col">
-            {content}
+            <div className="flex-grow flex items-end mb-8">
+              {highlightText(quote)}
+            </div>
+            <div>
+              <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
+              <p className="text-base md:text-lg opacity-80">
+                {author}
+              </p>
+            </div>
           </div>
         </>
       ) : (
         <div className="h-full p-6 md:p-8 flex flex-col">
-          {content}
+          <div className="flex-grow flex items-end mb-8">
+            {highlightText(quote)}
+          </div>
+          <div>
+            <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
+            <p className="text-base md:text-lg opacity-80">
+              {author}
+            </p>
+          </div>
         </div>
       )}
     </div>

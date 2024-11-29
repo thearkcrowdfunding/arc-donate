@@ -8,15 +8,15 @@ export function HelpCardsSection() {
   const t = useTranslations('helpCards');
 
   return (
-    <div className="w-full py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+    <div className="w-full pt-8 pb-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8 md:p-12">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-12">
             {t('title')}
           </h2>
         </div>
         
-        <div className="max-w-[90%] mx-auto space-y-8">
+        <div className="space-y-12">
           <HelpCard
             title={t('cards.emergency.title')}
             subtitles={t.raw('cards.emergency.subtitles')}

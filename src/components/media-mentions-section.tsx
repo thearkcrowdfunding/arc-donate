@@ -1,6 +1,5 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -25,34 +24,33 @@ export function MediaMentionsSection() {
   ]
 
   return (
-    <div className="w-full">
-      <Card className="bg-white text-blue-600 p-6 md:p-20 border-0 ring-0 ring-offset-0 shadow-none">
-        <CardHeader>
-          <CardTitle className="text-4xl md:text-6xl pt-6 mb:pt-0 leading-tight font-semibold text-left mb-12">
+    <div className="w-full bg-white text-blue-600 py-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="p-8 md:p-12">
+          <h2 className="text-4xl md:text-6xl font-semibold text-left mb-12">
             {t('title')}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {mediaOutlets.map((outlet) => (
-              <div key={outlet.id} className="flex flex-col items-center space-y-4">
-                <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden 
-                              transition-transform duration-300 hover:scale-105 bg-gray-100">
-                  <Image
-                    src={outlet.imageSrc}
-                    alt={outlet.name}
-                    fill
-                    className="object-contain transition-opacity duration-300"
-                  />
-                </div>
-                <p className="text-lg md:text-xl font-medium text-center">
-                  {outlet.name}
-                </p>
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {mediaOutlets.map((outlet) => (
+            <div key={outlet.id} className="flex flex-col items-center space-y-4">
+              <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden 
+                            transition-transform duration-300 hover:scale-105 bg-gray-100">
+                <Image
+                  src={outlet.imageSrc}
+                  alt={outlet.name}
+                  fill
+                  className="object-contain transition-opacity duration-300"
+                />
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              <p className="text-lg md:text-xl font-medium text-center">
+                {outlet.name}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 } 

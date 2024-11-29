@@ -4,18 +4,18 @@
     "brand": "KOVCHEG"
   },
   "hero": {
-    "title": "Help Russians who oppose the war",
-    "subtitle": "Kovcheg is the largest project supporting anti-war Russians both in exile and within the country",
+    "title": "Help Russians who oppose the\u00A0war",
+    "subtitle": "Kovcheg is\u00A0the largest project supporting anti-war Russians both in\u00A0exile and within the\u00A0country",
     "helpButton": "Help Now",
     "learnMore": "Learn More"
   },
   "cta": {
-    "title": "OVER A MILLION PEOPLE",
-    "paragraph1": "have left Russia due to their opposition to the invasion of Ukraine, due to repressions and persecution, and due to their refusal to participate in the war.",
-    "paragraph2": "Most left with nowhere to go. Without money or prospects. In foreign lands, far from loved ones, many are struggling with depression.",
-    "paragraph3": "These people volunteer, help refugees, participate in the anti-war movement, and fight against the war.",
-    "paragraph4": "Kovcheg helps them adapt to their new life, get back on their feet, and continue their fight for peace.",
-    "paragraph5": "To continue their struggle, they need your help!"
+    "title": "OVER A\u00A0MILLION PEOPLE",
+    "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, due to\u00A0repressions and persecution, and due to\u00A0their refusal to\u00A0participate in\u00A0the war.",
+    "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects. In\u00A0foreign lands, far from loved ones, many are struggling with depression.",
+    "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti-war movement, and fight against the\u00A0war.",
+    "paragraph4": "Kovcheg helps them adapt to\u00A0their new life, get back on\u00A0their feet, and continue their fight for\u00A0peace.",
+    "paragraph5": "To\u00A0continue their struggle, they need your help!"
   },
   "donationForm": {
     "title": "HELP ANTI-WAR RUSSIANS",
@@ -64,13 +64,13 @@
         "subtitles": [
           "Language Courses",
           "Psychological Support",
-          "Professional Training",
+          "Professional Retraining",
           "Knowledge Base"
         ],
         "stats": {
           "psychology": {
             "number": "11,000",
-            "text": "received psychological help"
+            "text": "received psychological support"
           },
           "language": {
             "number": "1,900",
@@ -89,11 +89,11 @@
         "stats": {
           "events": {
             "number": "2,800",
-            "text": "attend events in Yerevan, Warsaw and other cities"
+            "text": "attend events in\u00A0Yerevan, Warsaw and other cities"
           },
           "chats": {
             "number": "150,000",
-            "text": "communicate and receive support in our chats"
+            "text": "communicate and receive support in\u00A0our chats"
           }
         }
       }
@@ -149,11 +149,11 @@
   },
   "aboutKovcheg": {
     "title": "MORE ABOUT KOVCHEG",
-    "description": "Kovcheg was founded in March 2022 in response to the persecution of Russians who opposed the war in Ukraine. For two years now, we have been helping those who need it most",
+    "description": "Kovcheg was founded in\u00A0March 2022 in\u00A0response to\u00A0the persecution of\u00A0Russians who opposed the\u00A0war in\u00A0Ukraine. For two years now, we have been helping those who need it\u00A0most",
     "stats": {
       "helped": {
         "number": "210,000",
-        "text": "have already received help from Kovcheg in 70 countries"
+        "text": "have already received help from Kovcheg in\u00A070\u00A0countries"
       },
       "volunteers": {
         "number": "3,500",
@@ -162,11 +162,21 @@
     }
   },
   "mediaMentions": {
-    "title": "MEDIA COVERAGE"
+    "title": "MEDIA COVERAGE",
+    "outlets": {
+      "wp": "Washington Post",
+      "fp": "Foreign Policy",
+      "ng": "Novaya Gazeta",
+      "meduza": "Meduza",
+      "popular": "Popular Politics",
+      "bbc": "BBC",
+      "republic": "Republic",
+      "forbes": "Forbes"
+    }
   },
   "finalCta": {
-    "helpButton": "Help Now",
-    "text": "Every month, hundreds of people are forced to leave Russia due to their opposition to the war and repressions.",
-    "callToAction": "They need your help!"
+    "text": "Every month, hundreds of\u00A0people are forced to\u00A0leave Russia due to\u00A0their opposition to\u00A0the war and\u00A0repressions.",
+    "callToAction": "They need your help!",
+    "helpButton": "Help Now"
   }
 } 

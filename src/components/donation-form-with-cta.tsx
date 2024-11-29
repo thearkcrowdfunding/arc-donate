@@ -148,18 +148,20 @@ export function DonationFormWithCta({
   const renderPaymentForm = () => {
     if (paymentMethod === 'crypto') {
       return (
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-2xl mx-auto px-4">
           {cryptoAddresses.map((crypto) => (
             <div key={crypto.currency} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div>
                 <p className="font-medium text-lg">
                   {crypto.currency} {crypto.network && `(${crypto.network})`}
                 </p>
-                <p className="font-mono text-sm text-gray-600">{crypto.address}</p>
+                <p className="font-mono text-sm text-gray-600 break-all">
+                  {crypto.address}
+                </p>
               </div>
               <button
                 onClick={() => handleCopyAddress(crypto.address)}
-                className="ml-4 p-2 hover:bg-gray-200 rounded-full transition-colors"
+                className="ml-4 p-2 hover:bg-gray-200 rounded-full transition-colors shrink-0"
               >
                 {copiedAddress === crypto.address ? (
                   <CheckIcon className="w-5 h-5 text-green-600" />
@@ -175,37 +177,47 @@ export function DonationFormWithCta({
 
     if (paymentMethod === 'paypal') {
       return (
-        <PayPalButtons 
-          style={{ 
-            layout: "vertical",
-            shape: "pill",
-          }}
-          createOrder={(data, actions) => {
-            if (actions?.order) {
-              return actions.order.create({
-                intent: "CAPTURE",
-                purchase_units: [{
-                  amount: {
-                    currency_code: "USD",
-                    value: amount
+        <>
+          <PayPalButtons 
+            style={{ 
+              layout: "vertical",
+              shape: "pill",
+            }}
+            createOrder={(data, actions) => {
+              if (actions?.order) {
+                return actions.order.create({
+                  intent: "CAPTURE",
+                  purchase_units: [{
+                    amount: {
+                      currency_code: "USD",
+                      value: amount
+                    }
+                  }]
+                });
+              }
+              throw new Error('PayPal actions not available');
+            }}
+            onApprove={(data, actions) => {
+              if (actions?.order) {
+                return actions.order.capture().then(function(details) {
+                  if (details?.payer?.name?.given_name) {
+                    analytics.trackDonation(parseInt(amount, 10), formId);
+                    alert("Transaction completed by " + details.payer.name.given_name);
                   }
-                }]
-              });
-            }
-            throw new Error('PayPal actions not available');
-          }}
-          onApprove={(data, actions) => {
-            if (actions?.order) {
-              return actions.order.capture().then(function(details) {
-                if (details?.payer?.name?.given_name) {
-                  analytics.trackDonation(parseInt(amount, 10), formId);
-                  alert("Transaction completed by " + details.payer.name.given_name);
-                }
-              });
-            }
-            throw new Error('PayPal actions not available');
-          }}
-        />
+                });
+              }
+              throw new Error('PayPal actions not available');
+            }}
+          />
+          <div className="mt-4">
+            <button
+              type="submit"
+              className="w-full bg-[#0070ba] text-white hover:bg-[#003087] font-semibold py-8 rounded-full text-3xl transition duration-300"
+            >
+              {t('helpButton')}
+            </button>
+          </div>
+        </>
       )
     }
 
@@ -223,7 +235,7 @@ export function DonationFormWithCta({
     <div className="w-full pt-6 md:p-6">
       <div className="flex flex-col max-w-6xl mx-auto">
         {showCTA && (
-          <div className="m-8 text-left">
+          <div className="px-8 md:px-12 mb-8 text-left">
             <h2 className="text-4xl md:text-6xl font-semibold text-white whitespace-pre-line">
               {t(`ctaTexts.${variant}`)}
             </h2>
@@ -231,101 +243,103 @@ export function DonationFormWithCta({
         )}
         
         <div className="w-full">
-          <div className="bg-white text-kovcheg rounded-lg px-8 py-10 md:p-12">
-            <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
-              {t('title')}
-            </h2>
-            <p className="mb-6">
-              {t('description.text')}
-            </p>
-            {paymentMethod !== 'crypto' && (
-              <p className="text-xl mb-4">{t('monthlySupport')}</p>
-            )}
-            
-            <div className="flex justify-center mb-6 border-b border-kovcheg/20">
-              <button
-                onClick={() => setPaymentMethod('card')}
-                className={`px-6 py-3 text-lg font-medium transition-colors relative ${
-                  paymentMethod === 'card' 
-                    ? 'text-kovcheg border-b-2 border-kovcheg' 
-                    : 'text-kovcheg/60 hover:text-kovcheg/80'
-                }`}
-              >
-                {t('paymentMethods.card')}
-              </button>
-              <button
-                onClick={() => setPaymentMethod('paypal')}
-                className={`px-6 py-3 text-lg font-medium transition-colors relative ${
-                  paymentMethod === 'paypal' 
-                    ? 'text-kovcheg border-b-2 border-kovcheg' 
-                    : 'text-kovcheg/60 hover:text-kovcheg/80'
-                }`}
-              >
-                {t('paymentMethods.paypal')}
-              </button>
-              <button
-                onClick={() => setPaymentMethod('crypto')}
-                className={`px-6 py-3 text-lg font-medium transition-colors relative ${
-                  paymentMethod === 'crypto' 
-                    ? 'text-kovcheg border-b-2 border-kovcheg' 
-                    : 'text-kovcheg/60 hover:text-kovcheg/80'
-                }`}
-              >
-                {t('paymentMethods.crypto')}
-              </button>
-            </div>
-            
-            <form onSubmit={(e) => { 
-              e.preventDefault(); 
-              if (paymentMethod !== 'crypto') {
-                handleDonateClick();
-              }
-            }} className="space-y-6 mb-8">
-              {paymentMethod !== 'crypto' && (
-                <RadioGroup
-                  value={amount}
-                  onValueChange={handleAmountClick}
-                  className="grid grid-cols-3 gap-4"
-                >
-                  {['15', '20', '30'].map((value) => (
-                    <div key={value}>
-                      <RadioGroupItem
-                        value={value}
-                        id={`amount-${formId}-${value}`}
-                        className="peer sr-only"
-                      />
-                      <Label
-                        htmlFor={`amount-${formId}-${value}`}
-                        className={`flex items-center justify-center p-4 border-2 border-kovcheg cursor-pointer transition-colors ${
-                          amount === value ? 'bg-kovcheg text-white' : 'hover:bg-kovcheg/10'
-                        }`}
-                      >
-                        ${value}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              )}
-
-              {renderPaymentForm()}
-            </form>
-            
-            {paymentMethod !== 'crypto' && (
-              <p className="mt-4 text-sm text-kovcheg/70">
-                {t.rich('legalText', {
-                  terms: (chunks) => (
-                    <Link href="https://kovcheg.live/policy/" className="underline hover:no-underline">
-                      {chunks}
-                    </Link>
-                  ),
-                  agreement: (chunks) => (
-                    <Link href="https://kovcheg.live/agreement/" className="underline hover:no-underline">
-                      {chunks}
-                    </Link>
-                  )
-                })}
+          <div className="bg-white text-kovcheg rounded-lg md:border-none border-2 border-kovcheg">
+            <div className="px-8 py-10 md:p-12">
+              <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
+                {t('title')}
+              </h2>
+              <p className="mb-6">
+                {t('description.text')}
               </p>
-            )}
+              {paymentMethod !== 'crypto' && (
+                <p className="text-xl mb-4">{t('monthlySupport')}</p>
+              )}
+              
+              <div className="flex justify-center mb-6 border-b border-kovcheg/20">
+                <button
+                  onClick={() => setPaymentMethod('card')}
+                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                    paymentMethod === 'card' 
+                      ? 'text-kovcheg border-b-2 border-kovcheg' 
+                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                  }`}
+                >
+                  {t('paymentMethods.card')}
+                </button>
+                <button
+                  onClick={() => setPaymentMethod('paypal')}
+                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                    paymentMethod === 'paypal' 
+                      ? 'text-kovcheg border-b-2 border-kovcheg' 
+                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                  }`}
+                >
+                  {t('paymentMethods.paypal')}
+                </button>
+                <button
+                  onClick={() => setPaymentMethod('crypto')}
+                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                    paymentMethod === 'crypto' 
+                      ? 'text-kovcheg border-b-2 border-kovcheg' 
+                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                  }`}
+                >
+                  {t('paymentMethods.crypto')}
+                </button>
+              </div>
+              
+              <form onSubmit={(e) => { 
+                e.preventDefault(); 
+                if (paymentMethod !== 'crypto') {
+                  handleDonateClick();
+                }
+              }} className="space-y-6 mb-8">
+                {paymentMethod !== 'crypto' && (
+                  <RadioGroup
+                    value={amount}
+                    onValueChange={handleAmountClick}
+                    className="grid grid-cols-3 gap-4"
+                  >
+                    {['15', '20', '30'].map((value) => (
+                      <div key={value}>
+                        <RadioGroupItem
+                          value={value}
+                          id={`amount-${formId}-${value}`}
+                          className="peer sr-only"
+                        />
+                        <Label
+                          htmlFor={`amount-${formId}-${value}`}
+                          className={`flex items-center justify-center p-4 border-2 border-kovcheg cursor-pointer transition-colors ${
+                            amount === value ? 'bg-kovcheg text-white' : 'hover:bg-kovcheg/10'
+                          }`}
+                        >
+                          ${value}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                )}
+
+                {renderPaymentForm()}
+              </form>
+              
+              {paymentMethod !== 'crypto' && (
+                <p className="mt-4 text-sm text-kovcheg/70">
+                  {t.rich('legalText', {
+                    terms: (chunks) => (
+                      <Link href="https://kovcheg.live/policy/" className="underline hover:no-underline">
+                        {chunks}
+                      </Link>
+                    ),
+                    agreement: (chunks) => (
+                      <Link href="https://kovcheg.live/agreement/" className="underline hover:no-underline">
+                        {chunks}
+                      </Link>
+                    )
+                  })}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
