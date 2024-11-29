@@ -53,7 +53,7 @@ export function NonprofitNavComponent() {
   return (
     <div className="w-full fixed top-0 z-50">
       <Card className="bg-black/90 backdrop-blur-sm border-0 ring-0 ring-offset-0 shadow-none">
-        <CardContent className="px-6 md:px-20 py-2">
+        <CardContent className="max-w-6xl mx-auto px-8 md:px-12 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <a href="/" className="relative w-[120px] h-[40px]">

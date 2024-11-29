@@ -23,11 +23,11 @@ export function HeroComponent() {
       
       <div className="w-full relative z-10">
         <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="text-left mb-6 md:mb-8 max-w-[800px] md:max-w-[1000px]">
+          <div className="text-left mb-12 md:mb-24 max-w-[800px] md:max-w-[1000px] mt-0 md:-mt-20">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight uppercase">
               {t('title')}
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl mb-6 md:mb-8 font-semibold">
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold">
               {t('subtitle')}
             </p>
           </div>

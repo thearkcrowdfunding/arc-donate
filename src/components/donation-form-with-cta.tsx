@@ -243,17 +243,19 @@ export function DonationFormWithCta({
         )}
         
         <div className="w-full">
-          <div className="bg-white text-kovcheg rounded-lg md:border-none border-2 border-kovcheg">
-            <div className="px-8 py-10 md:p-12">
-              <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
-                {t('title')}
-              </h2>
-              <p className="mb-6">
-                {t('description.text')}
-              </p>
-              {paymentMethod !== 'crypto' && (
-                <p className="text-xl mb-4">{t('monthlySupport')}</p>
-              )}
+          <div className="bg-white text-kovcheg rounded-lg md:border-none border-4 border-kovcheg">
+            <div className="px-8 py-12 md:p-16">
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
+                  {t('title')}
+                </h2>
+                <p className="mb-6">
+                  {t('description.text')}
+                </p>
+                {paymentMethod !== 'crypto' && (
+                  <p className="text-xl mb-4">{t('monthlySupport')}</p>
+                )}
+              </div>
               
               <div className="flex justify-center mb-6 border-b border-kovcheg/20">
                 <button
@@ -324,7 +326,7 @@ export function DonationFormWithCta({
               </form>
               
               {paymentMethod !== 'crypto' && (
-                <p className="mt-4 text-sm text-kovcheg/70">
+                <p className="text-center mt-4 text-sm text-kovcheg/70">
                   {t.rich('legalText', {
                     terms: (chunks) => (
                       <Link href="https://kovcheg.live/policy/" className="underline hover:no-underline">

@@ -12,10 +12,10 @@ export function CtaComponent() {
           {t('title')}
         </div>
         <div className="space-y-4 max-w-4xl">
-          <p className="text-2xl">{t('paragraph1')}</p>
-          <p className="text-2xl">{t('paragraph2')}</p>
-          <p className="text-2xl">{t('paragraph3')}</p>
-          <p className="text-2xl">{t('paragraph4')}</p>
+          <p className="text-2xl md:text-3xl font-medium">{t('paragraph1')}</p>
+          <p className="text-2xl md:text-3xl font-medium">{t('paragraph2')}</p>
+          <p className="text-2xl md:text-3xl font-medium">{t('paragraph3')}</p>
+          <p className="text-2xl md:text-3xl font-medium">{t('paragraph4')}</p>
           <p className="text-4xl md:text-6xl font-semibold">{t('paragraph5')}</p>
         </div>
       </div>

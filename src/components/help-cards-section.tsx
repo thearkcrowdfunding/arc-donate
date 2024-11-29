@@ -10,8 +10,8 @@ export function HelpCardsSection() {
   return (
     <div className="w-full pt-8 pb-20">
       <div className="max-w-6xl mx-auto">
-        <div className="p-8 md:p-12">
-          <h2 className="text-4xl md:text-6xl font-semibold text-white mb-12">
+        <div className="p-8 md:p-12 pb-0 md:pb-0">
+          <h2 className="text-4xl md:text-6xl font-semibold text-white mb-8">
             {t('title')}
           </h2>
         </div>
