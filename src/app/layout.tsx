@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gtmId = "GTM-WV87HSPP";
+  const gtmId = "Your GTM ID";
 
   return (
     <html lang="en" suppressHydrationWarning className="dark">
