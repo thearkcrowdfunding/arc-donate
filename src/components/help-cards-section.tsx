@@ -36,16 +36,16 @@ export function HelpCardsSection() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
             <TestimonialCard
-              quote={t('testimonials.first.quote')}
-              boldParts={t.raw('testimonials.first.boldParts')}
-              author={t('testimonials.first.author')}
-              imageSrc="/images/testimonials/card1.jpg"
-            />
-            <TestimonialCard
               quote={t('testimonials.fourth.quote')}
               boldParts={t.raw('testimonials.fourth.boldParts')}
               author={t('testimonials.fourth.author')}
               imageSrc="/images/testimonials/card2.jpg"
+            />
+            <TestimonialCard
+              quote={t('testimonials.first.quote')}
+              boldParts={t.raw('testimonials.first.boldParts')}
+              author={t('testimonials.first.author')}
+              imageSrc="/images/testimonials/card1.jpg"
             />
           </div>
 

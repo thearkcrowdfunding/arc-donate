@@ -15,19 +15,19 @@ interface HelpCardProps {
 }
 
 export function HelpCard({ title, subtitles = [], imageSrc, stats }: HelpCardProps) {
+  const formattedSubtitles = subtitles.map((subtitle, index) => 
+    index === 0 ? subtitle : subtitle.toLowerCase()
+  ).join(', ');
+
   return (
     <div className="bg-white md:rounded-2xl w-full">
       <div className="p-8 md:p-12">
         <h2 className="text-3xl md:text-5xl font-bold mb-8 text-blue-600">{title}</h2>
         
-        {Array.isArray(subtitles) && subtitles.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mb-8">
-            {subtitles.map((subtitle, index) => (
-              <p key={index} className="text-standard md:text-2xl text-blue-600 leading-tight">
-                {subtitle}
-              </p>
-            ))}
-          </div>
+        {subtitles.length > 0 && (
+          <p className="text-standard md:text-2xl text-blue-600 leading-tight mb-8">
+            {formattedSubtitles}
+          </p>
         )}
         
         <div className="mb-8 overflow-hidden md:rounded-lg">

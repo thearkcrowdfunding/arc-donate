@@ -57,7 +57,9 @@ export default function LocalePage() {
             <CtaComponent />
           </div>
         </Suspense>
-        
+
+        <div className="bg-kovcheg h-8"></div>
+
         <Suspense fallback={<div className="h-[600px]" />}>
           <AboutKovchegSection showTitle={false} />
         </Suspense>

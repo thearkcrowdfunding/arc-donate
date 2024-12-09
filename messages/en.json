@@ -1,42 +1,46 @@
 {
+  "nav": {
+    "help": "Help",
+    "brand": "KOVCHEG"
+  },
   "hero": {
-    "title": "Help people with an anti-war stance",
-    "subtitle": "Receive emergency, legal, and psychological assistance, temporary housing, and support",
+    "title": "Help people with an\u00A0anti\u2011war stance",
+    "subtitle": "Receive emergency, legal, and\u00A0psychological assistance, temporary housing, and\u00A0support",
     "helpButton": "Help Now",
     "learnMore": "Learn More"
   },
   "cta": {
-    "title": "OVER A MILLION PEOPLE",
-    "paragraph1": "have left Russia due to their opposition to the invasion of Ukraine, repressions, and persecution, and their refusal to fight.",
-    "paragraph2": "Most left with nowhere to go. Without money or prospects. In foreign lands, far from loved ones, many are in depression.",
-    "paragraph3": "These people volunteer, help refugees, participate in the anti-war movement, and fight against the war.",
-    "paragraph5": "To continue their struggle, they need your help!"
+    "title": "OVER A\u00A0MILLION PEOPLE",
+    "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, repressions, and\u00A0persecution, and\u00A0their refusal to\u00A0fight.",
+    "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects. In\u00A0foreign lands, far from loved ones, many are in\u00A0depression.",
+    "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti\u2011war movement, and\u00A0fight against the\u00A0war.",
+    "paragraph5": "To\u00A0continue their struggle, they need your help!"
   },
   "donationForm": {
-    "title": "HELP RUSSIANS WITH AN ANTI-WAR STANCE",
+    "title": "HELP RUSSIANS WITH AN\u00A0ANTI\u2011WAR STANCE",
     "description": {
-      "text": "They need help themselves but continue to volunteer and help others"
+      "text": "They need help themselves but continue to\u00A0volunteer and\u00A0help others"
     },
-    "monthlySupport": "Subscribe to monthly donations",
+    "monthlySupport": "Subscribe to\u00A0monthly donations",
     "paymentMethods": {
       "card": "Bank Card",
       "paypal": "PayPal",
       "crypto": "Crypto"
     },
     "helpButton": "Help",
-    "legalText": "By clicking the button, you accept the <terms>Terms of Service</terms> and <agreement>Donation Agreement</agreement>",
+    "legalText": "By\u00A0clicking the\u00A0button, you accept the\u00A0<terms>Terms of\u00A0Service</terms> and\u00A0<agreement>Donation Agreement</agreement>",
     "ctaTexts": {
-      "default": "To provide emergency assistance and support people in difficult situations, we need your help.\nEven $20 will change someone's life"
+      "default": "To\u00A0provide emergency assistance and\u00A0support people in\u00A0difficult situations, we\u00A0need your help.\nEven $20 will change someone's life"
     }
   },
   "helpCards": {
     "title": "KOVCHEG HELPS",
     "cards": {
       "emergency": {
-        "title": "Emergency Assistance",
+        "title": "Emergency assistance",
         "subtitles": [
-          "Temporary Housing",
-          "Legal Assistance"
+          "Temporary housing",
+          "Legal assistance"
         ],
         "stats": {
           "housing": {
@@ -52,9 +56,9 @@
       "adaptation": {
         "title": "Adaptation",
         "subtitles": [
-          "Language Courses",
-          "Professional Retraining",
-          "Knowledge Base"
+          "Language courses",
+          "Professional retraining",
+          "Knowledge base"
         ],
         "stats": {
           "language": {
@@ -64,9 +68,9 @@
         }
       },
       "psychology": {
-        "title": "Psychological Support",
+        "title": "Psychological support",
         "subtitles": [
-          "Individual and Group Counseling"
+          "Individual and\u00A0group counseling"
         ],
         "stats": {
           "psychology": {
@@ -78,69 +82,82 @@
       "support": {
         "title": "Support",
         "subtitles": [
-          "Professional Communities",
-          "Offline Spaces",
-          "Mutual Aid Chats",
-          "Kovcheg Business"
+          "Professional communities",
+          "Offline spaces",
+          "Mutual aid chats",
+          "Kovcheg business"
         ],
         "stats": {
           "chats": {
             "number": "150,000",
-            "text": "communicate and receive support in our chats"
+            "text": "communicate and\u00A0receive support in\u00A0our chats"
           },
           "events": {
             "number": "2,800",
-            "text": "attend events in Yerevan, Warsaw, and other cities"
+            "text": "attend events in\u00A0Yerevan, Warsaw, and\u00A0other cities"
           }
         }
       }
     },
     "testimonials": {
       "first": {
-        "quote": "Kovcheg's help greatly facilitated my emigration. After moving to Armenia, together with the Ukrainian diaspora, we created a project that helps Ukrainian refugees",
+        "quote": "Kovcheg's help greatly facilitated my\u00A0emigration. After moving to\u00A0Armenia, together with the\u00A0Ukrainian diaspora, we\u00A0created a\u00A0project that helps Ukrainian refugees",
         "boldParts": [
-          "facilitated my emigration",
+          "facilitated my\u00A0emigration",
           "helps Ukrainian refugees"
         ],
-        "author": "Anastasia, left Russia in March 2022, volunteer at Dopomoga.am project"
+        "author": "Anastasia, left Russia in\u00A0March 2022, volunteer at\u00A0Dopomoga.am project"
       },
       "second": {
-        "quote": "Kovcheg gave me a roof over my head when I was already living on the streets in Istanbul. This help is hard to overestimate: I was already depressed and could have lost my mind on the street",
+        "quote": "Kovcheg gave me\u00A0a\u00A0roof over my\u00A0head when I\u00A0was already living on\u00A0the\u00A0streets in\u00A0Istanbul. This help is\u00A0hard to\u00A0overestimate: I\u00A0was already depressed and\u00A0could have lost my\u00A0mind on\u00A0the\u00A0street",
         "boldParts": [
-          "gave me a roof over my head",
-          "I was already depressed"
+          "gave me\u00A0a\u00A0roof over my\u00A0head",
+          "I\u00A0was already depressed"
         ],
-        "author": "Dmitry, living in exile since the beginning of the war"
+        "author": "Dmitry, living in\u00A0exile since the\u00A0beginning of\u00A0the\u00A0war"
       },
       "third": {
-        "quote": "Kovcheg's team of psychologists helped me tremendously when I was in despair and on the edge",
+        "quote": "Kovcheg's team of\u00A0psychologists helped me\u00A0tremendously when I\u00A0was in\u00A0despair and\u00A0on\u00A0the\u00A0edge",
         "boldParts": [
-          "Kovcheg's team of psychologists helped me"
+          "Kovcheg's team of\u00A0psychologists helped me"
         ],
-        "author": "Catherine (name changed), living in exile since the beginning of the war"
+        "author": "Catherine (name changed), living in\u00A0exile since the\u00A0beginning of\u00A0the\u00A0war"
       },
       "fourth": {
-        "quote": "Kovcheg gave me time to breathe, just lie down and cry — to get through it all and gather strength to somehow start life anew",
+        "quote": "Kovcheg gave me\u00A0time to\u00A0breathe, just lie down and\u00A0cry — to\u00A0get through it\u00A0all and\u00A0gather strength to\u00A0somehow start life anew",
         "boldParts": [
-          "to get through it all and gather strength"
+          "to\u00A0get through it\u00A0all and\u00A0gather strength"
         ],
-        "author": "Arina, left Russia due to political persecution"
+        "author": "Arina, left Russia due to\u00A0political persecution"
       }
     }
   },
   "aboutKovcheg": {
     "title": "MORE ABOUT KOVCHEG",
-    "description": "Kovcheg was founded in March 2022 in response to the persecution of Russians who opposed the war in Ukraine. For two years now, we have been helping those who need it most",
+    "description": "Kovcheg was founded in\u00A0March 2022 in\u00A0response to\u00A0the\u00A0persecution of\u00A0Russians who opposed the\u00A0war in\u00A0Ukraine. For\u00A0two years now, we\u00A0have been helping those who need it\u00A0most",
     "stats": {
       "helped": {
         "number": "210,000",
-        "text": "have already received help from Kovcheg in 70 countries"
+        "text": "have already received help from\u00A0Kovcheg in\u00A070 countries"
       }
     }
   },
   "finalCta": {
-    "text": "Every month, hundreds of people are forced to leave Russia due to their opposition to the war and repressions.",
+    "text": "Every month, hundreds of\u00A0people are forced to\u00A0leave Russia due to\u00A0their opposition to\u00A0the\u00A0war and\u00A0repressions.",
     "callToAction": "They need your help!",
     "helpButton": "Help Now"
+  },
+  "mediaMentions": {
+    "title": "MEDIA COVERAGE",
+    "outlets": {
+      "wp": "Washington Post",
+      "fp": "Foreign Policy",
+      "ng": "Novaya Gazeta",
+      "meduza": "Meduza",
+      "popular": "Popular Politics",
+      "bbc": "BBC",
+      "republic": "Republic",
+      "forbes": "Forbes"
+    }
   }
 }
