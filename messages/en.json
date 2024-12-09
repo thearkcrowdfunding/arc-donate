@@ -31,7 +31,8 @@
     "legalText": "By\u00A0clicking the\u00A0button, you accept the\u00A0<terms>Terms of\u00A0Service</terms> and\u00A0<agreement>Donation Agreement</agreement>",
     "ctaTexts": {
       "default": "To\u00A0provide emergency assistance and\u00A0support people in\u00A0difficult situations, we\u00A0need your help.\nEven $20 will change someone's life"
-    }
+    },
+    "youWillBeRedirectedToPaypal": "You will be redirected to PayPal to complete your donation"
   },
   "helpCards": {
     "title": "KOVCHEG HELPS",
@@ -158,6 +159,18 @@
       "bbc": "BBC",
       "republic": "Republic",
       "forbes": "Forbes"
+    }
+  },
+  "payment": {
+    "success": {
+      "title": "THANK YOU FOR YOUR SUPPORT!",
+      "description": "Your donation helps Russians with an\u00A0anti\u2011war stance continue their work and\u00A0support others",
+      "button": "Return to Homepage"
+    },
+    "cancel": {
+      "title": "PAYMENT CANCELLED",
+      "description": "Your payment was cancelled. If you experienced any issues, please try again",
+      "button": "Try Again"
     }
   }
 }

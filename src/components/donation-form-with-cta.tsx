@@ -7,27 +7,18 @@ import { Label } from "@/components/ui/label"
 import { useTranslations } from 'next-intl'
 import { analytics } from '@/utils/analytics'
 import Link from 'next/link'
-import Script from 'next/script'
 import { CopyIcon, CheckIcon } from 'lucide-react'
-import { PayPalButtons } from "@paypal/react-paypal-js"
+import { 
+  STRIPE_PAYMENT_LINKS,
+  PAYPAL_SUBSCRIPTION_LINKS,
+  CRYPTO_ADDRESSES 
+} from '@/lib/constants';
 
 interface DonationFormProps {
   showCTA?: boolean;
   variant?: 'urgent' | 'default';
   formId: string;
 }
-
-const paymentLinks = {
-  '15': 'https://buy.stripe.com/8wM01005HgQv90s8wA',
-  '20': 'https://buy.stripe.com/fZedRQ9GhgQvgsUaEF',
-  '30': 'https://buy.stripe.com/fZe1549GhdEjfoQbIK'
-};
-
-const paypalLinks = {
-  '15': 'https://www.paypal.com/checkoutnow?atomic-event-state=eyJkb21haW4iOiJzZGtfcGF5cGFsX3Y1IiwiZXZlbnRzIjpbXSwiaW50ZW50IjoiY2xpY2tfcGF5bWVudF9idXR0b24iLCJpbnRlbnRUeXBlIjoiY2xpY2siLCJpbnRlcmFjdGlvblN0YXJ0VGltZSI6MTQ3NzgxMjQuNzk5OTk5OTk3LCJ0aW1lU3RhbXAiOjE0Nzc4MTI1LCJ0aW1lT3JpZ2luIjoxNzMyNjkzMzM4ODQ4LjksInRhc2siOiJzZWxlY3Rfb25lX3RpbWVfY2hlY2tvdXQiLCJmbG93Ijoib25lLXRpbWUtY2hlY2tvdXQiLCJ1aVN0YXRlIjoid2FpdGluZyIsInBhdGgiOiIvc21hcnQvYnV0dG9ucyIsInZpZXdOYW1lIjoicGF5cGFsLXNkayJ9&sessionID=uid_1b1e5328a5_mdc6ndi6mtg&buttonSessionID=uid_ec70224b4e_mdc6ndi6mtg&stickinessID=uid_f22ff0a4db_mtq6mdg6mtc&smokeHash=&sign_out_user=false&fundingSource=paypal&buyerCountry=GE&locale.x=ru_RU&commit=true&client-metadata-id=uid_1b1e5328a5_mdc6ndi6mtg&token=56987717WA522615N&clientID=BAA3Re8fEw3bV7D3wMjtrdQGcpJn8KqIp0ROX3a35PTURhK2POvOmECPU8-Rnm4RKEmgJeJSKoP5f3JbDE&env=production&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWwuY29tL3Nkay9qcz9jbGllbnQtaWQ9QkFBM1JlOGZFdzNiVjdEM3dNanRyZFFHY3BKbjhLcUlwMFJPWDNhMzVQVFVSaEsyUE92T21FQ1BVOC1Sbm00UktFbWdKZUpTS29QNWYzSmJERSZjdXJyZW5jeT1VU0QmbG9jYWxlPXJ1X1JVJmRpc2FibGUtZnVuZGluZz1jcmVkaXQlMkNwYXlsYXRlciUyQ2JhbmNvbnRhY3QlMkNibGlrJTJDZXBzJTJDZ2lyb3BheSUyQ2lkZWFsJTJDbWVyY2Fkb3BhZ28lMkNteWJhbmslMkNwMjQlMkNzZXBhJTJDc29mb3J0JTJDdmVubW8lMkNhcHBsZXBheSZ2YXVsdD10cnVlJmludGVudD1zdWJzY3JpcHRpb24mY29tcG9uZW50cz1idXR0b25zLGhvc3RlZC1maWVsZHMiLCJhdHRycyI6eyJkYXRhLXBhcnRuZXItYXR0cmlidXRpb24taWQiOiJBd2Vzb21lTW90aXZlX1NQX1BQQ1AiLCJkYXRhLXVpZCI6InVpZF9xYXNpdWx0bGxwbnZuaHZ6Ynp6Zmh0YmVpbXlwZmkifX0&country.x=RU&xcomponent=1&version=5.0.465',
-  '20': 'https://www.paypal.com/checkoutnow?atomic-event-state=eyJkb21haW4iOiJzZGtfcGF5cGFsX3Y1IiwiZXZlbnRzIjpbXSwiaW50ZW50IjoiY2xpY2tfcGF5bWVudF9idXR0b24iLCJpbnRlbnRUeXBlIjoiY2xpY2siLCJpbnRlcmFjdGlvblN0YXJ0VGltZSI6MTQ3NzgxMjQuNzk5OTk5OTk3LCJ0aW1lU3RhbXAiOjE0Nzc4MTI1LCJ0aW1lT3JpZ2luIjoxNzMyNjkzMzM4ODQ4LjksInRhc2siOiJzZWxlY3Rfb25lX3RpbWVfY2hlY2tvdXQiLCJmbG93Ijoib25lLXRpbWUtY2hlY2tvdXQiLCJ1aVN0YXRlIjoid2FpdGluZyIsInBhdGgiOiIvc21hcnQvYnV0dG9ucyIsInZpZXdOYW1lIjoicGF5cGFsLXNkayJ9&sessionID=uid_1b1e5328a5_mdc6ndi6mtg&buttonSessionID=uid_ec70224b4e_mdc6ndi6mtg&stickinessID=uid_f22ff0a4db_mtq6mdg6mtc&smokeHash=&sign_out_user=false&fundingSource=paypal&buyerCountry=GE&locale.x=ru_RU&commit=true&client-metadata-id=uid_1b1e5328a5_mdc6ndi6mtg&token=1XT57900Y0937860Y&clientID=BAA3Re8fEw3bV7D3wMjtrdQGcpJn8KqIp0ROX3a35PTURhK2POvOmECPU8-Rnm4RKEmgJeJSKoP5f3JbDE&env=production&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWwuY29tL3Nkay9qcz9jbGllbnQtaWQ9QkFBM1JlOGZFdzNiVjdEM3dNanRyZFFHY3BKbjhLcUlwMFJPWDNhMzVQVFVSaEsyUE92T21FQ1BVOC1Sbm00UktFbWdKZUpTS29QNWYzSmJERSZjdXJyZW5jeT1VU0QmbG9jYWxlPXJ1X1JVJmRpc2FibGUtZnVuZGluZz1jcmVkaXQlMkNwYXlsYXRlciUyQ2JhbmNvbnRhY3QlMkNibGlrJTJDZXBzJTJDZ2lyb3BheSUyQ2lkZWFsJTJDbWVyY2Fkb3BhZ28lMkNteWJhbmslMkNwMjQlMkNzZXBhJTJDc29mb3J0JTJDdmVubW8lMkNhcHBsZXBheSZ2YXVsdD10cnVlJmludGVudD1zdWJzY3JpcHRpb24mY29tcG9uZW50cz1idXR0b25zLGhvc3RlZC1maWVsZHMiLCJhdHRycyI6eyJkYXRhLXBhcnRuZXItYXR0cmlidXRpb24taWQiOiJBd2Vzb21lTW90aXZlX1NQX1BQQ1AiLCJkYXRhLXVpZCI6InVpZF9xYXNpdWx0bGxwbnZuaHZ6Ynp6Zmh0YmVpbXlwZmkifX0&country.x=RU&xcomponent=1&version=5.0.465',
-  '30': 'YOUR_PAYPAL_LINK_30'
-};
 
 type PaymentMethod = 'card' | 'paypal' | 'crypto';
 
@@ -37,24 +28,6 @@ interface CryptoAddress {
   address: string;
 }
 
-const cryptoAddresses: CryptoAddress[] = [
-  {
-    currency: 'USDT',
-    network: 'TRC20',
-    address: 'TDWsHaZcsifiBypNJDKNrQf7vmhZ9LtXko'
-  },
-  {
-    currency: 'BTC',
-    network: '',
-    address: 'bc1qnxmjjj23e5u6y8slhl9wss74t3wep6tke2nc60'
-  },
-  {
-    currency: 'ETH',
-    network: 'ERC20',
-    address: '0xBf178F99b8790db1BD2194D80c3a268AE4AcE804'
-  }
-];
-
 export function DonationFormWithCta({ 
   showCTA = false, 
   variant = 'default',
@@ -63,40 +36,7 @@ export function DonationFormWithCta({
   const t = useTranslations('donationForm')
   const [amount, setAmount] = useState<string>('20')
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card')
-  const [paypalLoaded, setPaypalLoaded] = useState(false)
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (paymentMethod === 'paypal' && !paypalLoaded) {
-      const paypalButtonContainer = document.getElementById('paypal-button-container');
-      if (paypalButtonContainer && (window as any).paypal) {
-        (window as any).paypal.Buttons({
-          style: {
-            shape: 'pill',
-            color: 'blue',
-            layout: 'vertical',
-            label: 'paypal'
-          },
-          createOrder: function(data: any, actions: any) {
-            return actions.order.create({
-              purchase_units: [{
-                amount: {
-                  value: amount
-                }
-              }]
-            });
-          },
-          onApprove: function(data: any, actions: any) {
-            return actions.order.capture().then(function(details: any) {
-              analytics.trackDonation(parseInt(amount, 10), formId);
-              // Handle successful payment here
-            });
-          }
-        }).render('#paypal-button-container');
-        setPaypalLoaded(true);
-      }
-    }
-  }, [paymentMethod, amount, paypalLoaded, formId]);
 
   const handleAmountClick = (value: string) => {
     setAmount(value)
@@ -114,17 +54,13 @@ export function DonationFormWithCta({
     }
 
     const numericAmount = parseInt(amount, 10);
-    const links = paymentMethod === 'card' ? paymentLinks : paypalLinks;
-    const paymentLink = links[amount as keyof typeof paymentLinks];
+    const links = paymentMethod === 'card' ? STRIPE_PAYMENT_LINKS : PAYPAL_SUBSCRIPTION_LINKS;
+    const paymentLink = links[amount as keyof typeof STRIPE_PAYMENT_LINKS];
 
     if (!isNaN(numericAmount) && numericAmount > 0) {
       analytics.trackDonation(numericAmount, formId);
       
       if (paymentLink) {
-        if (paymentMethod === 'paypal') {
-          // Insert PayPal button/iframe here using the correct amount
-          return;
-        }
         window.location.href = paymentLink;
       } else {
         analytics.trackEvent('Error', 'Invalid Payment Link', `Amount: ${amount}`, undefined, { formId });
@@ -149,7 +85,7 @@ export function DonationFormWithCta({
     if (paymentMethod === 'crypto') {
       return (
         <div className="space-y-4 max-w-2xl mx-auto px-4">
-          {cryptoAddresses.map((crypto) => (
+          {CRYPTO_ADDRESSES.map((crypto) => (
             <div key={crypto.currency} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div>
                 <p className="font-medium text-lg">
@@ -178,45 +114,15 @@ export function DonationFormWithCta({
     if (paymentMethod === 'paypal') {
       return (
         <>
-          <PayPalButtons 
-            style={{ 
-              layout: "vertical",
-              shape: "pill",
-            }}
-            createOrder={(data, actions) => {
-              if (actions?.order) {
-                return actions.order.create({
-                  intent: "CAPTURE",
-                  purchase_units: [{
-                    amount: {
-                      currency_code: "USD",
-                      value: amount
-                    }
-                  }]
-                });
-              }
-              throw new Error('PayPal actions not available');
-            }}
-            onApprove={(data, actions) => {
-              if (actions?.order) {
-                return actions.order.capture().then(function(details) {
-                  if (details?.payer?.name?.given_name) {
-                    analytics.trackDonation(parseInt(amount, 10), formId);
-                    alert("Transaction completed by " + details.payer.name.given_name);
-                  }
-                });
-              }
-              throw new Error('PayPal actions not available');
-            }}
-          />
-          <div className="mt-4">
-            <button
-              type="submit"
-              className="w-full bg-[#0070ba] text-white hover:bg-[#003087] font-semibold py-8 rounded-full text-3xl transition duration-300"
-            >
-              {t('helpButton')}
-            </button>
-          </div>
+          <Button
+            onClick={handleDonateClick}
+            className="w-full bg-[#0070ba] hover:bg-[#003087] text-white font-semibold py-10 text-3xl"
+          >
+            {t('helpButton')}
+          </Button>
+          <p className="text-center mt-2 text-sm text-gray-600">
+            {t('youWillBeRedirectedToPaypal')}
+          </p>
         </>
       )
     }
@@ -243,17 +149,19 @@ export function DonationFormWithCta({
         )}
         
         <div className="w-full">
-          <div className="bg-white text-blue-600 rounded-lg md:border-none border-8 border-kovcheg max-h-[100svh] md:max-h-none overflow-y-auto">
+          <div className="bg-white text-blue-600 rounded-lg md:border-none border-8 border-kovcheg">
             <div className="px-4 py-4 sm:px-6 sm:py-8 md:p-16">
               <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl leading-tight font-semibold mb-2 sm:mb-3 md:mb-4">
+                <h2 className="text-[34px] leading-tight font-semibold mb-3 sm:text-3xl md:text-5xl">
                   {t('title')}
                 </h2>
-                <p className="mb-2 sm:mb-4 md:mb-6 text-base">
+                <p className="mb-2 text-standard sm:text-base md:text-base">
                   {t('description.text')}
                 </p>
                 {paymentMethod !== 'crypto' && (
-                  <p className="text-base md:text-xl mb-2 sm:mb-3 md:mb-4">{t('monthlySupport')}</p>
+                  <p className="text-standard md:text-xl mb-4">
+                    {t('monthlySupport')}
+                  </p>
                 )}
               </div>
               
@@ -290,12 +198,15 @@ export function DonationFormWithCta({
                 </button>
               </div>
               
-              <form onSubmit={(e) => { 
-                e.preventDefault(); 
-                if (paymentMethod !== 'crypto') {
-                  handleDonateClick();
-                }
-              }} className="space-y-2 sm:space-y-4 md:space-y-6 mb-2 sm:mb-4 md:mb-8">
+              <form 
+                onSubmit={(e) => { 
+                  e.preventDefault(); 
+                  if (paymentMethod !== 'crypto') {
+                    handleDonateClick();
+                  }
+                }} 
+                className="space-y-6 sm:space-y-4 md:space-y-6 mb-6 sm:mb-4 md:mb-8"
+              >
                 {paymentMethod !== 'crypto' && (
                   <RadioGroup
                     value={amount}

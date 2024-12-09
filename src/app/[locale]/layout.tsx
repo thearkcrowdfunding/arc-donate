@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { VideoProvider } from '@/contexts/video-context';
-import { PayPalProvider } from '@/components/paypal-provider';
 
 type Locale = 'en' | 'ru';
 
@@ -31,12 +30,10 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <VideoProvider>
-            <PayPalProvider>
-              <NonprofitNavComponent />
-              <main className="font-sans">
-                {children}
-              </main>
-            </PayPalProvider>
+            <NonprofitNavComponent />
+            <main className="font-sans">
+              {children}
+            </main>
           </VideoProvider>
         </NextIntlClientProvider>
       </body>
