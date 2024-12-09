@@ -1,36 +1,27 @@
 {
-  "nav": {
-    "help": "Help",
-    "brand": "KOVCHEG"
-  },
   "hero": {
-    "title": "Help Russians who oppose the\u00A0war",
-    "subtitle": "Kovcheg is\u00A0the largest project supporting anti-war Russians both in\u00A0exile and within the\u00A0country",
+    "title": "Help people with an anti-war stance",
+    "subtitle": "Receive emergency, legal, and psychological assistance, temporary housing, and support",
     "helpButton": "Help Now",
     "learnMore": "Learn More"
   },
   "cta": {
-    "title": "OVER A\u00A0MILLION PEOPLE",
-    "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, due to\u00A0repressions and persecution, and due to\u00A0their refusal to\u00A0participate in\u00A0the war.",
-    "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects. In\u00A0foreign lands, far from loved ones, many are struggling with depression.",
-    "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti-war movement, and fight against the\u00A0war.",
-    "paragraph5": "To\u00A0continue their struggle, they need your help!"
+    "title": "OVER A MILLION PEOPLE",
+    "paragraph1": "have left Russia due to their opposition to the invasion of Ukraine, repressions, and persecution, and their refusal to fight.",
+    "paragraph2": "Most left with nowhere to go. Without money or prospects. In foreign lands, far from loved ones, many are in depression.",
+    "paragraph3": "These people volunteer, help refugees, participate in the anti-war movement, and fight against the war.",
+    "paragraph5": "To continue their struggle, they need your help!"
   },
   "donationForm": {
-    "title": "HELP ANTI-WAR RUSSIANS",
+    "title": "HELP RUSSIANS WITH AN ANTI-WAR STANCE",
     "description": {
-      "text": "While in need of help themselves, they continue to volunteer and help others"
+      "text": "They need help themselves but continue to volunteer and help others"
     },
     "monthlySupport": "Subscribe to monthly donations",
     "paymentMethods": {
       "card": "Bank Card",
       "paypal": "PayPal",
       "crypto": "Crypto"
-    },
-    "amounts": {
-      "20": "$20",
-      "25": "$25",
-      "30": "$30"
     },
     "helpButton": "Help",
     "legalText": "By clicking the button, you accept the <terms>Terms of Service</terms> and <agreement>Donation Agreement</agreement>",
@@ -39,7 +30,7 @@
     }
   },
   "helpCards": {
-    "title": "HOW KOVCHEG HELPS",
+    "title": "KOVCHEG HELPS",
     "cards": {
       "emergency": {
         "title": "Emergency Assistance",
@@ -95,32 +86,16 @@
         "stats": {
           "chats": {
             "number": "150,000",
-            "text": "communicate and receive support in\u00A0our chats"
+            "text": "communicate and receive support in our chats"
           },
           "events": {
             "number": "2,800",
-            "text": "attend events in\u00A0Yerevan, Warsaw and other cities"
+            "text": "attend events in Yerevan, Warsaw, and other cities"
           }
         }
       }
     },
     "testimonials": {
-      "psychology": {
-        "quote": "Kovcheg's team of psychologists helped me tremendously when I was in despair and on the edge",
-        "author": "Catherine (name changed), living in exile since the beginning of the war"
-      },
-      "legal": {
-        "quote": "Kovcheg's lawyers helped me sort out my documents and avoid mobilization",
-        "author": "Alexander, received asylum in Europe"
-      },
-      "adaptation": {
-        "quote": "Thanks to Kovcheg's courses, I was able to find a job in a new country",
-        "author": "Maria, works at an IT company"
-      },
-      "community": {
-        "quote": "In Kovcheg's chats, I found like-minded people and friends who supported me in difficult times",
-        "author": "Dmitry, community member"
-      },
       "first": {
         "quote": "Kovcheg's help greatly facilitated my emigration. After moving to Armenia, together with the Ukrainian diaspora, we created a project that helps Ukrainian refugees",
         "boldParts": [
@@ -155,30 +130,17 @@
   },
   "aboutKovcheg": {
     "title": "MORE ABOUT KOVCHEG",
-    "description": "Kovcheg was founded in\u00A0March 2022 in\u00A0response to\u00A0the persecution of\u00A0Russians who opposed the\u00A0war in\u00A0Ukraine. For two years now, we have been helping those who need it\u00A0most",
+    "description": "Kovcheg was founded in March 2022 in response to the persecution of Russians who opposed the war in Ukraine. For two years now, we have been helping those who need it most",
     "stats": {
       "helped": {
         "number": "210,000",
-        "text": "have already received help from Kovcheg in\u00A070\u00A0countries"
+        "text": "have already received help from Kovcheg in 70 countries"
       }
     }
   },
-  "mediaMentions": {
-    "title": "MEDIA COVERAGE",
-    "outlets": {
-      "wp": "Washington Post",
-      "fp": "Foreign Policy",
-      "ng": "Novaya Gazeta",
-      "meduza": "Meduza",
-      "popular": "Popular Politics",
-      "bbc": "BBC",
-      "republic": "Republic",
-      "forbes": "Forbes"
-    }
-  },
   "finalCta": {
-    "text": "Every month, hundreds of\u00A0people are forced to\u00A0leave Russia due to\u00A0their opposition to\u00A0the war and\u00A0repressions.",
+    "text": "Every month, hundreds of people are forced to leave Russia due to their opposition to the war and repressions.",
     "callToAction": "They need your help!",
     "helpButton": "Help Now"
   }
-} 
+}
