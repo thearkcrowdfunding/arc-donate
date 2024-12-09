@@ -33,7 +33,7 @@ export default async function LocaleLayout({
           <VideoProvider>
             <PayPalProvider>
               <NonprofitNavComponent />
-              <main className="pt-8 font-sans">
+              <main className="font-sans">
                 {children}
               </main>
             </PayPalProvider>

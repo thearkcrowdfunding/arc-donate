@@ -27,6 +27,7 @@ const config: Config = {
     extend: {
       fontSize: {
         base: ['1.5rem', '2rem'],
+        'standard': ['1rem', '1.5rem'],
       },
       colors: {
         'kovcheg': 'rgb(45, 87, 200)',

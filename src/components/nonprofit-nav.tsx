@@ -53,45 +53,47 @@ export function NonprofitNavComponent() {
   return (
     <div className="w-full fixed top-0 z-50">
       <Card className="bg-black/90 backdrop-blur-sm border-0 ring-0 ring-offset-0 shadow-none">
-        <CardContent className="max-w-6xl mx-auto px-8 md:px-12 py-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <a href="/" className="relative w-[120px] h-[40px]">
-                <Image
-                  src="/logo/kovcheg.svg"
-                  alt={t('brand')}
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className={`flex gap-1 mr-4 ${isAfterHero ? 'hidden md:flex' : 'flex'}`}>
-                {['en', 'ru'].map((locale) => (
-                  <button
-                    key={locale}
-                    onClick={() => handleLanguageChange(locale)}
-                    className={getLocaleClasses(locale)}
-                  >
-                    {locale}
-                  </button>
-                ))}
+        <CardContent className="p-0">
+          <div className="max-w-6xl mx-auto px-8 md:px-12 py-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <a href="/" className="relative w-[120px] h-[40px]">
+                  <Image
+                    src="/logo/kovcheg.svg"
+                    alt={t('brand')}
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </a>
               </div>
-              <button 
-                onClick={handleDonateClick}
-                className={desktopButtonClasses}
-              >
-                {t('help')}
-              </button>
-              {isAfterHero && (
+              <div className="flex items-center gap-4">
+                <div className={`flex gap-1 mr-4 ${isAfterHero ? 'hidden md:flex' : 'flex'}`}>
+                  {['en', 'ru'].map((locale) => (
+                    <button
+                      key={locale}
+                      onClick={() => handleLanguageChange(locale)}
+                      className={getLocaleClasses(locale)}
+                    >
+                      {locale}
+                    </button>
+                  ))}
+                </div>
                 <button 
                   onClick={handleDonateClick}
-                  className={mobileButtonClasses}
+                  className={desktopButtonClasses}
                 >
                   {t('help')}
                 </button>
-              )}
+                {isAfterHero && (
+                  <button 
+                    onClick={handleDonateClick}
+                    className={mobileButtonClasses}
+                  >
+                    {t('help')}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </CardContent>

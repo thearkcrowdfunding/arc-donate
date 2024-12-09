@@ -243,47 +243,47 @@ export function DonationFormWithCta({
         )}
         
         <div className="w-full">
-          <div className="bg-white text-kovcheg rounded-lg md:border-none border-4 border-kovcheg">
-            <div className="px-8 py-12 md:p-16">
+          <div className="bg-white text-blue-600 rounded-lg md:border-none border-8 border-kovcheg max-h-[100svh] md:max-h-none overflow-y-auto">
+            <div className="px-4 py-4 sm:px-6 sm:py-8 md:p-16">
               <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-4xl md:text-5xl leading-tight font-semibold mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl leading-tight font-semibold mb-2 sm:mb-3 md:mb-4">
                   {t('title')}
                 </h2>
-                <p className="mb-6">
+                <p className="mb-2 sm:mb-4 md:mb-6 text-base">
                   {t('description.text')}
                 </p>
                 {paymentMethod !== 'crypto' && (
-                  <p className="text-xl mb-4">{t('monthlySupport')}</p>
+                  <p className="text-base md:text-xl mb-2 sm:mb-3 md:mb-4">{t('monthlySupport')}</p>
                 )}
               </div>
               
-              <div className="flex justify-center mb-6 border-b border-kovcheg/20">
+              <div className="flex justify-center mb-2 sm:mb-4 md:mb-6 border-b border-blue-600/20">
                 <button
                   onClick={() => setPaymentMethod('card')}
-                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 text-[15px] sm:text-base md:text-lg font-medium transition-colors relative ${
                     paymentMethod === 'card' 
-                      ? 'text-kovcheg border-b-2 border-kovcheg' 
-                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                      ? 'text-blue-600 border-b-2 border-blue-600' 
+                      : 'text-blue-600/60 hover:text-blue-600/80'
                   }`}
                 >
                   {t('paymentMethods.card')}
                 </button>
                 <button
                   onClick={() => setPaymentMethod('paypal')}
-                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 text-[15px] sm:text-base md:text-lg font-medium transition-colors relative ${
                     paymentMethod === 'paypal' 
-                      ? 'text-kovcheg border-b-2 border-kovcheg' 
-                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                      ? 'text-blue-600 border-b-2 border-blue-600' 
+                      : 'text-blue-600/60 hover:text-blue-600/80'
                   }`}
                 >
                   {t('paymentMethods.paypal')}
                 </button>
                 <button
                   onClick={() => setPaymentMethod('crypto')}
-                  className={`px-6 py-3 text-lg font-medium transition-colors relative ${
+                  className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 text-[15px] sm:text-base md:text-lg font-medium transition-colors relative ${
                     paymentMethod === 'crypto' 
-                      ? 'text-kovcheg border-b-2 border-kovcheg' 
-                      : 'text-kovcheg/60 hover:text-kovcheg/80'
+                      ? 'text-blue-600 border-b-2 border-blue-600' 
+                      : 'text-blue-600/60 hover:text-blue-600/80'
                   }`}
                 >
                   {t('paymentMethods.crypto')}
@@ -295,7 +295,7 @@ export function DonationFormWithCta({
                 if (paymentMethod !== 'crypto') {
                   handleDonateClick();
                 }
-              }} className="space-y-6 mb-8">
+              }} className="space-y-2 sm:space-y-4 md:space-y-6 mb-2 sm:mb-4 md:mb-8">
                 {paymentMethod !== 'crypto' && (
                   <RadioGroup
                     value={amount}
@@ -326,7 +326,7 @@ export function DonationFormWithCta({
               </form>
               
               {paymentMethod !== 'crypto' && (
-                <p className="text-center mt-4 text-sm text-kovcheg/70">
+                <p className="text-center mt-2 sm:mt-3 md:mt-4 text-xs md:text-sm text-blue-600/70">
                   {t.rich('legalText', {
                     terms: (chunks) => (
                       <Link href="https://kovcheg.live/policy/" className="underline hover:no-underline">

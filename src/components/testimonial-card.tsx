@@ -13,7 +13,7 @@ interface TestimonialCardProps {
 export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: TestimonialCardProps) {
   const highlightText = (text: string) => {
     if (!Array.isArray(boldParts) || boldParts.length === 0) {
-      return <p className="text-xl md:text-2xl lg:text-3xl font-medium">{text}</p>;
+      return <p className="text-2xl md:text-3xl lg:text-4xl font-medium">{text}</p>;
     }
 
     const parts = [];
@@ -38,7 +38,7 @@ export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: Tes
     }
 
     return (
-      <p className="text-xl md:text-2xl lg:text-3xl font-medium">
+      <p className="text-2xl md:text-3xl lg:text-4xl font-medium">
         {parts}
       </p>
     );
@@ -46,9 +46,10 @@ export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: Tes
 
   return (
     <div className={cn(
-      "rounded-2xl overflow-hidden relative w-full",
+      "overflow-hidden relative w-full",
       "h-[600px] md:aspect-square",
-      imageSrc ? "text-white" : "bg-white text-blue-600"
+      imageSrc ? "text-white" : "bg-white text-blue-600",
+      "md:rounded-2xl"
     )}>
       {imageSrc ? (
         <>
@@ -66,7 +67,7 @@ export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: Tes
             </div>
             <div>
               <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
-              <p className="text-base md:text-lg opacity-80">
+              <p className="text-lg md:text-xl opacity-80">
                 {author}
               </p>
             </div>

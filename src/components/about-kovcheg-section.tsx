@@ -10,7 +10,7 @@ export function AboutKovchegSection({ showTitle = true }: AboutKovchegSectionPro
   const t = useTranslations('aboutKovcheg')
 
   return (
-    <div className="w-full bg-white text-blue-600 py-20">
+    <div className="w-full bg-white text-blue-600 py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-8 md:px-12">
         {showTitle && (
           <h2 className="text-4xl md:text-6xl font-semibold mb-12">

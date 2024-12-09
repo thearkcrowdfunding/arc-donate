@@ -17,11 +17,11 @@ export function HelpCardsSection() {
           </h2>
         </div>
         
-        <div className="space-y-12">
+        <div className="space-y-0 md:space-y-12">
           <HelpCard
             title={t('cards.emergency.title')}
             subtitles={t.raw('cards.emergency.subtitles')}
-            imageSrc="/images/help-cards/emergency.jpg"
+            imageSrc="/images/help-cards/support.jpg"
             stats={{
               housing: {
                 number: t('cards.emergency.stats.housing.number'),
@@ -34,7 +34,7 @@ export function HelpCardsSection() {
             }}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
             <TestimonialCard
               quote={t('testimonials.first.quote')}
               boldParts={t.raw('testimonials.first.boldParts')}
@@ -52,7 +52,7 @@ export function HelpCardsSection() {
           <HelpCard
             title={t('cards.psychology.title')}
             subtitles={t.raw('cards.psychology.subtitles')}
-            imageSrc="/images/help-cards/psychology.jpg"
+            imageSrc="/images/help-cards/support.jpg"
             stats={{
               psychology: {
                 number: t('cards.psychology.stats.psychology.number'),
@@ -61,18 +61,18 @@ export function HelpCardsSection() {
             }}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
             <TestimonialCard
               quote={t('testimonials.third.quote')}
               boldParts={t.raw('testimonials.third.boldParts')}
               author={t('testimonials.third.author')}
-              imageSrc="/images/help-cards/adaptation.jpg"
+              imageSrc="/images/testimonials/card4.jpg"
             />
             <TestimonialCard
               quote={t('testimonials.second.quote')}
               boldParts={t.raw('testimonials.second.boldParts')}
               author={t('testimonials.second.author')}
-              imageSrc="/images/help-cards/emergency.jpg"
+              imageSrc="/images/testimonials/card3.jpg"
             />
           </div>
 
@@ -83,7 +83,7 @@ export function HelpCardsSection() {
           <HelpCard
             title={t('cards.adaptation.title')}
             subtitles={t.raw('cards.adaptation.subtitles')}
-            imageSrc="/images/help-cards/adaptation.jpg"
+            imageSrc="/images/help-cards/support.jpg"
             stats={{
               language: {
                 number: t('cards.adaptation.stats.language.number'),
