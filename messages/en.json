@@ -14,7 +14,6 @@
     "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, due to\u00A0repressions and persecution, and due to\u00A0their refusal to\u00A0participate in\u00A0the war.",
     "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects. In\u00A0foreign lands, far from loved ones, many are struggling with depression.",
     "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti-war movement, and fight against the\u00A0war.",
-    "paragraph4": "Kovcheg helps them adapt to\u00A0their new life, get back on\u00A0their feet, and continue their fight for\u00A0peace.",
     "paragraph5": "To\u00A0continue their struggle, they need your help!"
   },
   "donationForm": {
@@ -40,7 +39,7 @@
     }
   },
   "helpCards": {
-    "title": "HOW WE HELP",
+    "title": "HOW KOVCHEG HELPS",
     "cards": {
       "emergency": {
         "title": "Emergency Assistance",
@@ -63,18 +62,25 @@
         "title": "Adaptation",
         "subtitles": [
           "Language Courses",
-          "Psychological Support",
           "Professional Retraining",
           "Knowledge Base"
+        ],
+        "stats": {
+          "language": {
+            "number": "1,900",
+            "text": "studied foreign languages"
+          }
+        }
+      },
+      "psychology": {
+        "title": "Psychological Support",
+        "subtitles": [
+          "Individual and Group Counseling"
         ],
         "stats": {
           "psychology": {
             "number": "11,000",
             "text": "received psychological support"
-          },
-          "language": {
-            "number": "1,900",
-            "text": "studied foreign languages"
           }
         }
       },
@@ -87,13 +93,13 @@
           "Kovcheg Business"
         ],
         "stats": {
-          "events": {
-            "number": "2,800",
-            "text": "attend events in\u00A0Yerevan, Warsaw and other cities"
-          },
           "chats": {
             "number": "150,000",
             "text": "communicate and receive support in\u00A0our chats"
+          },
+          "events": {
+            "number": "2,800",
+            "text": "attend events in\u00A0Yerevan, Warsaw and other cities"
           }
         }
       }
@@ -154,10 +160,6 @@
       "helped": {
         "number": "210,000",
         "text": "have already received help from Kovcheg in\u00A070\u00A0countries"
-      },
-      "volunteers": {
-        "number": "3,500",
-        "text": "volunteers help us every day"
       }
     }
   },

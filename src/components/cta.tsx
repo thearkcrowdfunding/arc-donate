@@ -15,7 +15,6 @@ export function CtaComponent() {
           <p className="text-2xl md:text-3xl font-medium">{t('paragraph1')}</p>
           <p className="text-2xl md:text-3xl font-medium">{t('paragraph2')}</p>
           <p className="text-2xl md:text-3xl font-medium">{t('paragraph3')}</p>
-          <p className="text-2xl md:text-3xl font-medium">{t('paragraph4')}</p>
           <p className="text-4xl md:text-6xl font-semibold">{t('paragraph5')}</p>
         </div>
       </div>

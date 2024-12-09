@@ -58,6 +58,10 @@ export default function LocalePage() {
           </div>
         </Suspense>
         
+        <Suspense fallback={<div className="h-[600px]" />}>
+          <AboutKovchegSection showTitle={false} />
+        </Suspense>
+        
         <Suspense fallback={<div className="h-[800px]" />}>
           <div id="donate-form">
             <DonationFormWithCta showCTA={false} variant="default" formId="form1" />
@@ -68,14 +72,14 @@ export default function LocalePage() {
           <HelpCardsSection />
         </Suspense>
 
-        <Suspense fallback={<div className="h-[800px]" />}>
-          <div id="donate-form-2">
-            <DonationFormWithCta showCTA={true} variant="default" formId="form2" />
-          </div>
+        <Suspense fallback={<div className="h-[600px]" />}>
+          <AboutKovchegSection showTitle={true} />
         </Suspense>
 
-        <Suspense fallback={<div className="h-[600px]" />}>
-          <AboutKovchegSection />
+        <Suspense fallback={<div className="h-[800px]" />}>
+          <div id="donate-form-3">
+            <DonationFormWithCta showCTA={true} variant="default" formId="form3" />
+          </div>
         </Suspense>
 
         <Suspense fallback={<div className="h-[600px]" />}>

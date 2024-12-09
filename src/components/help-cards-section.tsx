@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { HelpCard } from './help-card';
 import { TestimonialCard } from './testimonial-card';
+import { DonationFormWithCta } from './donation-form-with-cta';
 
 export function HelpCardsSection() {
   const t = useTranslations('helpCards');
@@ -41,40 +42,21 @@ export function HelpCardsSection() {
               imageSrc="/images/testimonials/card1.jpg"
             />
             <TestimonialCard
-              quote={t('testimonials.second.quote')}
-              boldParts={t.raw('testimonials.second.boldParts')}
-              author={t('testimonials.second.author')}
+              quote={t('testimonials.fourth.quote')}
+              boldParts={t.raw('testimonials.fourth.boldParts')}
+              author={t('testimonials.fourth.author')}
+              imageSrc="/images/testimonials/card2.jpg"
             />
           </div>
 
           <HelpCard
-            title={t('cards.adaptation.title')}
-            subtitles={t.raw('cards.adaptation.subtitles')}
-            imageSrc="/images/help-cards/adaptation.jpg"
+            title={t('cards.psychology.title')}
+            subtitles={t.raw('cards.psychology.subtitles')}
+            imageSrc="/images/help-cards/psychology.jpg"
             stats={{
               psychology: {
-                number: t('cards.adaptation.stats.psychology.number'),
-                text: t('cards.adaptation.stats.psychology.text')
-              },
-              language: {
-                number: t('cards.adaptation.stats.language.number'),
-                text: t('cards.adaptation.stats.language.text')
-              }
-            }}
-          />
-
-          <HelpCard
-            title={t('cards.support.title')}
-            subtitles={t.raw('cards.support.subtitles')}
-            imageSrc="/images/help-cards/support.jpg"
-            stats={{
-              events: {
-                number: t('cards.support.stats.events.number'),
-                text: t('cards.support.stats.events.text')
-              },
-              chats: {
-                number: t('cards.support.stats.chats.number'),
-                text: t('cards.support.stats.chats.text')
+                number: t('cards.psychology.stats.psychology.number'),
+                text: t('cards.psychology.stats.psychology.text')
               }
             }}
           />
@@ -84,14 +66,52 @@ export function HelpCardsSection() {
               quote={t('testimonials.third.quote')}
               boldParts={t.raw('testimonials.third.boldParts')}
               author={t('testimonials.third.author')}
+              imageSrc="/images/help-cards/adaptation.jpg"
             />
             <TestimonialCard
-              quote={t('testimonials.fourth.quote')}
-              boldParts={t.raw('testimonials.fourth.boldParts')}
-              author={t('testimonials.fourth.author')}
-              imageSrc="/images/testimonials/card2.jpg"
+              quote={t('testimonials.second.quote')}
+              boldParts={t.raw('testimonials.second.boldParts')}
+              author={t('testimonials.second.author')}
+              imageSrc="/images/help-cards/emergency.jpg"
             />
           </div>
+
+          <div id="donate-form-2">
+            <DonationFormWithCta showCTA={false} variant="default" formId="form2" />
+          </div>
+
+          <HelpCard
+            title={t('cards.adaptation.title')}
+            subtitles={t.raw('cards.adaptation.subtitles')}
+            imageSrc="/images/help-cards/adaptation.jpg"
+            stats={{
+              language: {
+                number: t('cards.adaptation.stats.language.number'),
+                text: t('cards.adaptation.stats.language.text')
+              }
+            }}
+          />
+
+          <HelpCard
+            title={t('cards.support.title')}
+            subtitles={[
+              t.raw('cards.support.subtitles')[2], // Чаты взаимопомощи
+              t.raw('cards.support.subtitles')[1], // Офлайн пространства
+              t.raw('cards.support.subtitles')[0], // Профессиональные сообщества
+              t.raw('cards.support.subtitles')[3]  // Ковчег Бизнес
+            ]}
+            imageSrc="/images/help-cards/support.jpg"
+            stats={{
+              chats: {
+                number: t('cards.support.stats.chats.number'),
+                text: t('cards.support.stats.chats.text')
+              },
+              events: {
+                number: t('cards.support.stats.events.number'),
+                text: t('cards.support.stats.events.text')
+              }
+            }}
+          />
         </div>
       </div>
     </div>
