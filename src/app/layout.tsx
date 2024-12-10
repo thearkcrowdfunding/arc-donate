@@ -1,39 +1,35 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { headers } from 'next/headers';
 
-const metadata: Record<string, Metadata> = {
-  en: {
-    title: "KOVCHEG",
-    description: "Help people with an anti‑war stance. Kovcheg is the largest project helping Russians with an anti‑war stance in emigration and inside the country",
+export async function generateMetadata(): Promise<Metadata> {
+  // Get the locale from headers (falls back to 'ru')
+  const headersList = headers();
+  const locale = headersList.get('x-next-intl-locale') || 'ru';
+  
+  // Load messages for the current locale
+  const messages = (await import(`../messages/${locale}.json`)).default;
+
+  return {
+    title: messages.metadata.title,
+    description: messages.metadata.description,
     icons: {
       icon: '/favicon.png',
     },
-  },
-  ru: {
-    title: "КОВЧЕГ",
-    description: "Помогите людям с антивоенной позицией. Ковчег — самый большой проект, который помогает россиянам с антивоенной позицией в эмиграции и внутри страны",
-    icons: {
-      icon: '/favicon.png',
-    },
-  }
-};
+  };
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Default to Russian metadata
-  const currentMetadata = metadata.ru;
-
-  const gtmId = "Your GTM ID";
+  const gtmId = "GTM-TQMSQ3C8";
 
   return (
-    <html lang="ru" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
-        <title>{currentMetadata.title}</title>
-        <meta name="description" content={currentMetadata.description} />
         <Script
           id="gtm-script"
           strategy="afterInteractive"

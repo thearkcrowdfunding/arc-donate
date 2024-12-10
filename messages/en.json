@@ -172,5 +172,9 @@
       "description": "Your payment was cancelled. If you experienced any issues, please try again",
       "button": "Try Again"
     }
+  },
+  "metadata": {
+    "title": "Help people with an anti-war stance",
+    "description": "Kovcheg is the largest project helping Russians with an anti-war stance in emigration and inside the country"
   }
 }
