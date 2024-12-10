@@ -8,8 +8,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const headersList = headers();
   const locale = headersList.get('x-next-intl-locale') || 'ru';
   
-  // Load messages for the current locale
-  const messages = (await import(`../messages/${locale}.json`)).default;
+  // Fix the path to messages
+  const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return {
     title: messages.metadata.title,
