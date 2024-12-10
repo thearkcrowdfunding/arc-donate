@@ -61,7 +61,7 @@ export default function LocalePage() {
         <div className="bg-kovcheg h-8"></div>
 
         <Suspense fallback={<div className="h-[600px]" />}>
-          <AboutKovchegSection showTitle={false} />
+          <AboutKovchegSection showTitle={false} isFirst={true} />
         </Suspense>
         
         <Suspense fallback={<div className="h-[800px]" />}>
@@ -77,7 +77,7 @@ export default function LocalePage() {
         <Suspense fallback={<div className="h-[600px]" />}>
           <AboutKovchegSection 
             showTitle={true} 
-            statsBeforeDescription={true}
+            isFirst={false}
           />
         </Suspense>
 

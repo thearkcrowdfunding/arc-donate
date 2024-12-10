@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { scrollHandlers } from "@/utils/scroll-handlers"
+import { analytics } from "@/utils/analytics"
 
 export function FinalCtaComponent() {
   const t = useTranslations('finalCta')
@@ -17,7 +18,10 @@ export function FinalCtaComponent() {
         </p>
         <button 
           className="w-full md:w-[400px] bg-blue-600 text-white hover:bg-blue-700 font-semibold py-8 rounded-full text-3xl transition duration-300"
-          onClick={() => scrollHandlers.handleHeroToFormClick('donate-form-2')}
+          onClick={() => {
+            scrollHandlers.handleHeroToFormClick('donate-form-2')
+            analytics.trackDonationForm('Donate Button Click', 'final_cta', 'final')
+          }}
         >
           {t('helpButton')}
         </button>

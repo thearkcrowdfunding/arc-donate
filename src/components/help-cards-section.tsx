@@ -10,6 +10,16 @@ export function HelpCardsSection() {
 
   return (
     <div className="w-full pt-8 pb-20">
+      <div className="md:hidden w-screen relative left-1/2 -translate-x-1/2">
+        <TestimonialCard
+          quote={t('testimonials.fourth.quote')}
+          boldParts={t.raw('testimonials.fourth.boldParts')}
+          author={t('testimonials.fourth.author')}
+          darkOverlay={true}
+          imageSrc="/images/testimonials/card2.jpg"
+        />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         <div className="p-8 md:p-12 pb-0 md:pb-0">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-8">
@@ -21,7 +31,7 @@ export function HelpCardsSection() {
           <HelpCard
             title={t('cards.emergency.title')}
             subtitles={t.raw('cards.emergency.subtitles')}
-            imageSrc="/images/help-cards/support.jpg"
+            imageSrc="/images/help-cards/emergency.jpg"
             stats={{
               housing: {
                 number: t('cards.emergency.stats.housing.number'),
@@ -35,13 +45,15 @@ export function HelpCardsSection() {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
-            <TestimonialCard
-              quote={t('testimonials.fourth.quote')}
-              boldParts={t.raw('testimonials.fourth.boldParts')}
-              author={t('testimonials.fourth.author')}
-              darkOverlay={true}
-              imageSrc="/images/testimonials/card2.jpg"
-            />
+            <div className="hidden md:block">
+              <TestimonialCard
+                quote={t('testimonials.fourth.quote')}
+                boldParts={t.raw('testimonials.fourth.boldParts')}
+                author={t('testimonials.fourth.author')}
+                darkOverlay={true}
+                imageSrc="/images/testimonials/card2.jpg"
+              />
+            </div>
             <TestimonialCard
               quote={t('testimonials.first.quote')}
               boldParts={t.raw('testimonials.first.boldParts')}

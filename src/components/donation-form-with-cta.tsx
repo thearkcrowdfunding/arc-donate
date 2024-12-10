@@ -75,7 +75,11 @@ export function DonationFormWithCta({
       await navigator.clipboard.writeText(address);
       setCopiedAddress(address);
       setTimeout(() => setCopiedAddress(null), 2000);
-      analytics.trackDonationForm('Crypto Address Copied', address, formId);
+      
+      const cryptoDetails = CRYPTO_ADDRESSES.find(crypto => crypto.address === address);
+      if (cryptoDetails) {
+        analytics.trackCryptoDonation(cryptoDetails.currency, formId, parseInt(amount, 10));
+      }
     } catch (err) {
       console.error('Failed to copy address:', err);
     }

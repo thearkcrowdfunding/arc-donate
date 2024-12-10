@@ -4,14 +4,15 @@ import { useTranslations } from 'next-intl'
 
 interface AboutKovchegSectionProps {
   showTitle?: boolean;
-  statsBeforeDescription?: boolean;
+  isFirst?: boolean;
 }
 
 export function AboutKovchegSection({ 
   showTitle = true,
-  statsBeforeDescription = false 
+  isFirst = false 
 }: AboutKovchegSectionProps) {
   const t = useTranslations('aboutKovcheg')
+  const ctaT = useTranslations('cta')
 
   const StatsSection = () => (
     <div className="space-y-4">
@@ -25,9 +26,16 @@ export function AboutKovchegSection({
   )
 
   const Description = () => (
-    <p className="text-2xl md:text-3xl text-blue-600 max-w-4xl mb-12">
-      {t('description')}
-    </p>
+    <div>
+      <p className="text-2xl md:text-3xl text-blue-600 max-w-4xl mb-12">
+        {t('description')}
+      </p>
+      {isFirst && (
+        <p className="text-4xl md:text-6xl font-semibold">
+          {ctaT('paragraph5')}
+        </p>
+      )}
+    </div>
   )
 
   return (
@@ -39,19 +47,10 @@ export function AboutKovchegSection({
           </h2>
         )}
         
-        {statsBeforeDescription ? (
-          <>
-            <div className="mb-12">
-              <StatsSection />
-            </div>
-            <Description />
-          </>
-        ) : (
-          <>
-            <Description />
-            <StatsSection />
-          </>
-        )}
+        <div className="mb-12">
+          <StatsSection />
+        </div>
+        <Description />
       </div>
     </div>
   )

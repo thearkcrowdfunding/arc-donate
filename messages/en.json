@@ -12,9 +12,9 @@
   "cta": {
     "title": "OVER A\u00A0MILLION PEOPLE",
     "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, repressions, and\u00A0persecution, and\u00A0their refusal to\u00A0fight.",
-    "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects. In\u00A0foreign lands, far from loved ones, many are in\u00A0depression.",
+    "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects.",
     "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti\u2011war movement, and\u00A0fight against the\u00A0war.",
-    "paragraph5": "To\u00A0continue their struggle, they need your help!"
+    "paragraph5": "To\u00A0continue this struggle, we need your help!"
   },
   "donationForm": {
     "title": "HELP RUSSIANS WITH AN\u00A0ANTI\u2011WAR STANCE",
@@ -27,7 +27,7 @@
       "paypal": "PayPal",
       "crypto": "Crypto"
     },
-    "helpButton": "Help",
+    "helpButton": "Help!",
     "legalText": "By\u00A0clicking the\u00A0button, you accept the\u00A0<terms>Terms of\u00A0Service</terms> and\u00A0<agreement>Donation Agreement</agreement>",
     "ctaTexts": {
       "default": "To\u00A0provide emergency assistance and\u00A0support people in\u00A0difficult situations, we\u00A0need your help.\nEven $20 will change someone's life"
@@ -146,7 +146,7 @@
   "finalCta": {
     "text": "Every month, hundreds of\u00A0people are forced to\u00A0leave Russia due to\u00A0their opposition to\u00A0the\u00A0war and\u00A0repressions.",
     "callToAction": "They need your help!",
-    "helpButton": "Help Now"
+    "helpButton": "Help now!"
   },
   "mediaMentions": {
     "title": "MEDIA COVERAGE",

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { scrollHandlers } from "@/utils/scroll-handlers"
+import { analytics } from "@/utils/analytics"
 
 export function HeroComponent() {
   const t = useTranslations('hero')
@@ -34,7 +35,10 @@ export function HeroComponent() {
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-4">
             <button 
               className="w-full md:w-[400px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 md:py-8 rounded-lg text-[min(6vw,1.75rem)] md:text-3xl transition duration-300"
-              onClick={() => scrollHandlers.handleHeroToFormClick()}
+              onClick={() => {
+                scrollHandlers.handleHeroToFormClick()
+                analytics.trackDonationForm('Donate Button Click', 'hero', 'hero')
+              }}
             >
               {t('helpButton')}
             </button>

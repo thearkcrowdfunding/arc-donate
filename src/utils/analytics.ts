@@ -13,6 +13,9 @@ declare global {
   
 type EventParams = Record<string, string | number | boolean>;
 
+// Add payment method types
+type PaymentMethod = 'stripe' | 'paypal' | 'crypto';
+
 class Analytics {
   private queue: Array<{event: string; params: EventParams}> = [];
   private isInitialized = false;
@@ -117,32 +120,82 @@ class Analytics {
   
   /**
    * Tracks interactions with the donation form.
-   * @param action - The action performed (e.g., 'Donate Button Click').
-   * @param label - The label for the event (e.g., selected amount).
-   * @param formId - Identifier of the form.
-   * @param donationAmount - The numeric value of the donation amount.
+   * @param action - The action performed
+   * @param label - Event label
+   * @param formId - Form identifier
+   * @param params - Additional parameters
    */
   trackDonationForm(
     action: string,
     label: string,
     formId: string,
-    donationAmount?: number
+    params?: {
+      donationAmount?: number;
+      paymentMethod?: PaymentMethod;
+    }
   ) {
-    const value =
-      typeof donationAmount === 'number' && !isNaN(donationAmount) && donationAmount > 0
-        ? donationAmount
-        : undefined;
+    // Convert navigation clicks to proper event name
+    const eventAction = action === 'Donate Button Click' 
+      ? 'Donation Form Navigation'  // For nav/hero/final-cta clicks
+      : action === 'Payment Method Select' 
+        ? 'Donation Initiate'       // For actual donation starts
+        : action;
 
-    const additionalParams: EventParams = {
-      formId,
+    const eventParams: EventParams = {
+      form_id: formId,
+      ...(params?.paymentMethod && { payment_method: params.paymentMethod }),
+      ...(params?.donationAmount && { donation_amount: params.donationAmount })
     };
 
-    // Include donation_amount only if it is a valid number
-    if (typeof donationAmount === 'number' && !isNaN(donationAmount) && donationAmount > 0) {
-      additionalParams.donation_amount = donationAmount;
-    }
+    this.trackEvent(
+      'Donation Form',
+      eventAction,
+      label,
+      params?.donationAmount,
+      eventParams
+    );
+  }
 
-    this.trackEvent('Donation Form', action, label, value, additionalParams);
+  /**
+   * Tracks crypto donation initiations
+   */
+  trackCryptoDonation(
+    currency: string,
+    formId: string,
+    amount?: number
+  ) {
+    this.trackEvent(
+      'Donation Form',
+      'Donation Initiate',
+      'crypto_copy',
+      amount,
+      {
+        form_id: formId,
+        payment_method: 'crypto',
+        crypto_currency: currency
+      }
+    );
+  }
+
+  /**
+   * Tracks successful donations with payment method
+   */
+  trackDonationSuccess(
+    amount: number,
+    formId: string,
+    paymentMethod: PaymentMethod
+  ) {
+    this.trackEvent(
+      'Donation Form',
+      'Donation Success',
+      paymentMethod,
+      amount,
+      {
+        form_id: formId,
+        payment_method: paymentMethod,
+        donation_amount: amount
+      }
+    );
   }
 
   /**
