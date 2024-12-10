@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-export const metadata: Metadata = {
-  title: "KOVCHEG",
-  description: "Support anti-war Russians",
-  icons: {
-    icon: '/favicon.png',
+const metadata: Record<string, Metadata> = {
+  en: {
+    title: "KOVCHEG",
+    description: "Help people with an anti‑war stance. Kovcheg is the largest project helping Russians with an anti‑war stance in emigration and inside the country",
+    icons: {
+      icon: '/favicon.png',
+    },
   },
+  ru: {
+    title: "КОВЧЕГ",
+    description: "Помогите людям с антивоенной позицией. Ковчег — самый большой проект, который помогает россиянам с антивоенной позицией в эмиграции и внутри страны",
+    icons: {
+      icon: '/favicon.png',
+    },
+  }
 };
 
 export default function RootLayout({
@@ -15,11 +24,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Default to Russian metadata
+  const currentMetadata = metadata.ru;
+
   const gtmId = "Your GTM ID";
 
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="ru" suppressHydrationWarning className="dark">
       <head>
+        <title>{currentMetadata.title}</title>
+        <meta name="description" content={currentMetadata.description} />
         <Script
           id="gtm-script"
           strategy="afterInteractive"
