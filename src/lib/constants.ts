@@ -34,7 +34,7 @@ export const PAYMENT_URLS = {
 } as const;
 
 // For use with payment providers that need full URLs:
-export const getPaymentUrls = (baseUrl: string) => ({
-  success: `${baseUrl}${PAYMENT_URLS.SUCCESS}`,
-  cancel: `${baseUrl}${PAYMENT_URLS.CANCEL}`
+export const getPaymentUrls = (baseUrl: string, locale: string) => ({
+  success: `${baseUrl}/${locale}${PAYMENT_URLS.SUCCESS}`,
+  cancel: `${baseUrl}/${locale}${PAYMENT_URLS.CANCEL}`
 });

@@ -75,7 +75,10 @@ export default function LocalePage() {
         </Suspense>
 
         <Suspense fallback={<div className="h-[600px]" />}>
-          <AboutKovchegSection showTitle={true} />
+          <AboutKovchegSection 
+            showTitle={true} 
+            statsBeforeDescription={true}
+          />
         </Suspense>
 
         <Suspense fallback={<div className="h-[800px]" />}>

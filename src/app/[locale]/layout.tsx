@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 import { VideoProvider } from '@/contexts/video-context';
+import { setRequestLocale } from 'next-intl/server';
 
 type Locale = 'en' | 'ru';
 
@@ -14,6 +15,8 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: Locale };
 }) {
+  setRequestLocale(locale);
+
   if (!routing.locales.includes(locale)) {
     notFound();
   }

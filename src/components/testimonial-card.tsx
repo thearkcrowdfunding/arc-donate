@@ -5,12 +5,13 @@ import { cn } from '@/lib/utils';
 
 interface TestimonialCardProps {
   quote: string;
-  boldParts?: string[];
+  boldParts: string[];
   author: string;
-  imageSrc?: string;
+  imageSrc: string;
+  darkOverlay?: boolean;
 }
 
-export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: TestimonialCardProps) {
+export function TestimonialCard({ quote, boldParts = [], author, imageSrc, darkOverlay = false }: TestimonialCardProps) {
   const highlightText = (text: string) => {
     if (!Array.isArray(boldParts) || boldParts.length === 0) {
       return <p className="text-2xl md:text-3xl lg:text-4xl font-medium">{text}</p>;
@@ -48,44 +49,29 @@ export function TestimonialCard({ quote, boldParts = [], author, imageSrc }: Tes
     <div className={cn(
       "overflow-hidden relative w-full",
       "h-[600px] md:aspect-square",
-      imageSrc ? "text-white" : "bg-white text-blue-600",
-      "md:rounded-2xl"
+      "text-white",
+      "md:rounded-2xl",
+      darkOverlay ? "bg-black/10" : ""
     )}>
-      {imageSrc ? (
-        <>
-          <Image
-            src={imageSrc}
-            alt=""
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 p-6 md:p-8 flex flex-col">
-            <div className="flex-grow flex items-end mb-8">
-              {highlightText(quote)}
-            </div>
-            <div>
-              <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
-              <p className="text-lg md:text-xl opacity-80">
-                {author}
-              </p>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="h-full p-6 md:p-8 flex flex-col">
-          <div className="flex-grow flex items-end mb-8">
-            {highlightText(quote)}
-          </div>
-          <div>
-            <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
-            <p className="text-base md:text-lg opacity-80">
-              {author}
-            </p>
-          </div>
+      <Image
+        src={imageSrc}
+        alt=""
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 p-6 md:p-8 flex flex-col">
+        <div className="flex-grow flex items-end mb-8">
+          {highlightText(quote)}
         </div>
-      )}
+        <div>
+          <div className="w-16 h-0.5 bg-current opacity-60 mb-4" />
+          <p className="text-lg md:text-xl opacity-80">
+            {author}
+          </p>
+        </div>
+      </div>
     </div>
   );
 } 

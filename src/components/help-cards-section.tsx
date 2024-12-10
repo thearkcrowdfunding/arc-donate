@@ -39,6 +39,7 @@ export function HelpCardsSection() {
               quote={t('testimonials.fourth.quote')}
               boldParts={t.raw('testimonials.fourth.boldParts')}
               author={t('testimonials.fourth.author')}
+              darkOverlay={true}
               imageSrc="/images/testimonials/card2.jpg"
             />
             <TestimonialCard
@@ -52,7 +53,7 @@ export function HelpCardsSection() {
           <HelpCard
             title={t('cards.psychology.title')}
             subtitles={t.raw('cards.psychology.subtitles')}
-            imageSrc="/images/help-cards/support.jpg"
+            imageSrc="/images/help-cards/psychology.jpg"
             stats={{
               psychology: {
                 number: t('cards.psychology.stats.psychology.number'),
@@ -83,7 +84,7 @@ export function HelpCardsSection() {
           <HelpCard
             title={t('cards.adaptation.title')}
             subtitles={t.raw('cards.adaptation.subtitles')}
-            imageSrc="/images/help-cards/support.jpg"
+            imageSrc="/images/help-cards/adaptation.jpg"
             stats={{
               language: {
                 number: t('cards.adaptation.stats.language.number'),
