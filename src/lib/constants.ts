@@ -1,7 +1,7 @@
 export const PAYPAL_SUBSCRIPTION_LINKS = {
-  '15': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8YF15328CS788392LM4DCHRI',
-  '20': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8YF15328CS788392LM4DCHRI',
-  '30': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8YF15328CS788392LM4DCHRI',
+  '15': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2XM51774WY216832HM5MJPPQ',
+  '20': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8XD66612MH7755442M5MJPVY',
+  '30': 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-46Y30944094993914M5MJP3I',
 } as const; 
 
 export const STRIPE_PAYMENT_LINKS = {
