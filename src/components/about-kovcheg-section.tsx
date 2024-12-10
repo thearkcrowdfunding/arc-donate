@@ -27,9 +27,11 @@ export function AboutKovchegSection({
 
   const Description = () => (
     <div>
-      <p className="text-2xl md:text-3xl text-blue-600 max-w-4xl mb-12">
-        {t('description')}
-      </p>
+      {!isFirst && (
+        <p className="text-2xl md:text-3xl text-blue-600 max-w-4xl mb-12">
+          {t('description')}
+        </p>
+      )}
       {isFirst && (
         <p className="text-4xl md:text-6xl font-semibold">
           {ctaT('paragraph5')}
