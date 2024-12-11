@@ -1,12 +1,5 @@
+import { PaymentMethod, PaymentTrackingParams } from '@/types/payment';
 import { analytics } from './analytics';
-
-type PaymentProvider = 'stripe' | 'paypal';
-
-interface PaymentTrackingParams {
-  provider?: PaymentProvider;
-  amount?: string;
-  formId: string;
-}
 
 export const trackPaymentResult = (
   status: 'success' | 'cancel',
@@ -14,11 +7,13 @@ export const trackPaymentResult = (
 ) => {
   const eventName = status === 'success' ? 'Payment Success' : 'Payment Cancelled';
   
-  analytics.trackEvent(
-    'Payment',
+  analytics.trackDonationForm(
     eventName,
     params.provider || 'unknown',
-    params.amount ? parseInt(params.amount, 10) : undefined,
-    { formId: params.formId }
+    params.formId,
+    {
+      paymentMethod: params.provider,
+      donationAmount: params.amount ? parseInt(params.amount, 10) : undefined
+    }
   );
 }; 

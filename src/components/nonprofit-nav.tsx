@@ -77,7 +77,11 @@ export function NonprofitNavComponent() {
           <div className="max-w-6xl mx-auto px-8 md:px-12 py-1.5 md:py-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <a href="/" className="relative w-[100px] h-[32px] md:w-[120px] md:h-[40px]">
+                <a 
+                  href="/" 
+                  className="relative w-[100px] h-[32px] md:w-[120px] md:h-[40px]"
+                  onClick={() => analytics.trackNavigation('Logo Click', 'Header')}
+                >
                   <Image
                     src="/logo/kovcheg.svg"
                     alt={t('brand')}

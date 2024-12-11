@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { trackPaymentResult } from '@/utils/payment-analytics'
 import { useSearchParams } from 'next/navigation'
+import { analytics } from '@/utils/analytics'
+import { PaymentMethod } from '@/types/payment'
 
 export function PaymentSuccessContent() {
   const t = useTranslations('payment.success')
@@ -13,15 +15,19 @@ export function PaymentSuccessContent() {
   
   useEffect(() => {
     const formId = searchParams.get('formId');
-    const provider = searchParams.get('provider');
+    const provider = searchParams.get('provider') as PaymentMethod | null;
     const amount = searchParams.get('amount');
 
-    if (formId) {
-      trackPaymentResult('success', {
-        provider: (provider as 'stripe' | 'paypal') || undefined,
-        amount: amount || undefined,
-        formId
-      });
+    if (formId && provider) {
+      analytics.trackDonationForm(
+        'Payment Success',
+        provider,
+        formId,
+        {
+          paymentMethod: provider,
+          donationAmount: amount ? parseInt(amount, 10) : undefined
+        }
+      );
     }
   }, [searchParams]);
 

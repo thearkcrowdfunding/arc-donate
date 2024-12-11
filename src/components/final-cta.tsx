@@ -20,7 +20,7 @@ export function FinalCtaComponent() {
           className="w-full md:w-[400px] bg-blue-600 text-white hover:bg-blue-700 font-semibold py-8 rounded-full text-3xl transition duration-300"
           onClick={() => {
             scrollHandlers.handleHeroToFormClick('donate-form-2')
-            analytics.trackDonationForm('Donate Button Click', 'final_cta', 'final')
+            analytics.trackDonationForm('Donate Button Click', 'final_cta', 'form2')
           }}
         >
           {t('helpButton')}

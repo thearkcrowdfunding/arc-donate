@@ -36,8 +36,8 @@ export function HeroComponent() {
             <button 
               className="w-full md:w-[400px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 md:py-8 rounded-lg text-[min(6vw,1.75rem)] md:text-3xl transition duration-300"
               onClick={() => {
-                scrollHandlers.handleHeroToFormClick()
-                analytics.trackDonationForm('Donate Button Click', 'hero', 'hero')
+                scrollHandlers.handleHeroToFormClick('donate-form');
+                analytics.trackDonationForm('Donate Button Click', 'hero', 'form1')
               }}
             >
               {t('helpButton')}
@@ -45,7 +45,10 @@ export function HeroComponent() {
             <Link 
               href="#learn-more" 
               className="text-[min(5vw,1.375rem)] md:text-2xl underline text-center w-full md:text-left md:w-auto md:ml-8 py-2" 
-              onClick={scrollHandlers.handleLearnMoreClick}
+              onClick={(e) => {
+                scrollHandlers.handleLearnMoreClick(e);
+                analytics.trackNavigation('Learn More Click', 'Hero');
+              }}
             >
               {t('learnMore')}
             </Link>

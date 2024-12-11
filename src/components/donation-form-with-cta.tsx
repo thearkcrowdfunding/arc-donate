@@ -13,19 +13,12 @@ import {
   PAYPAL_SUBSCRIPTION_LINKS,
   CRYPTO_ADDRESSES 
 } from '@/lib/constants';
+import { PaymentMethod, DonationFormParams } from '@/types/payment';
 
 interface DonationFormProps {
   showCTA?: boolean;
   variant?: 'urgent' | 'default';
   formId: string;
-}
-
-type PaymentMethod = 'card' | 'paypal' | 'crypto';
-
-interface CryptoAddress {
-  currency: string;
-  network: string;
-  address: string;
 }
 
 export function DonationFormWithCta({ 
@@ -35,18 +28,29 @@ export function DonationFormWithCta({
 }: DonationFormProps) {
   const t = useTranslations('donationForm')
   const [amount, setAmount] = useState<string>('20')
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card')
+  const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'paypal' | 'crypto'>('stripe')
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null)
 
   const handleAmountClick = (value: string) => {
-    setAmount(value)
-    analytics.trackDonationForm('Payment Option Click', `$${value}`, formId);
-  }
+    setAmount(value);
+    analytics.trackDonationForm(
+      'Payment Option Click', 
+      `$${value}`, 
+      formId,
+      {
+        paymentMethod
+      }
+    );
+  };
 
-  const handlePaymentMethodChange = (method: PaymentMethod) => {
+  const handlePaymentMethodChange = (method: 'stripe' | 'paypal' | 'crypto') => {
     setPaymentMethod(method);
-    analytics.trackDonationForm('Payment Method Change', method, formId);
-  }
+    analytics.trackDonationForm(
+      'Payment Method Change', 
+      method, 
+      formId
+    );
+  };
 
   const handleDonateClick = () => {
     if (paymentMethod === 'crypto') {
@@ -54,21 +58,46 @@ export function DonationFormWithCta({
     }
 
     const numericAmount = parseInt(amount, 10);
-    const links = paymentMethod === 'card' ? STRIPE_PAYMENT_LINKS : PAYPAL_SUBSCRIPTION_LINKS;
+    const links = paymentMethod === 'stripe' ? STRIPE_PAYMENT_LINKS : PAYPAL_SUBSCRIPTION_LINKS;
     const paymentLink = links[amount as keyof typeof STRIPE_PAYMENT_LINKS];
 
     if (!isNaN(numericAmount) && numericAmount > 0) {
-      analytics.trackDonation(numericAmount, formId);
+      analytics.trackDonationForm(
+        'Donation Initiate',
+        paymentMethod,
+        formId,
+        {
+          donationAmount: numericAmount,
+          paymentMethod
+        }
+      );
       
       if (paymentLink) {
-        window.location.href = paymentLink;
+        const redirectUrl = new URL(paymentLink);
+        redirectUrl.searchParams.append('provider', paymentMethod);
+        redirectUrl.searchParams.append('amount', amount);
+        redirectUrl.searchParams.append('formId', formId);
+        
+        window.location.href = redirectUrl.toString();
       } else {
-        analytics.trackEvent('Error', 'Invalid Payment Link', `Amount: ${amount}`, undefined, { formId });
+        analytics.trackEvent(
+          'Error', 
+          'Invalid Payment Link', 
+          `Amount: ${amount}, Method: ${paymentMethod}`, 
+          undefined, 
+          { formId }
+        );
       }
     } else {
-      analytics.trackEvent('Error', 'Invalid Amount', `Amount: ${amount}`, undefined, { formId });
+      analytics.trackEvent(
+        'Error', 
+        'Invalid Amount', 
+        `Amount: ${amount}, Method: ${paymentMethod}`, 
+        undefined, 
+        { formId }
+      );
     }
-  }
+  };
 
   const handleCopyAddress = async (address: string) => {
     try {
@@ -171,9 +200,9 @@ export function DonationFormWithCta({
               
               <div className="flex justify-center mb-2 sm:mb-4 md:mb-6 border-b border-blue-600/20">
                 <button
-                  onClick={() => setPaymentMethod('card')}
+                  onClick={() => setPaymentMethod('stripe')}
                   className={`px-3 sm:px-4 md:px-6 py-2 md:py-3 text-[15px] sm:text-base md:text-lg font-medium transition-colors relative ${
-                    paymentMethod === 'card' 
+                    paymentMethod === 'stripe' 
                       ? 'text-blue-600 border-b-2 border-blue-600' 
                       : 'text-blue-600/60 hover:text-blue-600/80'
                   }`}

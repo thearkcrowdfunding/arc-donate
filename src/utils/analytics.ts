@@ -15,6 +15,10 @@ type EventParams = Record<string, string | number | boolean>;
 
 // Add payment method types
 type PaymentMethod = 'stripe' | 'paypal' | 'crypto';
+type DonationFormParams = {
+  donationAmount?: number;
+  paymentMethod?: PaymentMethod;
+};
 
 class Analytics {
   private queue: Array<{event: string; params: EventParams}> = [];
@@ -129,18 +133,8 @@ class Analytics {
     action: string,
     label: string,
     formId: string,
-    params?: {
-      donationAmount?: number;
-      paymentMethod?: PaymentMethod;
-    }
+    params?: DonationFormParams
   ) {
-    // Convert navigation clicks to proper event name
-    const eventAction = action === 'Donate Button Click' 
-      ? 'Donation Form Navigation'  // For nav/hero/final-cta clicks
-      : action === 'Payment Method Select' 
-        ? 'Donation Initiate'       // For actual donation starts
-        : action;
-
     const eventParams: EventParams = {
       form_id: formId,
       ...(params?.paymentMethod && { payment_method: params.paymentMethod }),
@@ -149,7 +143,7 @@ class Analytics {
 
     this.trackEvent(
       'Donation Form',
-      eventAction,
+      action,
       label,
       params?.donationAmount,
       eventParams
@@ -213,15 +207,6 @@ class Analytics {
    */
   trackPageView(path: string) {
     this.pushToDataLayer('virtual_page_view', { page_path: path });
-  }
-
-  /**
-   * Tracks successful donations.
-   * @param amount - The donation amount.
-   * @param formId - The identifier of the form.
-   */
-  trackDonation(amount: number, formId: string) {
-    this.pushToDataLayer('donation', { donation_amount: amount, formId });
   }
 
   /**
