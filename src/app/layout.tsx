@@ -9,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return {
+    metadataBase: new URL('https://donate.kovcheg.live'),
     title: messages.metadata.title,
     description: messages.metadata.description,
     openGraph: {
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: messages.metadata.description,
       images: [
         {
-          url: '/images/og/og-image.jpg', // Replace with your hero image path
+          url: '/images/og/og-image.jpg',
           width: 1200,
           height: 630,
           alt: messages.metadata.title,
@@ -29,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: messages.metadata.title,
       description: messages.metadata.description,
-      images: ['/images/og/og-image.jpg'], // Same image as OG
+      images: ['/images/og/og-image.jpg'],
     },
     icons: {
       icon: '/favicon.png',
