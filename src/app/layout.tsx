@@ -50,11 +50,6 @@ export default function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning className="dark">
       <head>
-        <link
-          rel="preconnect"
-          href="https://donate.kovcheg.live"
-          crossOrigin="anonymous"
-        />
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -70,7 +65,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased font-normal">
+      <body className="antialiased font-[400]">
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}

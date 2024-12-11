@@ -1,18 +1,13 @@
 import createMiddleware from 'next-intl/middleware';
-import { locales } from './i18n/config';
+import { locales, defaultLocale } from './i18n/config';
 
 export default createMiddleware({
-  locales: ['en', 'ru'],
-  defaultLocale: 'ru',
+  locales,
+  defaultLocale,
   localePrefix: 'as-needed',
-  localeDetection: false,
+  localeDetection: true,
 });
 
 export const config = {
-  matcher: [
-    // Match all paths except api, _next, static files, and root
-    '/((?!api|_next|_vercel|.*\\.[^/]*$).*)',
-    // Also match root exactly
-    '/'
-  ]
+  matcher: ['/((?!api|_next|_vercel|.*\\..*$).*)']
 };
