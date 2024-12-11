@@ -12,10 +12,10 @@ export function HeroComponent() {
   return (
     <div className="relative h-screen md:h-[800px] flex flex-col text-white font-sans border-0 overflow-hidden">
       <Image
+        priority={true}
         src="/images/hero/hero.jpg"
         alt="Background"
         fill
-        priority
         quality={85}
         sizes="100vw"
         className="object-cover"
