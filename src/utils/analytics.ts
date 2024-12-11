@@ -23,6 +23,8 @@ type DonationFormParams = {
 class Analytics {
   private queue: Array<{event: string; params: EventParams}> = [];
   private isInitialized = false;
+  private maxRetries = 3;
+  private retryDelay = 1000;
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -51,17 +53,28 @@ class Analytics {
     }
   }
 
-  private pushToDataLayer(event: string, params: EventParams) {
+  private async pushToDataLayer(event: string, params: EventParams, retryCount = 0) {
     if (!this.isInitialized) {
       this.queue.push({ event, params });
       return;
     }
 
-    if (typeof window !== 'undefined' && window.dataLayer) {
+    if (typeof window === 'undefined' || !window.dataLayer) {
+      return;
+    }
+
+    try {
       window.dataLayer.push({
         event,
         ...params,
       });
+    } catch (error) {
+      console.warn(`Analytics push failed: ${error}`);
+      if (retryCount < this.maxRetries) {
+        setTimeout(() => {
+          this.pushToDataLayer(event, params, retryCount + 1);
+        }, this.retryDelay * Math.pow(2, retryCount));
+      }
     }
   }
 
@@ -80,28 +93,29 @@ class Analytics {
     value?: number,
     additionalParams?: EventParams
   ) {
-    const eventParams: EventParams = {
-      event_category: category,
-      event_action: action,
-      event_label: label ?? '',
-    };
+    try {
+      const eventParams: EventParams = {
+        event_category: category,
+        event_action: action,
+        event_label: label ?? '',
+      };
 
-    // Include event_value only if it is a valid positive number
-    if (typeof value === 'number' && !isNaN(value) && value > 0) {
-      eventParams.event_value = value;
-    }
-
-    // Merge additionalParams, ensuring no undefined values are introduced
-    if (additionalParams) {
-      for (const key in additionalParams) {
-        const paramValue = additionalParams[key];
-        if (paramValue !== undefined) {
-          eventParams[key] = paramValue;
-        }
+      if (typeof value === 'number' && !isNaN(value) && value > 0) {
+        eventParams.event_value = value;
       }
-    }
 
-    this.pushToDataLayer('custom_event', eventParams);
+      if (additionalParams) {
+        Object.entries(additionalParams).forEach(([key, value]) => {
+          if (value !== undefined) {
+            eventParams[key] = value;
+          }
+        });
+      }
+
+      this.pushToDataLayer('custom_event', eventParams);
+    } catch (error) {
+      console.warn('Failed to track event:', { category, action, error });
+    }
   }
 
   /**

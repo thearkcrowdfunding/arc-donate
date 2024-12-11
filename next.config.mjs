@@ -98,7 +98,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Link',
-            value: '</fonts/HovesRegular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin=anonymous; importance=high',
+            value: '</fonts/HovesRegular.woff2>; rel=preload; as=font; type=font/woff2; crossorigin=anonymous, </fonts/HovesMedium.woff2>; rel=preconnect; as=font; type=font/woff2; crossorigin=anonymous, </fonts/HovesDemiBold.woff2>; rel=preconnect; as=font; type=font/woff2; crossorigin=anonymous',
           },
         ],
       },
