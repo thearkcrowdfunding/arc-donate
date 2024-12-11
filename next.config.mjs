@@ -72,7 +72,16 @@ const nextConfig = {
       };
     }
     return config;
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/ru',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

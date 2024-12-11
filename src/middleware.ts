@@ -4,7 +4,8 @@ import { locales } from './i18n/config';
 export default createMiddleware({
   locales: ['en', 'ru'],
   defaultLocale: 'ru',
-  localePrefix: 'as-needed'
+  localePrefix: 'as-needed',
+  localeDetection: false,
 });
 
 export const config = {
