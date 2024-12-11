@@ -1,21 +1,20 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getMessages } from '@/i18n/server'
-import { Suspense } from 'react'
-import { ClientHeroActions } from './client-hero-actions'
+import { getTranslations } from 'next-intl/server'
+import { analytics } from "@/utils/analytics"
 
-export async function HeroServer() {
-  const { t } = await getMessages('hero')
+export async function HeroServerComponent() {
+  const t = await getTranslations('hero')
 
   return (
-    <div className="relative h-screen md:h-[800px]">
+    <div className="relative h-screen md:h-[800px] text-white">
       <Image
         priority={true}
         src="/images/hero/hero.jpg"
         alt="Background"
         fill
         quality={75}
-        sizes="(max-width: 768px) 100vw, 1920px"
+        sizes="100vw"
         placeholder="blur"
         blurDataURL="data:image/jpeg;base64,..."
         className="object-cover"
@@ -32,9 +31,22 @@ export async function HeroServer() {
               {t('subtitle')}
             </p>
           </div>
-          <Suspense>
-            <ClientHeroActions t={t} />
-          </Suspense>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-4">
+            {/* Client-side interactivity will be handled by a small client component */}
+            <button 
+              className="w-full md:w-[400px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 md:py-8 rounded-lg text-[min(6vw,1.75rem)] md:text-3xl transition duration-300"
+              data-action="donate"
+            >
+              {t('helpButton')}
+            </button>
+            <Link 
+              href="#learn-more" 
+              className="text-[min(5vw,1.375rem)] md:text-2xl underline text-center w-full md:text-left md:w-auto md:ml-8 py-2"
+              data-action="learn-more"
+            >
+              {t('learnMore')}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

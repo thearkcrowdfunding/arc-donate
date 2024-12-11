@@ -30,6 +30,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preload" href="/fonts/your-main-font.woff2" as="font" crossOrigin="anonymous" />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <VideoProvider>
@@ -46,4 +49,15 @@ export default async function LocaleLayout({
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata() {
+  return {
+    headers: [
+      {
+        key: 'Link',
+        value: '</fonts/your-main-font.woff2>; rel=preload; as=font; crossorigin=anonymous',
+      },
+    ],
+  }
 }

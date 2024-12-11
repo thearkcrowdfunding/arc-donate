@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
-import { HeroServer } from "@/components/hero-server"
+import { HeroServerComponent } from "@/components/hero-server"
+import { HeroClientHandlers } from "@/components/hero-client-handlers"
 
 // Dynamic imports for main sections
 const MainContent = dynamic(() => import('@/components/main-content'), {
@@ -15,7 +16,8 @@ const SecondaryContent = dynamic(() => import('@/components/secondary-content'),
 export default async function LocalePage() {
   return (
     <div className="bg-kovcheg">
-      <HeroServer />
+      <HeroServerComponent />
+      <HeroClientHandlers />
       <div className="mx-auto">
         <MainContent />
         <SecondaryContent />
