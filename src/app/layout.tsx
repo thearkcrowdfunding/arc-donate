@@ -44,9 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gtmId = "GTM-TQMSQ3C8";
+  const headersList = headers();
+  const locale = headersList.get('x-next-intl-locale') || 'ru';
 
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang={locale} suppressHydrationWarning className="dark">
       <head>
         <Script
           id="gtm-script"
