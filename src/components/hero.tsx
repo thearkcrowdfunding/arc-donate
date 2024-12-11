@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl'
 import { scrollHandlers } from "@/utils/scroll-handlers"
 import { analytics } from "@/utils/analytics"
 
+// Mark as deprecated to encourage migration to server component
+/** @deprecated Use HeroServer for better performance */
 export function HeroComponent() {
   const t = useTranslations('hero')
 

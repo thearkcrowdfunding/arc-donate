@@ -1,23 +1,21 @@
-'use client'
-
 import dynamic from 'next/dynamic'
-import { HeroComponent } from "@/components/hero"
+import { HeroServer } from "@/components/hero-server"
 
 // Dynamic imports for main sections
 const MainContent = dynamic(() => import('@/components/main-content'), {
-  loading: () => <div className="h-[2000px]" />, // Approximate height for main content
-  ssr: true // Enable SSR for critical content
+  loading: () => <div className="h-[2000px]" />,
+  ssr: true
 })
 
 const SecondaryContent = dynamic(() => import('@/components/secondary-content'), {
-  loading: () => <div className="h-[3600px]" />, // Approximate height for secondary content
-  ssr: false // Keep secondary content client-side
+  loading: () => <div className="h-[3600px]" />,
+  ssr: false
 })
 
-export default function LocalePage() {
+export default async function LocalePage() {
   return (
     <div className="bg-kovcheg">
-      <HeroComponent />
+      <HeroServer />
       <div className="mx-auto">
         <MainContent />
         <SecondaryContent />
