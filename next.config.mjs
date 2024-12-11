@@ -13,6 +13,10 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    minimumCacheTTL: 60,
   },
   swcMinify: true,
   compiler: {
@@ -28,6 +32,7 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+    optimizeImages: true,
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
@@ -82,6 +87,7 @@ const nextConfig = {
       },
     ];
   },
+  output: 'standalone',
 };
 
 export default withNextIntl(nextConfig);
