@@ -4,16 +4,33 @@ import Script from "next/script";
 import { headers } from 'next/headers';
 
 export async function generateMetadata(): Promise<Metadata> {
-  // Get the locale from headers (falls back to 'ru')
   const headersList = headers();
   const locale = headersList.get('x-next-intl-locale') || 'ru';
-  
-  // Fix the path to messages
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return {
     title: messages.metadata.title,
     description: messages.metadata.description,
+    openGraph: {
+      title: messages.metadata.title,
+      description: messages.metadata.description,
+      images: [
+        {
+          url: '/images/og/og-image.jpg', // Replace with your hero image path
+          width: 1200,
+          height: 630,
+          alt: messages.metadata.title,
+        },
+      ],
+      locale: locale,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: messages.metadata.title,
+      description: messages.metadata.description,
+      images: ['/images/og/og-image.jpg'], // Same image as OG
+    },
     icons: {
       icon: '/favicon.png',
     },
