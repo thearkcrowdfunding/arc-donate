@@ -32,7 +32,6 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    optimizeImages: true,
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
