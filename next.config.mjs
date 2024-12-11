@@ -45,8 +45,9 @@ const nextConfig = {
         runtimeChunk: 'single',
         splitChunks: {
           chunks: 'all',
-          maxInitialRequests: 25,
-          minSize: 20000,
+          maxInitialRequests: 10,
+          minSize: 10000,
+          maxSize: 250000,
           cacheGroups: {
             framework: {
               name: 'framework',
@@ -87,6 +88,20 @@ const nextConfig = {
     ];
   },
   output: 'standalone',
+  optimizeFonts: true,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Link',
+            value: '</fonts/your-main-font.woff2>; rel=preload; as=font; crossorigin=anonymous',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

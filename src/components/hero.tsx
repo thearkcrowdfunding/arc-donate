@@ -10,14 +10,16 @@ export function HeroComponent() {
   const t = useTranslations('hero')
 
   return (
-    <div className="relative h-screen md:h-[800px] flex flex-col text-white font-sans border-0 overflow-hidden">
+    <div className="relative h-screen md:h-[800px]">
       <Image
         priority={true}
         src="/images/hero/hero.jpg"
         alt="Background"
         fill
-        quality={85}
-        sizes="100vw"
+        quality={75}
+        sizes="(max-width: 768px) 100vw, 1920px"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,..."
         className="object-cover"
       />
       <div className="absolute inset-0 bg-black/60 md:bg-black/40" />
