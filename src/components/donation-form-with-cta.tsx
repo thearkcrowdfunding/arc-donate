@@ -149,7 +149,7 @@ export function DonationFormWithCta({
         <>
           <Button
             onClick={handleDonateClick}
-            className="w-full bg-[#0070ba] hover:bg-[#003087] text-white font-semibold py-10 text-3xl"
+            className="w-full bg-kovcheg text-white hover:bg-kovcheg/90 font-semibold py-10 text-3xl"
           >
             {t('helpButton')}
           </Button>
