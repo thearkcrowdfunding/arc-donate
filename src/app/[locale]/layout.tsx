@@ -31,7 +31,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <link rel="preload" href="/fonts/your-main-font.woff2" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/HovesRegular.woff2" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/HovesMedium.woff2" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/HovesDemiBold.woff2" as="font" crossOrigin="anonymous" />
       </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
