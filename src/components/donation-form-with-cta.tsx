@@ -148,7 +148,7 @@ export function DonationFormWithCta({
       return (
         <>
           <Button
-            onClick={handleDonateClick}
+            type="submit"
             className="w-full bg-kovcheg text-white hover:bg-kovcheg/90 font-semibold py-10 text-3xl"
           >
             {t('helpButton')}

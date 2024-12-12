@@ -25,21 +25,11 @@ class Analytics {
   private isInitialized = false;
   private maxRetries = 3;
   private retryDelay = 1000;
-  private debug = process.env.NODE_ENV !== 'production';
 
   constructor() {
     if (typeof window !== 'undefined') {
       window.analyticsQueue = this.queue;
       this.initializeWhenReady();
-      
-      // Add GTM debug if not production
-      if (this.debug) {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (!urlParams.has('gtm_debug')) {
-          urlParams.set('gtm_debug', 'x');
-          window.location.search = urlParams.toString();
-        }
-      }
     }
   }
 
@@ -70,16 +60,10 @@ class Analytics {
     }
 
     if (typeof window === 'undefined' || !window.dataLayer) {
-      if (this.debug) {
-        console.warn('DataLayer not available');
-      }
       return;
     }
 
     try {
-      if (this.debug) {
-        console.log('Pushing to dataLayer:', { event, params });
-      }
       window.dataLayer.push({
         event,
         ...params,

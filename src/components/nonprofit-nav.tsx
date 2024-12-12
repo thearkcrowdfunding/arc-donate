@@ -78,7 +78,7 @@ export function NonprofitNavComponent() {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <a 
-                  href="/" 
+                  href="https://kovcheg.live" 
                   className="relative w-[100px] h-[32px] md:w-[120px] md:h-[40px]"
                   onClick={() => analytics.trackNavigation('Logo Click', 'Header')}
                 >
