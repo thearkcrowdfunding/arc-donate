@@ -151,6 +151,7 @@ class Analytics {
   ) {
     const eventParams: EventParams = {
       form_id: formId,
+      event_timestamp: new Date().toISOString(),
       ...(params?.paymentMethod && { payment_method: params.paymentMethod }),
       ...(params?.donationAmount && { donation_amount: params.donationAmount })
     };
