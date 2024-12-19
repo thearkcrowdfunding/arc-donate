@@ -98,6 +98,7 @@ class Analytics {
         event_category: category,
         event_action: action,
         event_label: label ?? '',
+        event_timestamp: new Date().toISOString(),
       };
 
       if (typeof value === 'number' && !isNaN(value) && value > 0) {
@@ -181,7 +182,8 @@ class Analytics {
       {
         form_id: formId,
         payment_method: 'crypto',
-        crypto_currency: currency
+        crypto_currency: currency,
+        event_timestamp: new Date().toISOString()
       }
     );
   }
@@ -202,7 +204,8 @@ class Analytics {
       {
         form_id: formId,
         payment_method: paymentMethod,
-        donation_amount: amount
+        donation_amount: amount,
+        event_timestamp: new Date().toISOString()
       }
     );
   }
@@ -221,7 +224,10 @@ class Analytics {
    * @param path - The path of the page.
    */
   trackPageView(path: string) {
-    this.pushToDataLayer('virtual_page_view', { page_path: path });
+    this.pushToDataLayer('virtual_page_view', { 
+      page_path: path,
+      event_timestamp: new Date().toISOString()
+    });
   }
 
   /**
@@ -230,19 +236,6 @@ class Analytics {
    */
   trackAboutUs(action: string) {
     this.trackEvent('About Us', action);
-  }
-
-  /**
-   * Tracks Monobank donation link interactions
-   * @param action - The action performed
-   * @param formId - The identifier of the form
-   */
-  trackMonobank(action: string, formId: string) {
-    this.trackEvent('Monobank Donation', action, undefined, undefined, {
-      formId,
-      donation_type: 'single_payment',
-      payment_method: 'monobank'
-    });
   }
 }
 
