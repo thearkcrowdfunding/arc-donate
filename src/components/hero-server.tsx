@@ -24,7 +24,7 @@ export async function HeroServerComponent() {
       <div className="w-full relative z-10 h-full flex flex-col justify-end pb-12 md:pb-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12">
           <div className="text-left mb-8 md:mb-32 max-w-[800px] md:max-w-[1000px] translate-y-[-10vh] md:translate-y-0">
-            <h1 className="text-[min(9vw,2.5rem)] sm:text-5xl lg:text-7xl font-bold mb-3 md:mb-6 leading-tight uppercase">
+            <h1 className="text-[min(9vw,2.5rem)] sm:text-4xl lg:text-6xl font-bold mb-3 md:mb-6 leading-tight uppercase">
               {t('title')}
             </h1>
             <p className="text-[min(5vw,1.25rem)] sm:text-2xl md:text-3xl font-semibold">

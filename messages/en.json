@@ -4,8 +4,8 @@
     "brand": "KOVCHEG"
   },
   "hero": {
-    "title": "Help people with an\u00A0anti\u2011war stance",
-    "subtitle": "Receive emergency, legal, and\u00A0psychological assistance, temporary housing, and\u00A0support",
+    "title": "3 YEARS THE ARK HAS BEEN HELPING\nANTI-WAR RUSSIANS IN FORCED EMIGRATION",
+    "subtitle": "Help them get housing, legal and psychological assistance, and information support",
     "helpButton": "Help Now",
     "learnMore": "Learn More"
   },
@@ -14,23 +14,31 @@
     "paragraph1": "have left Russia due to\u00A0their opposition to\u00A0the invasion of\u00A0Ukraine, repressions, and\u00A0persecution, and\u00A0their refusal to\u00A0fight.",
     "paragraph2": "Most left with nowhere to\u00A0go. Without money or\u00A0prospects.",
     "paragraph3": "These people volunteer, help refugees, participate in\u00A0the anti\u2011war movement, and\u00A0fight against the\u00A0war.",
-    "paragraph5": "To\u00A0continue this struggle, we need your help!"
+    "paragraph5": "To keep helping,\nwe\u00A0need\u00A0your\u00A0help!",
+    "parahraphMarch": "have left Russia because of disagreement with war and repressions"
   },
   "donationForm": {
-    "title": "HELP RUSSIANS WITH AN\u00A0ANTI\u2011WAR STANCE",
+    "title": "HELP ANTI\u00A0WAR\nRUSSIANS",
     "description": {
-      "text": "They need help themselves but continue to\u00A0volunteer and\u00A0help others"
+      "text": "Get temporary housing, legal and psychological counseling, new\u00A0language and opportunities"
     },
     "monthlySupport": "Subscribe to\u00A0monthly donations",
+    "supportStrings": {
+      "subscribeFor": "Subscribe for ",
+      "monthly": "monthly",
+      "or":" or ",
+      "oneTime": "donate one time",
+      "donations": ""
+    },
     "paymentMethods": {
       "card": "Bank Card",
       "paypal": "PayPal",
       "crypto": "Crypto"
     },
-    "helpButton": "Help!",
+    "helpButton": "Help Now!",
     "legalText": "By\u00A0clicking the\u00A0button, you accept the\u00A0<terms>Terms of\u00A0Service</terms> and\u00A0<agreement>Donation Agreement</agreement>",
     "ctaTexts": {
-      "default": "To\u00A0provide emergency assistance and\u00A0support people in\u00A0difficult situations, we\u00A0need your help.\nEven $20 will change someone's life"
+      "default": "To support people in dire straits, we need your help!\nEven $20 can change someone's life"
     },
     "youWillBeRedirectedToPaypal": "You will be redirected to PayPal to complete your donation"
   },
@@ -134,12 +142,17 @@
     }
   },
   "aboutKovcheg": {
-    "title": "MORE ABOUT KOVCHEG",
+    "title": "THE ARK UNITES",
     "description": "Kovcheg was founded in\u00A0March 2022 in\u00A0response to\u00A0the\u00A0persecution of\u00A0Russians who opposed the\u00A0war in\u00A0Ukraine. For\u00A0two years now, we\u00A0have been helping those who need it\u00A0most",
     "stats": {
       "helped": {
-        "number": "210,000",
-        "text": "have already received help from\u00A0Kovcheg in\u00A070 countries"
+        "number": "350 000",
+        "number217": "217\u00A0000",
+        "people": "people",
+        "text": "in 45 counties",
+        "textMarch0": "have already received Ark's help:",
+        "textMarch1": "temporary housing, counseling from lawyers and psychologists, a new language and opportunities.",
+        "textMarch2": "But thousands of people still need support!"
       }
     }
   },

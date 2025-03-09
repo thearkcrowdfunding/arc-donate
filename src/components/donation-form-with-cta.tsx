@@ -11,7 +11,9 @@ import { CopyIcon, CheckIcon } from 'lucide-react'
 import { 
   STRIPE_PAYMENT_LINKS,
   PAYPAL_SUBSCRIPTION_LINKS,
-  CRYPTO_ADDRESSES 
+  CRYPTO_ADDRESSES, 
+  STRIPE_ONE_TIME_PAYMENT_LINKS,
+  PAYPAL_ONE_TIME_PAYMENT_LINKS
 } from '@/lib/constants';
 import { PaymentMethod, DonationFormParams } from '@/types/payment';
 
@@ -27,9 +29,28 @@ export function DonationFormWithCta({
   formId
 }: DonationFormProps) {
   const t = useTranslations('donationForm')
-  const [amount, setAmount] = useState<string>('20')
+  
+  const [amount, setAmount] = useState<string>('20');
+  const [oneTimeAmount, setOneTimeAmount] = useState<string>('20');
+
+  const [isOneTime, setIsOneTime] = useState<boolean>(false);
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'paypal' | 'crypto'>('stripe')
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null)
+
+  const recurrentPrices = ['15', '20', '30'];
+  const oneTimePrices = ['20', '50', '100'];
+
+  const handleOneTimeAmountClick = (value: string) => {
+    setOneTimeAmount(value);
+    analytics.trackDonationForm(
+      'Payment Option Click', 
+      `$${value}`, 
+      formId,
+      {
+        paymentMethod
+      }
+    );
+  };
 
   const handleAmountClick = (value: string) => {
     setAmount(value);
@@ -52,7 +73,59 @@ export function DonationFormWithCta({
     );
   };
 
-  const handleDonateClick = () => {
+  const handleOneTimeDonate = () => {
+    if (paymentMethod === 'crypto') {
+      return;
+    }
+    if (!isOneTime) {
+      return;
+    }
+
+    const numericAmount = parseInt(amount, 10);
+    const links = paymentMethod === 'stripe' ? STRIPE_ONE_TIME_PAYMENT_LINKS : PAYPAL_ONE_TIME_PAYMENT_LINKS;
+    const paymentLink = links[oneTimeAmount as keyof typeof STRIPE_ONE_TIME_PAYMENT_LINKS];
+
+
+    if (!isNaN(numericAmount) && numericAmount > 0) {
+      analytics.trackDonationForm(
+        'Donation Initiate',
+        paymentMethod,
+        formId,
+        {
+          donationAmount: numericAmount,
+          paymentMethod
+        }
+      );
+      
+      if (paymentLink) {
+        const redirectUrl = new URL(paymentLink);
+        redirectUrl.searchParams.append('provider', paymentMethod);
+        redirectUrl.searchParams.append('amount', amount);
+        redirectUrl.searchParams.append('formId', formId);
+        
+        window.location.href = redirectUrl.toString();
+      } else {
+        analytics.trackEvent(
+          'Error', 
+          'Invalid Payment Link', 
+          `Amount: ${amount}, Method: ${paymentMethod}`, 
+          undefined, 
+          { formId }
+        );
+      }
+    } else {
+      analytics.trackEvent(
+        'Error', 
+        'Invalid Amount', 
+        `Amount: ${amount}, Method: ${paymentMethod}`, 
+        undefined, 
+        { formId }
+      );
+    }
+
+  }
+
+  const handleRecurrentDonate = () => {
     if (paymentMethod === 'crypto') {
       return;
     }
@@ -96,6 +169,18 @@ export function DonationFormWithCta({
         undefined, 
         { formId }
       );
+    }
+  }
+
+  const handleDonateClick = () => {
+    if (paymentMethod === 'crypto') {
+      return;
+    }
+
+    if (isOneTime) {
+      handleOneTimeDonate();
+    } else {
+      handleRecurrentDonate();
     }
   };
 
@@ -193,7 +278,13 @@ export function DonationFormWithCta({
                 </p>
                 {paymentMethod !== 'crypto' && (
                   <p className="text-standard md:text-xl mb-4">
-                    {t('monthlySupport')}
+                    {t('supportStrings.subscribeFor')}
+                    {' '}
+                    { isOneTime ? <span className='cursor-pointer underline' onClick={() => setIsOneTime(false)}>{t('supportStrings.monthly')}</span> : <b>{t('supportStrings.monthly')}</b> }
+                    {t('supportStrings.or')}
+                    { !isOneTime ? <span className='cursor-pointer underline' onClick={() => setIsOneTime(true)}>{t('supportStrings.oneTime')}</span> : <b>{t('supportStrings.oneTime')}</b> }
+                    {' '}
+                    {t('supportStrings.donations')}
                   </p>
                 )}
               </div>
@@ -240,13 +331,14 @@ export function DonationFormWithCta({
                 }} 
                 className="space-y-6 sm:space-y-4 md:space-y-6 mb-6 sm:mb-4 md:mb-8"
               >
-                {paymentMethod !== 'crypto' && (
+
+                {paymentMethod !== 'crypto' && !isOneTime && (
                   <RadioGroup
                     value={amount}
                     onValueChange={handleAmountClick}
                     className="grid grid-cols-3 gap-4"
                   >
-                    {['15', '20', '30'].map((value) => (
+                    {recurrentPrices.map((value) => (
                       <div key={value}>
                         <RadioGroupItem
                           value={value}
@@ -257,6 +349,31 @@ export function DonationFormWithCta({
                           htmlFor={`amount-${formId}-${value}`}
                           className={`flex items-center justify-center p-4 border-2 border-kovcheg cursor-pointer transition-colors ${
                             amount === value ? 'bg-kovcheg text-white' : 'hover:bg-kovcheg/10'
+                          }`}
+                        >
+                          ${value}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                )}
+                {paymentMethod !== 'crypto' && isOneTime && (
+                  <RadioGroup
+                    value={oneTimeAmount}
+                    onValueChange={handleOneTimeAmountClick}
+                    className="grid grid-cols-3 gap-4"
+                  >
+                    {oneTimePrices.map((value) => (
+                      <div key={value}>
+                        <RadioGroupItem
+                          value={value}
+                          id={`amount-${formId}-${value}`}
+                          className="peer sr-only"
+                        />
+                        <Label
+                          htmlFor={`amount-${formId}-${value}`}
+                          className={`flex items-center justify-center p-4 border-2 border-kovcheg cursor-pointer transition-colors ${
+                            oneTimeAmount === value ? 'bg-kovcheg text-white' : 'hover:bg-kovcheg/10'
                           }`}
                         >
                           ${value}
