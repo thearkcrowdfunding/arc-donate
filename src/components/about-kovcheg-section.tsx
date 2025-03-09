@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-
+// T
 interface AboutKovchegSectionProps {
   showTitle?: boolean;
   isFirst?: boolean;
