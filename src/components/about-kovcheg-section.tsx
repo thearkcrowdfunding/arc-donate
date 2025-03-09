@@ -17,11 +17,22 @@ export function AboutKovchegSection({
   const StatsSection = () => (
     <div className="space-y-4">
       <h3 className="text-5xl md:text-7xl font-bold">
-        {t('stats.helped.number')}
+        {t(showTitle ? 'stats.helped.number' : "stats.helped.number217")} 
+        {showTitle === true && <> {t('stats.helped.people')} </> }
       </h3>
-      <p className="text-2xl md:text-3xl">
-        {t('stats.helped.text')}
-      </p>
+      {showTitle === false && <>
+        <p className="text-2xl md:text-3xl">
+          {t('stats.helped.textMarch0')}<br/>{t('stats.helped.textMarch1')}
+        </p>
+        <p className="text-2xl md:text-3xl">
+          {t('stats.helped.textMarch2')}
+        </p>
+      </>} 
+      {showTitle === true && <>
+        <p className="text-2xl md:text-3xl">
+        {t('stats.helped.text')}</p>
+      </>}
+      
     </div>
   )
 
@@ -52,7 +63,7 @@ export function AboutKovchegSection({
         <div className="mb-12">
           <StatsSection />
         </div>
-        <Description />
+        {!showTitle && <Description />}
       </div>
     </div>
   )

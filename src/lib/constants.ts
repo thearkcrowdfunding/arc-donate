@@ -10,6 +10,18 @@ export const STRIPE_PAYMENT_LINKS = {
   '30': 'https://pay.kovcheg.live/b/4gw2as2RL67n0sU002'
 } as const;
 
+export const STRIPE_ONE_TIME_PAYMENT_LINKS = {
+  '20': "https://pay.kovcheg.live/b/6oEcP68c5eDT1wY6ow",
+  '50': "https://pay.kovcheg.live/b/aEU7uMgIB9jz7VmbIR",
+  '100': "https://pay.kovcheg.live/b/9AQ6qI1NHdzP5Ne8wG"
+}
+
+export const PAYPAL_ONE_TIME_PAYMENT_LINKS = {
+  '20': "https://www.paypal.com/donate/?hosted_button_id=9Z6EGRDP9YPL8",
+  '50': "https://www.paypal.com/donate/?hosted_button_id=A5ZGDUEKEHWMC",
+  '100': "https://www.paypal.com/donate/?hosted_button_id=B63V7TT4YDHPE"
+}
+
 export const CRYPTO_ADDRESSES = [
   {
     currency: 'USDT',
