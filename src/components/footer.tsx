@@ -19,7 +19,7 @@ export function FooterComponent() {
           />
         </div>
         <p className="text-lg">
-          © 2022-2024 «Ковчег»
+          © 2022-2025 «Ковчег»
         </p>
       </div>
     </div>
