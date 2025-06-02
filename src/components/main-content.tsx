@@ -8,18 +8,13 @@ import { DonationFormWithCta } from './donation-form-with-cta'
 export default function MainContent() {
   return (
     <>
-      <Suspense fallback={<div className="h-[600px]" />}>
-        <div id="learn-more">
-          <CtaComponent />
-        </div>
-      </Suspense>
 
-      <div className="bg-kovcheg h-8"></div>
+      <div id="learn-more" className="bg-kovcheg h-8"></div>
 
       <Suspense fallback={<div className="h-[600px]" />}>
         <AboutKovchegSection showTitle={false} isFirst={true} />
       </Suspense>
-      
+
       <Suspense fallback={<div className="h-[800px]" />}>
         <div id="donate-form">
           <DonationFormWithCta showCTA={false} variant="default" formId="form1" />
