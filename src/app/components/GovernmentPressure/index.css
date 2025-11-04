@@ -1,0 +1,70 @@
+.government-pressure{
+    height: 607px;
+    border-top: 6px solid white;
+}
+
+.government-pressure-content{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.government-pressure-header{
+    font-size: 42px;
+    line-height: 110%;
+    font-weight: 600    ;
+    text-transform: uppercase;
+}
+
+.government-pressure-group{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.government-pressure-text{
+    font-size: 32px;
+    line-height: 120%;
+}
+
+.government-pressure-text span{
+    text-decoration: underline;
+
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .government-pressure-text span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+
+.government-pressure-text.medium{
+    font-weight: 600    ;
+}
+
+@media screen and (max-width: 880px) {
+    .government-pressure-header{
+        font-size: 20px;
+    }
+
+    .government-pressure-content{
+        gap: 24px;
+    }
+
+    .government-pressure{
+        height: 550px;
+    }
+
+    .government-pressure-text {
+        font-size: 18px;
+    }
+}

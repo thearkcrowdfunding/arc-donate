@@ -1,0 +1,61 @@
+.from-start-of-the-war{
+    width: 100%;
+    height: 605px;
+}
+
+.from-start-of-the-war-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.from-start-of-the-war-header{
+    line-height: 110%;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 600;
+
+}
+
+.from-start-of-the-war-header span{
+    text-decoration: underline;
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .from-start-of-the-war-header span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+.from-start-of-the-war-text{
+    line-height: 120%;
+    font-size: 32px;
+    letter-spacing: -2%;
+}
+
+@media screen and (max-width: 880px) {
+    .from-start-of-the-war-header{ 
+        font-size: 20px;
+    }
+
+    .from-start-of-the-war-text{
+        font-size: 18px;
+    }
+
+    .from-start-of-the-war{
+        height: 550px;
+    }
+
+    .banner-overlay-content.from-start-of-the-war-content{
+        gap: 24px;
+    }
+}

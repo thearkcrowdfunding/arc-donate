@@ -1,0 +1,36 @@
+.review-header{
+    color: white;
+    line-height: 110%;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.review-author{
+    color: white;   
+    font-size: 28px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 880px) {
+    .review-header{
+        font-size: 22px;
+    }
+
+
+    .review-author{
+        font-size: 16px;
+    }
+
+    .banner-container.review{
+        height: 550px;
+    }
+
+    .banner-container.review img{
+        object-position: 75%;
+    }
+
+    .banner-container.review .banner-overlay .banner-overlay-content {
+        justify-content: flex-end;
+        padding-bottom: 50px;
+    }
+}

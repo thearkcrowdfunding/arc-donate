@@ -1,0 +1,151 @@
+.law-content{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.law-container{
+    height: 856px;
+}
+
+.law-text-group{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.law-text{
+    font-size: 32px;
+    line-height: 110%;
+    color: white;
+}
+
+.law-header{
+
+font-weight: 600;
+font-size: 42px;
+line-height: 110.00000000000001%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: white;
+text-transform: uppercase;
+
+}
+
+.gradient-number{
+    /* background: linear-gradient(0deg, #FFFFFF, #FFFFFF), */
+/* linear-gradient(104.34deg, #EFF3FF -9.75%, #6786F7 63.63%, #001C68 123.43%); */
+    line-height: 100%;
+
+  background-image: linear-gradient(104.34deg, #EFF3FF -9.75%, #6786F7 63.63%, #001C68 123.43%);
+  /* or radial-gradient(), conic-gradient() */
+
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari, Edge) */
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent; /* For Webkit browsers */
+  color: transparent; /* Standard property for other browsers */
+  font-size: 150px;
+  font-weight: 600;
+}
+
+.gradient-number-group-text{
+    font-size: 36px;
+    margin-top: -16px;
+    line-height: 100%;
+    color: white;
+}
+
+.law-centered{
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 36px;
+}
+
+.every-month-100{
+    width: 100%;
+    text-align: center;
+
+}
+
+.every-month-100 span{
+    text-decoration: underline !important;
+
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .every-month-100 span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+
+@media screen and (max-width: 880px) {
+    .law-header{
+        font-size: 20px;
+        line-height: 120%;
+    }
+
+    .gradient-number{
+        font-size: 66px;
+    }
+
+    .gradient-number-group-text{
+        font-size: 16px;
+        margin-top: -8px;
+    }
+
+    .every-month-100{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .every-month-100 b{
+        font-size: 20px;
+        font-weight: 800 !important;
+    }
+
+    .law-container{
+        height: 550px;
+    }
+
+    .law-container img{
+        object-position: 55%;
+    }
+
+
+
+    .law-content{
+        gap: 24px;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .law-centered{
+        margin-top: 16px;
+    }
+
+
+    .law-text{
+        font-size: 16px;
+    }
+
+
+    .law-text-group{
+        gap: 8px
+    }
+}
+

@@ -1,0 +1,106 @@
+.difficult-situations–container{
+    height: 873px;
+}
+
+.difficult-header{
+    font-size: 42px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.difficult-header.center{
+    text-align: center;
+}
+
+.difficult-situations-content{ 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+
+.difficult-horizontal-grid{
+    margin-top: 70px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 57px;
+}
+
+.difficult-number{
+    font-weight: 600;
+    font-size: 56px;
+
+}
+
+.difficult-item-text{
+    font-size: 28px;
+    line-height: 110%;
+}
+
+.difficult-text{
+    color: white;
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+vertical-align: middle;
+
+}
+
+
+.difficult-text span{ 
+    text-decoration: underline;
+
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+} 
+
+@media screen and (max-width: 880px) {
+    .difficult-text span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+
+    .difficult-situations–container{
+    height: 873px;
+}
+
+    .difficult-header{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .difficult-horizontal-grid{
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        gap: 38px;
+    }
+
+    .difficult-item-text{
+        font-size: 16px;
+        margin-top: -8px;
+    }
+
+    .difficult-situations-content{
+        gap: 36px;
+    }
+
+    .difficult-text{
+        font-size: 22px;
+        text-align: left;
+    }
+
+    .difficult-header.center{
+    text-align: left;
+}
+}
+

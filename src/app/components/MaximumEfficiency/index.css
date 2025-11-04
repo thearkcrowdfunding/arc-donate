@@ -1,0 +1,51 @@
+.max-eff-container{
+    height: 643px;
+}
+
+.max-eff-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.max-eff-header{
+    font-size: 42px;
+    color: white;
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: uppercase;
+}
+.max-eff-text{
+
+    font-size: 32px;
+    color: white;
+    font-weight: 400;
+    line-height: 120%;
+    margin-bottom: 120px;
+}
+@media screen and (max-width: 880px) {
+    .max-eff-header{
+        font-size: 20px;
+    }
+
+    .max-eff-content{
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+
+    .max-eff-text{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .max-eff-container{
+        height: 550px;
+    }
+
+
+    .max-eff-container img{
+        object-position: 90%;
+    }
+    
+}

@@ -1,0 +1,23 @@
+.dont-leave-people-header{
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 46px;
+    color: white;
+}
+
+.dont-leave-people{
+    height: 505px;
+}
+
+.dont-leave-people-content{
+    gap: 32px;
+}
+
+@media screen and (max-width: 880px) {
+    .dont-leave-people-header{
+        font-size: 28px;
+    }
+    .dont-leave-people{
+    height: 366px;
+}
+}
