@@ -6,13 +6,13 @@ import { JSX, useEffect, useState } from 'react';
 import './index.css';
 import DonationProgressInForm from "../DonationProgressInForm/DonationProgressInForm";
 
-// const CopyIcon = () => {
-//     return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-// }
+const CopyIcon = () => {
+    return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+}
 
-// const SuccessIcon = () => {
-//     return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5"></path></svg>
-// }
+const SuccessIcon = () => {
+    return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5"></path></svg>
+}
 
 declare global {
     interface Window {
@@ -31,38 +31,52 @@ declare global {
 
 export { };
 
-// const CryptoAddressItem = ({ network, address }: { network: string, address: string }) => {
-//     const [isCopied, setCopied] = useState(false);
+const CryptoAddressItem = ({ network, address }: { network: string, address: string }) => {
+    const [isCopied, setCopied] = useState(false);
 
-//     const handleCopy = (event: React.MouseEvent<HTMLButtonElement>) => {
-//         event.preventDefault();
-//         navigator.clipboard.writeText(address).then(() => {
-//             setCopied(true);
-//         })
-//     }
+    const handleCopy = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        navigator.clipboard.writeText(address).then(() => {
+            setCopied(true);
+        })
+        reportCopyCrypto();
+    }
 
-//     useEffect(() => {
-//         if (isCopied) {
-//             setTimeout(() => {
-//                 setCopied(false);
-//             }, 5000)
-//         }
-//     }, [isCopied])
 
-//     return <div className='crypto-address'>
-//         <div>
-//             <div className='network'>{network}</div>
-//             <div className='address'>{address}</div>
-//         </div>
-//         <button className='copy-button' onClick={handleCopy}>
-//             {isCopied ? <SuccessIcon /> : <CopyIcon />}
-//         </button>
-//     </div>
-// }
+    const reportCopyCrypto = () => {
+        try {
+            window.gtag && window.gtag('event', 'crypto_copy_button_click');
+            console.log("crypto_copy_button_click");
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        if (isCopied) {
+            setTimeout(() => {
+                setCopied(false);
+            }, 5000)
+        }
+    }, [isCopied])
+
+    return <div className='crypto-address'>
+        <div>
+            <div className='network'>{network}</div>
+            <div className='address'>{address}</div>
+        </div>
+        <button className='copy-button' onClick={handleCopy}>
+            {isCopied ? <SuccessIcon /> : <CopyIcon />}
+        </button>
+    </div>
+}
 
 export default function DonationForm({ id, title, idx }: {
     id: string, title: JSX.Element, idx: string
 }) {
+
+
+    const [selectedMethod, setSelectedMethod] = useState<'stripe' | 'crypto'>('stripe');
 
     const searchParams = useSearchParams();
 
@@ -171,21 +185,29 @@ export default function DonationForm({ id, title, idx }: {
                     <h2>{title}</h2>
                     <p>Получить бесплатную экстренную помощь</p>
                     <DonationProgressInForm />
-                    <p>Подпишитесь на ежемесячные пожертвования</p>
+                    {selectedMethod === 'stripe' &&
+                        <p>Подпишитесь на ежемесячные пожертвования</p>}
                     {/* {selectedMethod === 'card' && <p>Подпишитесь на {isRecurrent ? <b>ежемесячные</b> : <u style={{ cursor: 'pointer' }} onClick={() => setReccurent(true)}>ежемесячные</u>}  или {!isRecurrent ? <b>разовые</b> : <u style={{ cursor: 'pointer' }} onClick={() => setReccurent(false)}>разовые</u>} пожертвования</p>} */}
                 </div>
                 <div className='donation-form-action-block'>
-                    {/* <div className='donation-form-method-selector-container'>
-                        <button onClick={() => setSelectedMethod('card')} className={selectedMethod === 'card' ? 'selected' : ''}>Банковская карта</button>
+                    <div className='donation-form-method-selector-container'>
+                        <button onClick={() => setSelectedMethod('stripe')} className={selectedMethod === 'stripe' ? 'selected' : ''}>Банковская карта</button>
                         <button onClick={() => setSelectedMethod('crypto')} className={selectedMethod === 'crypto' ? 'selected' : ''}>Крипто</button>
-                    </div> */}
-
-                    <div className='donation-form-amount-selector-container'>
-                        <button className={donationAmount === 15 ? 'selected' : ""} onClick={() => setDonationAmount(15)}>$15</button>
-                        <button className={donationAmount === 20 ? 'selected' : ""} onClick={() => setDonationAmount(20)}>$20</button>
-                        <button className={donationAmount === 30 ? 'selected' : ""} onClick={() => setDonationAmount(30)}>$30</button>
                     </div>
-                    <button className='help-button' onClick={handleDonateClick}>Помочь!</button>
+                    {selectedMethod === 'stripe' && <>
+                        <div className='donation-form-amount-selector-container'>
+                            <button className={donationAmount === 15 ? 'selected' : ""} onClick={() => setDonationAmount(15)}>$15</button>
+                            <button className={donationAmount === 20 ? 'selected' : ""} onClick={() => setDonationAmount(20)}>$20</button>
+                            <button className={donationAmount === 30 ? 'selected' : ""} onClick={() => setDonationAmount(30)}>$30</button>
+                        </div>
+                        <button className='help-button' onClick={handleDonateClick}>Помочь!</button>
+                    </>}
+
+                    {selectedMethod === 'crypto' && <div className='crypto-container'>
+                        <CryptoAddressItem network='USDT (TRC20)' address='TDWsHaZcsifiBypNJDKNrQf7vmhZ9LtXko' />
+                        <CryptoAddressItem network='BTC' address='bc1qnxmjjj23e5u6y8slhl9wss74t3wep6tke2nc60' />
+                        <CryptoAddressItem network='ETH (ERC20)' address='0xBf178F99b8790db1BD2194D80c3a268AE4AcE804' />
+                    </div>}
 
                 </div>
                 <div className='donation-form-legal'>
