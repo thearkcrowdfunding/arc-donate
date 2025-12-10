@@ -204,9 +204,11 @@ export default function DonationForm({ id, title, idx }: {
                     </>}
 
                     {selectedMethod === 'crypto' && <div className='crypto-container'>
-                        <CryptoAddressItem network='USDT (TRC20)' address='TDWsHaZcsifiBypNJDKNrQf7vmhZ9LtXko' />
+                        <CryptoAddressItem network='USDT (ERC-20)' address='0x593c93cDF0076541ffe9cA2CDEF035f9FB8ae3a8' />
+                        <CryptoAddressItem network='USDC (ERC-20)' address='0x593c93cDF0076541ffe9cA2CDEF035f9FB8ae3a8' />
+                        <CryptoAddressItem network='USDT (TRC-20)' address='TDWsHaZcsifiBypNJDKNrQf7vmhZ9LtXko' />
                         <CryptoAddressItem network='BTC' address='bc1qnxmjjj23e5u6y8slhl9wss74t3wep6tke2nc60' />
-                        <CryptoAddressItem network='ETH (ERC20)' address='0xBf178F99b8790db1BD2194D80c3a268AE4AcE804' />
+                        <CryptoAddressItem network='ETH (ERC-20)' address='0xBf178F99b8790db1BD2194D80c3a268AE4AcE804' />
                     </div>}
 
                 </div>
