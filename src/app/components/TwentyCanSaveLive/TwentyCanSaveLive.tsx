@@ -10,7 +10,7 @@ export default function TwentyCanSaveLive() {
                     Ваши 20 долларов спасут<br className='mobile-only' /> чью-то жизНь!
                 </div>
                 <div className='twenty-can-save-group'>
-                    <div className='twenty-can-save-text medium'>До <span>конца декабря</span> нужно <span>собрать</span><br />
+                    <div className='twenty-can-save-text medium'>До <span>конца января</span> нужно <span>собрать</span><br />
                         всего <span>4000 долларов</span> регулярными платежами
                     </div>
                     <div className='twenty-can-save-text'>Это всего 200 человек по 20 долларов</div>

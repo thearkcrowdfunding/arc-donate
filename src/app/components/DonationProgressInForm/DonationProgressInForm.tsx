@@ -49,7 +49,7 @@ export default function DonationProgressInForm() {
     return (
         <div className='donation-progress-container-in-form'>
             <div className='donation-progress-text'>
-                <b>До конца декабря нужно собрать всего ${currentTarget} </b><br className='mobile-only' /> это  всего {currentTarget / 20} человек по 20$
+                <b>До конца января нужно собрать всего ${currentTarget} </b><br className='mobile-only' /> это  всего {currentTarget / 20} человек по 20$
             </div>
             <div className='donation-progress-line-container'>
                 <div className='donation-progress-line' style={{ width: `${progressInPercentage}%` }}>
