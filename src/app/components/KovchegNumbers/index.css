@@ -1,0 +1,68 @@
+.kovcheg-numbers-header{
+    font-weight: 600;
+    font-size: 42px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.kovcheg-numbers-content{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.kovcheg-numbers-number{
+
+}
+
+
+.gradient-number{
+    /* background: linear-gradient(0deg, #FFFFFF, #FFFFFF), */
+/* linear-gradient(104.34deg, #EFF3FF -9.75%, #6786F7 63.63%, #001C68 123.43%); */
+    line-height: 100%;
+
+  background-image: linear-gradient(104.34deg, #EFF3FF -9.75%, #6786F7 63.63%, #001C68 123.43%);
+  /* or radial-gradient(), conic-gradient() */
+
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari, Edge) */
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent; /* For Webkit browsers */
+  color: transparent; /* Standard property for other browsers */
+  font-size: 150px;
+  font-weight: 600;
+}
+
+.gradient-number-group-text{
+    font-size: 36px;
+    margin-top: -16px;
+    line-height: 100%;
+    color: white;
+}
+
+@media screen and (max-width: 880px) {
+    .gradient-number{
+        font-size: 66px;
+    }
+
+    .gradient-number-group-text{
+        font-size: 16px;
+        margin-top: -8px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .kovcheg-numbers-header{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .kovcheg-numbers-content{
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .kovcheg-numbers{
+        height: 550px;
+    }
+}

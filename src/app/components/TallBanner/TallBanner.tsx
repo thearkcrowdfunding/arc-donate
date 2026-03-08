@@ -13,13 +13,22 @@ export default function TallBanner() {
                             беспрецедентные репрессии
                         </div>
                         <div className='tall-banner-text-36'>
-                            Более миллиона <br className='mobile-only' />антивоенных россиян уехали, <br />ещё больше остаются внутри
+                            Более миллиона
+                            {/* <br className='mobile-only' /> */} антивоенных россиян уехали
                         </div>
                     </div>
                     <div className='tall-banner-block'>
                         <div className='tall-banner-text-36'>
-                            <b></b>Они сталкиваются<br className='desktop-only' /> с <b>давлением</b>, <b>ограничениями</b>, <b>военным призывом</b>,<br className='desktop-only' /> <b>тотальной слежкой</b>, <b>преследованиями</b><br className='desktop-only' /> и <b>подавлением любого инакомыслия</b>
+                            <b>Eщё больше остаются внутри</b> и сталкиваются<br className='desktop-only' /> с <b>давлением</b>, <b>ограничениями</b>, <b>военным призывом</b>,<br className='desktop-only' /> <b>тотальной слежкой</b>, <b>преследованиями</b><br className='desktop-only' /> и <b>подавлением любого инакомыслия</b>
                         </div>
+                        {/* 
+                        <div className='tall-banner-text-36'>
+                            Задержания в разных странах, депортации, преследования,<br className='desktop-only' /> посадки на безумные сроки, cлежка,<br className='desktop-only' /> и банальное отсутствие денег и поддержки
+                        </div>
+
+                        <div className='tall-banner-text-36'>
+                            <b>Непрекращающееся давление</b>
+                        </div> */}
                     </div>
                     <div className='tall-banner-block'>
                         <div className='tall-banner-header-2'>

@@ -1,0 +1,70 @@
+.deportations-banner{
+    height: 607px;
+    border-top: 6px solid white;
+}
+
+.deportations-banner-content{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.deportations-banner-header{
+    font-size: 42px;
+    line-height: 110%;
+    font-weight: 600    ;
+    text-transform: uppercase;
+}
+
+.deportations-banner-group{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.deportations-banner-text{
+    font-size: 32px;
+    line-height: 120%;
+}
+
+.deportations-banner-text span{
+    text-decoration: underline;
+
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .deportations-banner-text span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+
+.deportations-banner-text.medium{
+    font-weight: 600    ;
+}
+
+@media screen and (max-width: 880px) {
+    .deportations-banner-header{
+        font-size: 20px;
+    }
+
+    .deportations-banner-content{
+        gap: 24px;
+    }
+
+    .deportations-banner{
+        height: 550px;
+    }
+
+    .deportations-banner-text {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,234 @@
+.donation-form-container{
+    width: 100%;
+    background-color: #052A8C;
+
+   padding-top: 100px;
+    padding-bottom: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donation-form-content{
+    box-sizing: border-box;
+    min-height: 200px;
+    width: 100%;
+    max-width: 1130px;
+    background-color: white;;
+    border-radius: 3px;
+
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.donation-form-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.donation-form-info h2{
+    font-size: 42px;
+    text-transform: uppercase;
+    line-height: 110%;
+    font-weight: 700;color: #052A8C;
+}
+
+.donation-form-info p{
+    font-size: 20px;
+    line-height: 110%;
+    color: #052A8C;
+    font-weight: 400;;
+    letter-spacing: -2%;
+}
+
+.donation-form-action-block{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+
+.donation-form-method-selector-container{
+    width: 100%;
+    border-bottom: 1px solid #052A8C;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.donation-form-method-selector-container button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.3;
+    color: #052A8C;
+    padding-bottom: 10px;
+}
+
+.donation-form-amount-selector-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+
+.donation-form-amount-selector-container button
+ {   height: 45px;
+    color: #000;
+    border: 1px solid #000;
+    display: flex;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.donation-form-amount-selector-container button.selected{
+    color: white;
+    background-color:#052A8C ;
+    border: 1px solid #052A8C;
+}
+
+.donation-form-method-selector-container button.selected{
+    opacity: 1;
+    border-bottom: 1px solid #052A8C;
+}
+
+.help-button{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    background-color: #C10801;
+    color: white;
+    border :none;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.donation-form-legal {
+    font-size: 14px;
+    color: #ABABAB;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.donation-form-legal a {
+    cursor: pointer;
+    text-decoration: underline;
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+@media screen and (max-width: 880px) {
+    .donation-form-legal a {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+.crypto-container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 640px;
+    width: 100%;
+    align-items: center;
+    align-self: center;
+}
+
+.crypto-address{
+    background-color: rgb(249, 250, 251);
+    padding: 1rem;
+    border-radius: 16px;
+    
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 48px;
+    gap: 20px;
+}
+
+.crypto-address .network{
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+}
+
+
+
+.crypto-address .address{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: #777;
+}
+
+.crypto-address button{
+    border: none;
+    border-radius: 999px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    background-color: transparent;
+}
+
+
+.crypto-address button svg{
+    width: 24px;
+    height: 24px;
+}
+
+.crypto-address button:hover{
+    background-color: rgb(229 231 235);
+}
+
+@media screen and (max-width: 880px) {
+    .donation-form-content{
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .donation-form-container{
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .donation-form-info h2{
+        font-size: 28px;    line-height: 110%;
+    }
+
+
+    .crypto-address .address{
+         word-break: break-all;
+    }
+}

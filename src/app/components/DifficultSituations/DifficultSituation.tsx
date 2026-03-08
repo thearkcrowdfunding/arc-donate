@@ -27,7 +27,7 @@ export default function DifficultSituation() {
                         </div>
                     </div>
                     <div className='difficult-text'>А всего <span>помощь получили</span> более <span>200 000 человек</span></div>
-                    <div className='difficult-header center'>Каждый месяц <br className='mobile-only' /> к нам обращаЕтся <br />
+                    <div className='difficult-header center'>Каждый месяц<br className='mobile-only' /> к нам обращаЕтся<br />
                         более 400 человек</div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import mobileBannerAsset from './MobileAnastasiaReview.jpg'
 export default function ReviewAnastasia() {
     return (<div className="banner-container review">
         <img src={bannerAsset.src} className='banner-background-img desktop-only'></img>
-        <img src={mobileBannerAsset.src} className='banner-background-img mobile-only' ></img>
+        <img src={mobileBannerAsset.src} className='banner-background-img mobile-only'></img>
         <div className='banner-overlay no-fader'>
             <div className='banner-overlay-content review-group'>
                 <div className='review-header'>

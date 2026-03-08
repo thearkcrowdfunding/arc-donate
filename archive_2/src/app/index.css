@@ -1,0 +1,82 @@
+.arc-global-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+.mobile-only{
+  display: none;
+}
+
+/* .desktop-only{
+
+} */
+
+@media screen and (max-width: 880px) {
+  
+
+.mobile-only{
+  display: flex;
+}
+
+.desktop-only{
+  display: none;
+}
+
+}
+
+@font-face {
+  font-family: 'Hoves';
+  src: url('/fonts/HovesRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-preload: true;
+}
+
+@font-face {
+  font-family: 'Hoves';
+  src: url('/fonts/HovesMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  font-preload: true;
+}
+
+@font-face {
+  font-family: 'Hoves';
+  src: url('/fonts/HovesDemiBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-preload: true;
+}
+
+* {
+    font-family: "Hoves" !important;
+}
+
+html {
+    font-family: Hoves;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: Hoves;
+    overflow: auto;
+}
+
+
+* {
+    box-sizing: border-box;
+}

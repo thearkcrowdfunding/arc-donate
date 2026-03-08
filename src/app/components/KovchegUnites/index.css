@@ -1,0 +1,55 @@
+.kovcheg-unites-container{
+    height: 720px;;
+}
+
+.kovcheg-unites-content{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.kovcheg-unites-header{
+    /* font-size: ; */
+    color: white;
+    font-size: 42px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.kovcheg-unites-group{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.kovcheg-unites-text{
+    color: white;
+    font-size: 32px;
+
+}
+
+@media screen and (max-width :880px) {
+
+    .kovcheg-unites-container{
+        height: 550px;
+    }
+
+    .kovcheg-unites-content{
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .kovcheg-unites-header{
+        font-size: 20px;
+        line-height: 120%;
+        color: white;
+    }
+
+    .kovcheg-unites-text{
+        font-size: 16px;
+    }
+
+    .kovcheg-unites-group{
+        gap: 24px;
+    }
+}

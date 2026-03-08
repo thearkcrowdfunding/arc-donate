@@ -1,0 +1,89 @@
+.banner-overlay.tall-banner{
+    background-color: rgba(0,0,0,0.15) !important;
+}
+
+.tall-banner-container{
+    max-height: 1277px;
+    border-top: 6px solid white;
+}
+
+.tall-banner-block{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
+
+.banner-overlay-content.tall-banner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 187px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.tall-banner-header-2{
+
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 110%;
+    letter-spacing: 0%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.tall-banner-text-36{
+
+font-weight: 400;
+font-size: 36px;
+line-height: 110%;
+letter-spacing: 0%;color: white;
+text-align: center;
+vertical-align: middle;
+
+}
+
+
+.tall-banner-text-32{
+
+font-weight: 400;
+color: white;
+font-size: 32px;
+
+line-height: 120%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+
+}
+
+@media screen and (max-width: 880px) { 
+    .tall-banner{   
+        height: 100%;
+    }
+
+    .tall-banner-container{
+        /* max-height: unset; */
+        height: 1100px;
+        /* height: fit-content; */
+    }
+
+    .tall-banner-header-2{
+        font-size: 20px;
+    }
+
+    .tall-banner-text-36{
+        font-size: 20px;
+    }
+
+    .tall-banner-text-32{
+        font-size: 18px;
+    }
+
+
+.banner-overlay-content.tall-banner{
+    gap: 150px
+}
+}

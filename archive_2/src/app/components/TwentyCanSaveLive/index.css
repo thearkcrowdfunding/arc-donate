@@ -1,0 +1,70 @@
+.twenty-can-save{
+    height: 607px;
+}
+
+.twenty-can-save-content{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.twenty-can-save-header{
+    font-size: 42px;
+    line-height: 110%;
+    font-weight: 600    ;
+    text-transform: uppercase;
+}
+
+.twenty-can-save-group{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.twenty-can-save-text{
+    font-size: 32px;
+    line-height: 120%;
+}
+
+.twenty-can-save-text span{
+    text-decoration: underline;
+
+
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 7.5px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .twenty-can-save-text span {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.5px;
+    }
+}
+
+
+.twenty-can-save-text.medium{
+    font-weight: 600    ;
+}
+
+@media screen and (max-width: 880px) {
+        .twenty-can-save-header{
+            font-size: 20px;
+        }
+
+
+.twenty-can-save-content{
+    gap: 24px;
+}
+
+.twenty-can-save{
+    height: 550px;
+}
+
+.twenty-can-save-text {
+    font-size: 18px;
+}
+}

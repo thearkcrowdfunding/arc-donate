@@ -1,0 +1,39 @@
+.help-can-change{
+    height: 650px;
+}
+
+.help-can-change-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    color: white;
+}
+
+.help-can-change-header{
+    font-size: 42px;
+    text-transform: uppercase;
+    line-height: 110%;
+    font-weight: 600;
+}
+
+.help-can-change-text{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 880px) {
+    .help-can-change-header{
+        font-size: 20px;
+    }
+
+    .help-can-change{
+        height: 550px;
+    }
+
+    .help-can-change-text{
+        font-size: 16px;
+    }
+
+
+}

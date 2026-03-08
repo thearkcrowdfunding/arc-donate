@@ -17,6 +17,21 @@ export default function HelpCanChangeEverything() {
                 <div className='help-can-change-text'>Юрист «Ковчега»</div>
             </div>
         </div>
-    </div>
+    </div >
+
+        <div className="banner-container help-can-change">
+            <img src={bannerAsset.src} className='banner-background-img desktop-only'></img>
+            <img src={mobileBannerAsset.src} className='banner-background-img mobile-only'></img>
+            <div className='banner-overlay no-fader'>
+                <div className='banner-overlay-content help-can-change-content'>
+                    <div className='help-can-change-header'>
+                        «Каждый день я вижу: вовремя оказанная<br className='desktop-only' /> помощь может изменить всё»
+                    </div>
+
+                    <div className='help-can-change-text'>Психолог «Ковчега»</div>
+                </div>
+            </div>
+        </div >
+
     </>
 }

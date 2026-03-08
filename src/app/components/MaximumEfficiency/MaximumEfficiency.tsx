@@ -13,8 +13,8 @@ export default function MaximumEfficiency() {
                         эффективно</div>
                     <div className='max-eff-text'>Благодаря волонтёрам, опыту команды <br />
                         и оптимизации процессов <b>мы тратим</b><br />
-                        <b>каждый доллар с максимальной отдачей,</b> <br className='desktop-only' />
-                        справляясь с большими вызовами <br className='desktop-only' />
+                        <b>каждый доллар с максимальной отдачей,</b><br />
+                        справляясь с большими вызовами <br />
                         минимальными средствами</div>
                 </div>
             </div>

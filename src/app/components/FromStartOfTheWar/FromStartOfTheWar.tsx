@@ -9,8 +9,10 @@ export default function FromStartOfTheWar() {
         <div className='banner-overlay no-fader'>
             <div className='banner-overlay-content from-start-of-the-war-content'>
                 <div className='from-start-of-the-war-header'>Мы все вместе проживали <br />
-                    все, что происходило<br className='mobile-only' /> с 24 февраля 2022</div>
-                <div className='from-start-of-the-war-text'>И мы знаем, что иногда,<br className='mobile-only' /> чтобы <b>выдержать и продолжать идти,<br className='mobile-only' /></b><br className='desktop-only' /> отчаянно <b>нужна помощь<br className='mobile-only' /> и поддержка</b></div>
+                    все
+                    что происходило<br className='mobile-only' /> с 22 февраля 2022</div>
+
+                <div className='from-start-of-the-war-text'>И мы знаем, что иногда,<br className='mobile-only' /> чтобы <b>выдержать и продолжать идти<br className='mobile-only' /> дальше,</b> отчаянно <b>нужна поддержка<br className='mobile-only' /> и помощь</b></div>
             </div>
         </div>
     </div >

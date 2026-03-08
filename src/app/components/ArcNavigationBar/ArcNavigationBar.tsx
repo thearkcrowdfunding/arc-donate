@@ -16,11 +16,11 @@ export default function ArcNavigationBar() {
                       const navbarButton = document.getElementById('donate-navbar-button');
                       if (navbarButton) {
                         navbarButton.addEventListener('click', () => {
-                          
-                          try{        
+                        try{
                             gtag('event', 'scroll_to_donate_button_click');
                             console.log("scroll_to_donate_button_click");
                           }catch(e){
+                            console.log(e)
                           }
                         });
                       }

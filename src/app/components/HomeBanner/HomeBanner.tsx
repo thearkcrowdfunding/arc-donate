@@ -1,6 +1,6 @@
 import Script from 'next/script';
-import DonationProgress from '../DonationProgress/DonationProgress';
-import bannerAsset from './HomeBackground.jpg';
+
+import bannerAsset from './HomeBanner.jpg';
 import mobileBannerAsset from './MobileHomeBanner.jpg';
 import './index.css';
 // CHANGES 2
@@ -12,27 +12,34 @@ export default function HomeBanner() {
                 <img src={mobileBannerAsset.src} className='banner-background-img mobile-only' ></img>
                 <div className='banner-overlay'>
                     <div className='banner-overlay-content home-banner'>
-                        <h2 className='home-banner-header'>Помоги <br className='mobile-only' /> защитить людей <br />
-                            от преследований</h2>
+                        <h2 className='home-banner-header'>Строим сообщество<br />
+                            единомышленников<br />
+                            по обе стороны границы</h2>
                         <div className='sticky'>
                             <p className='home-banner-paragraph'>
-                                Каждый день <b>антивоенные россияне сталкиваются с арестами</b>,<br className='desktop-only' /> <b>угрозой тюрьмы</b> и <b>преследованиями</b>.<br className='mobile-only' /> Помоги им получить <b>экстренную юридическую</b> и <b>психологическую помощь</b>, <b>помощь с жильем</b>
+                                <b>Создаем площадку</b> и <b>условия</b>, <br />
+                                чтобы вместе <b>строить новую жизнь</b>
                             </p>
-                            <DonationProgress />
-                            <a href="#donate" id="main-donate-button" className='home-banner-help-button'>помочь сейчас!</a>
+                            <div className='home-buttons-group'>
+
+                                <a href="#donate" id="main-donate-button" className='home-banner-help-button'>ПОМОЧЬ!</a>
+                                <a href="#content" className='home-banner-know-more-button'>узнать больше</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id='content'></div>
             <Script id="ga-main-button-click">
                 {`
                       const mainDonateButton = document.getElementById('main-donate-button');
                       if (mainDonateButton) {
                         mainDonateButton.addEventListener('click', () => {
-                                  try{        
+                    try{
                             gtag('event', 'scroll_to_donate_button_click');
                             console.log("scroll_to_donate_button_click");
                           }catch(e){
+                            console.log(e)
                           }
                         });
                       }

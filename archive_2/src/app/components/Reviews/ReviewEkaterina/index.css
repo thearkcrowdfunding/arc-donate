@@ -1,0 +1,10 @@
+.banner-container.review{
+    height: 514px;
+}
+
+.banner-overlay-content.review-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

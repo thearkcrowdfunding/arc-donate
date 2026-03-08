@@ -7,11 +7,11 @@ export default function LawyersBanner() {
         <div className='banner-overlay no-fader'>
             <div className='banner-overlay-content law-content'>
 
-                <div className='law-header'>Юристы «Ковчега»<br className='mobile-only' /> каждый день</div>
+                <div className='law-header'>Юристы «Ковчега» каждый день</div>
                 <div className='law-text-group'>
 
                     <div className='law-text'><b>Бесплатно</b> консультируют</div>
-                    <div className='law-text'><b>Помогают в экстренных ситуациях</b>,<br /> как при задержаниях в Азербайджане<br /> или попытках похищений в Армении </div>
+                    <div className='law-text'><b>Помогают в экстренных ситуациях</b>, как при<br /> задержаниях в Азейрбайджане или попытках<br /> похищений в Армении </div>
                     <div className='law-text'><b>Отвечают</b> на самые сложные вопросы <br />через бота</div>
                     <div className='law-text'><b>Ведут базу знаний</b> с 450+ материалами</div>
                 </div>
@@ -20,6 +20,10 @@ export default function LawyersBanner() {
                     <div className='gradient-number-group-text'> человек уже получили поддержку <br />
                         в самых тяжелых ситуациях</div>
                 </div>
+                {/* <div className='law-centered'>
+                    <div className='every-month-100'>Каждый месяц к нам обращаются <br className='mobile-only' /><span>больше 200 человек</span></div>
+                    <div className='every-month-100'><b>Чтобы продолжать — <br className='mobile-only' /> нужна ваша поддержка</b></div>
+                </div> */}
             </div>
         </div>
     </div>

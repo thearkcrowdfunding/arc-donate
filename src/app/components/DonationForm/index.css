@@ -10,6 +10,10 @@
     justify-content: center;
 }
 
+.copy-button{
+    cursor: pointer;
+}
+
 .donation-form-content{
     box-sizing: border-box;
     min-height: 200px;
@@ -43,9 +47,7 @@
 }
 
 .donation-form-info p{
-    font-size: 20px;
-    line-height: 110%;
-    color: #052A8C;
+    font-size: 20px;color: #052A8C;
     font-weight: 400;;
     letter-spacing: -2%;
 }
@@ -74,7 +76,7 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     opacity: 0.3;
     color: #052A8C;
     padding-bottom: 10px;
@@ -89,8 +91,8 @@
 
 .donation-form-amount-selector-container button
  {   height: 45px;
-    color: #000;
-    border: 1px solid #000;
+    color: #052A8C;
+    border: 2px solid #052A8C;
     display: flex;
     border-radius: 3px;
     align-items: center;
@@ -106,7 +108,7 @@
 .donation-form-amount-selector-container button.selected{
     color: white;
     background-color:#052A8C ;
-    border: 1px solid #052A8C;
+    border: 2px solid #052A8C;
 }
 
 .donation-form-method-selector-container button.selected{
@@ -123,7 +125,7 @@
     box-sizing: border-box;
     cursor: pointer;
     width: 100%;
-    background-color: #C10801;
+    background-color: #052A8C;
     color: white;
     border :none;
     font-weight: 500;
@@ -131,8 +133,9 @@
 }
 
 .donation-form-legal {
-    font-size: 14px;
-    color: #ABABAB;
+    font-size: 13px;
+    color: #052A8C;
+    opacity: 0.7;
     margin-top: 30px;
     text-align: center;
 }
@@ -141,8 +144,8 @@
     cursor: pointer;
     text-decoration: underline;
 
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 7.5px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
 }
 
 @media screen and (max-width: 880px) {

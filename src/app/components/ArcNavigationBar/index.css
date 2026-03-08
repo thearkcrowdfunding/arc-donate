@@ -35,8 +35,8 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #C10801;
     font-weight: 500;
+    background-color: #052A8C;
     color: #FFF;
     font-size: 24px;
 }
@@ -55,12 +55,12 @@
     }
 
     .arc-navigation-help-button{
-
+        /* display: none; */
+        height: 42px;
         padding-left: 16px;
         padding-right: 16px;
         box-sizing: border-box;
         font-size: 16px;
-        height: 42px;
     }
 
     .arc-navigation-content svg{

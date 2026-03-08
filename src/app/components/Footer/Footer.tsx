@@ -23,7 +23,6 @@ export default function Footer() {
                     <div className='footer-label'>Помоги «Ковчегу»<br />
                         и своим единомышленникам</div>
 
-
                     <div className='footer-legal'>© All right reserved,<br />
                         Ковчег, 2025</div>
                 </div>

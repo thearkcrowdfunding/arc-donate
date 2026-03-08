@@ -1,0 +1,54 @@
+.kovcheg-description{
+    height: 734px;
+}
+
+.kovcheg-description-header{
+    text-align: center;
+    font-size: 42px;
+    font-weight: 600;
+    color: white;
+    line-height: 110%;
+    text-transform: uppercase;
+}
+
+.kovcheg-description-content{
+
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.kovcheg-description-group{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    line-height: 110%;
+    gap: 40px;
+}
+
+
+.kovcheg-description-group .kovcheg-description-text span {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 880px) {
+    .kovcheg-description-header{
+        font-size: 20px;
+        
+    }
+
+    .kovcheg-description{
+        height: 550px;
+    }
+
+    .kovcheg-description-text{
+        font-size: 18px;
+        line-height: 110%;
+    }
+
+    .kovcheg-description-group{
+        gap: 24px;
+    }
+}
